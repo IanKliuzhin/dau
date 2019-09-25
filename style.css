@@ -1,0 +1,120 @@
+#container {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-style: none;
+  border-width: 0px;
+  transition: top .6s, left .6s, right .6s, bottom .6s;
+}
+
+iframe.institute {
+  top: -100%;
+  left: 0%;
+}
+
+iframe.participants {
+  top: 100%;
+  left: 0%;
+}
+
+iframe.docs {
+  left: -100%;
+  top: 0%;
+}
+
+iframe.visible {
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+  right: 0%;
+}
+
+.link {
+  position: fixed;
+  display: inline-block;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.link.active {
+  cursor: pointer;
+  pointer-events: initial;
+}
+
+#mainLink {
+  visibility: visible;
+  opacity: 1;
+  left: 15px;
+  top: 15px;
+}
+#instituteLink {
+  right: 15px;
+  top: 15px;
+}
+#participantsLink {
+  right: 15px;
+  bottom: 15px;
+}
+#docsLink {
+  left: 15px;
+  bottom: 15px;
+}
+
+.pulse-container {
+  width: 40px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pulse-bubble {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.pulse-bubble-1 {
+  animation: pulse .4s ease 0s infinite alternate;
+}
+.pulse-bubble-2 {
+  animation: pulse .4s ease .2s infinite alternate;
+}
+.pulse-bubble-3 {
+  animation: pulse .4s ease .4s infinite alternate;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: .25;
+    transform: scale(.75);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: .25;
+    transform: scale(.75);
+  }
+}
