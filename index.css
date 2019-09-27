@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'ASM';
+  font-style: normal;
+  src: url('fonts/asm-regular-webfont.woff2') format('woff2'), url('fonts/asm-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ASM';
+  font-weight: bold;
+  src: url('fonts/asm-bold-webfont.woff2') format('woff2'), url('fonts/asm-bold-webfont.woff') format('woff');
+}
+
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  font-family: 'ASM';
+  font-size: 0.8em;
+  background-color: black;
+  color: white;
+  padding: 2em;
+}
+
+#linesContainer {
+  position: absolute;
+  display: flex;
+  left: 50%;
+  top: 50%;
+  width: 0%;
+  height: 0%;
+  transform: translate(-50%, -50%);
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  background-color: white;
+  z-index: 0;
+}
+
+.block {
+  width: 50%;
+  height: 50%;
+  background-color: black;
+  margin: -1px;
+} 
+
+#disapContainer {
+  position: relative;
+}
+
+#disapContainer div {
+  position: relative;
+}
+
+#whichTook {
+  /* position: relative; */
+  margin-top: 2em;
+}
+
+#from24 {
+  margin-top: 2em;
+  /* position: relative; */
+}
+
+#to17 {
+  /* position: relative; */
+}
+
+#isNowOver {
+  margin-top: 3em;
+}
+
+#weLook {
+  margin-top: 3em;
+}

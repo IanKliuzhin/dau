@@ -1,77 +1,121 @@
-window.onload = () => {
-  const loadingPageName = /#(.+)/.test(window.location.href) ? /#(.+)/.exec(window.location.href)[1] : ""
+import './index.css'
 
-  const pageNames = ["institute", "participants", "docs"]
-  const sources = {
-    main: './main.html',
-    docs: 'https://evgeniyivanov.com',
-    participants: 'https://i-m-i.ru',
-    institute: 'https://alumniball.strelka.com',
-  }
-  const pages = {
-    main: document.getElementsByClassName("main")[0],
-  }
-  const links = {
-    main: document.getElementById(`mainLink`),
-  }
+import {enableSplitText} from './utils'
+import {TimelineLite} from 'gsap/TweenMax'
 
-  const clearClasses = () => Object.keys(pages).forEach(pageName => pages[pageName].classList = pageName)
+enableSplitText()
 
-  const makeLoader = () => {
-    const container = document.createElement('div')
-    container.classList.add('pulse-container')
-    for (let i = 0; i < 3; i++) {
-      const bubble = document.createElement('div')
-      bubble.classList.add(`pulse-bubble`, `pulse-bubble-${i+1}`)
-      container.appendChild(bubble)      
-    }
-    return container
-  }
+// const CONTENT_BASE_WIDTH = 1050
+// const CONTENT_BASE_HEIGHT = 800
 
-  pageNames.forEach(pageName => {
-    const page = document.createElement('iframe')
-    page.classList.add(pageName)
-    page.style.width = '100%'
-    page.style.height = '100%'
-    page.src = sources[pageName]
-    page.onload = () => onFrameLoad(page)
-    pages[pageName] = page
-    document.body.appendChild(page)
-    if (loadingPageName === pageName) {
-      clearClasses()
-      page.classList.add("visible")
-    }
-  })
+// const resizeContent = () => {
 
-  pageNames.concat('main').forEach(pageName => {
-    const link = document.createElement('span')
-    link.classList.add('link')
-    link.id = `${pageName}Link`
-    if (pageName === 'main') {
-      link.classList.add("active")
-      link.innerHTML = pageName
-    } else {
-      const loader = makeLoader()
-      link.appendChild(loader)
-    }
-    document.body.appendChild(link)
-    links[pageName] = link
-    link.addEventListener("click", () => {
-      window.history.pushState(pageName, pageName, pageName === 'main' ? ' ' : `#${pageName}`);
-      clearClasses()
-      pages[pageName].classList.add("visible")
-    })
-  })
+//     const scale = Math.min(
+//       window.innerWidth / CONTENT_BASE_WIDTH,
+//       window.innerHeight / CONTENT_BASE_HEIGHT,
+//     )
 
-  if (loadingPageName === "") {
-    clearClasses()
-    pages.main.classList.add("visible")
-  }
-}
+//     const transform = `translateX(-50%) translateY(-50%) scale(${scale})`
 
-const onFrameLoad = (frame) => {
-  const pageName = frame.classList[0]
-  const link = document.getElementById(`${pageName}Link`)
-  link.innerHTML = pageName
-  link.classList.add("active")
-};
+//     const content = document.getElementById('content')
+
+//     content.style.webkitTransform = transform
+//     content.style.MozTransform = transform
+//     content.style.msTransform = transform
+//     content.style.OTransform = transform
+//     content.style.transform = transform
+// }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // window.addEventListener('resize', () => {
+    //     resizeContent()
+    // })
+
+    // resizeContent()
+
+    const tl = new TimelineLite({paused: true})
+
+    tl.staggerTo(
+      "#linesContainer",
+      1,
+      {
+        width: '95%',
+        height: '95%',
+      },
+      0,
+      "+=0"
+    )
+    // const tlGirl = new TimelineLite({paused: true})
+    // const openSeason = new SplitText('#openSeason', {type: 'chars'})
+    // const threeMonths = new SplitText('#threeMonths', {type: 'chars'})
+
+    // tlGirl.to('#girl', 3.1, {transform: "rotate(-15deg)"})
+
+    // tl.staggerFromTo(
+    //     openSeason.chars,
+    //     .012,
+    //     {
+    //       opacity: 0
+    //     },
+    //     {
+    //         opacity: 1,
+    //     },
+    //     .012,
+    //     "+=1"
+    //   )
+
+    // tl.staggerFromTo(
+    //     threeMonths.chars,
+    //     .012,
+    //     {
+    //       opacity: 0
+    //     },
+    //     {
+    //       opacity: 1,
+    //     },
+    //     .012,
+    //     "+=0"
+    //   )
+
+    // tl.set("#for_details", {opacity: 1}, "+=.3")
+    // tl.set("#details", {opacity: 1}, "+=0")
+
+    // tl.staggerFrom (
+    //     ["#redmi", "#price"],
+    //     .2,
+    //     {width: 0, paddingLeft: 0, paddingRight: 0},
+    //     .2,
+    //     "+=.2"
+    // )
+
+    // tl.staggerFromTo(
+    //     ".violet_circle",
+    //     .3,
+    //     {opacity: 0, scale: 0},
+    //     {opacity: 1, scale: 1.1},
+    //     .1,
+    //     "+=.3"
+    //   )
+
+    // tl.staggerFromTo(
+    //     "#girl",
+    //     .2,
+    //     {scale: 1},
+    //     {scale: 1.1},
+    //     .1,
+    //     "-=.1"
+    // )
+
+
+    // tl.staggerTo(
+    //     [".violet_circle", "#girl"],
+    //     .2,
+    //     {scale: 1},
+    //     .1,
+    //     "-=.2"
+    // )
+
+    // tlGirl.play()
+    tl.play()
+})
