@@ -66,10 +66,31 @@ body {
   /* position: relative; */
 }
 
-#isNowOver {
+#over {
   margin-top: 3em;
+}
+
+#over .carriage, #weLook .carriage {
+  margin-right: -0.7em;
 }
 
 #weLook {
   margin-top: 3em;
+  position: relative;
+}
+
+#register {
+  margin-top: 2em;
+  position: relative;
+}
+
+.carriage {
+  display: inline-block;
+  position: absolute;
+  width: 0.1em;
+  height: 1em;
+  /* left: 0.3em; */
+  top: 0.1em;
+  /* margin-right: 0.2em; */
+  background-color: white;
 }

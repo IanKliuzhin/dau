@@ -45,7 +45,12 @@
         "camelcase": "error",
         "capitalized-comments": "off",
         "class-methods-use-this": "error",
-        "comma-dangle": "off",
+        "comma-dangle": ["error", {
+            "arrays": "always",
+            "objects": "always",
+            "imports": "always",
+            "exports": "always"
+        }],
         "comma-spacing": "off",
         "comma-style": [
             "error",
