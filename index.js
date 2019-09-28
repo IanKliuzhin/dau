@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     0.2,
     {
       width: "98%",
-      height: "98%",
+      height: "96%",
     },
     0,
     "+=.5"
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
-  tl.set("#disapContainer", {opacity: 0,}, "+=0.25")
+  tl.set("#disapContainer", {opacity: 0,}, "+=0.125")
   tl.staggerTo(
       "#disapContainer",
       .3,
@@ -286,6 +286,33 @@ document.addEventListener("DOMContentLoaded", () => {
     0.024,
     "+=0"
   )
+  tl.staggerFromTo(
+    "#register>.carriage",
+    0.12,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+      repeat: 1,
+      yoyo: true,
+    },
+    0.12,
+    "+=0.012"
+  )
+
+  tl.staggerFrom(
+    ".mc-field-group",
+    0.5,
+    {
+      width: 0,
+    },
+    0.2,
+    "-=.25"
+  )
+
+  tl.set("#mc-embedded-subscribe", {visibility: "visible",}, "+=0")
+
   // tl.set("#for_details", {opacity: 1}, "+=.3")
   // tl.set("#details", {opacity: 1}, "+=0")
 

@@ -94,3 +94,46 @@ body {
   /* margin-right: 0.2em; */
   background-color: white;
 }
+
+#mc_embed_signup {
+  position: relative;
+  margin-top: 4em;
+}
+
+.mc-field-group {
+  padding: 10px 0 4px;
+  border-bottom: 1px solid white;
+  width: 20em;
+  overflow: hidden;
+}
+
+.mc-field-group input  {
+  position: relative;
+  text-align: end !important;
+  font: 400 1em 'ASM' !important;
+  color: white !important;
+  background-color: black !important;
+  margin: 0em !important;
+  padding: 0 !important;
+  border: 0px !important;
+  width: 20em;
+  outline: none;
+}
+
+.mc-field-group input::placeholder {
+  color: white;
+  opacity: 1;
+  visibility: visible;
+  font: 400 1em 'ASM';
+  text-align: start;
+}
+
+#mc_embed_signup .clear {
+  margin-top: 1em;
+  width: 20em;
+}
+
+#mc-embedded-subscribe {
+  float: right;
+  visibility: hidden;
+}
