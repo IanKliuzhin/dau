@@ -19,7 +19,7 @@ body {
   font-size: 0.8em;
   background-color: black;
   color: white;
-  padding: 2em;
+  padding: 3.5em 1.9em;
 }
 
 #linesContainer {
@@ -53,17 +53,11 @@ body {
 }
 
 #whichTook {
-  /* position: relative; */
   margin-top: 2em;
 }
 
 #from24 {
   margin-top: 2em;
-  /* position: relative; */
-}
-
-#to17 {
-  /* position: relative; */
 }
 
 #over {
@@ -89,9 +83,7 @@ body {
   position: absolute;
   width: 0.1em;
   height: 1em;
-  /* left: 0.3em; */
   top: 0.1em;
-  /* margin-right: 0.2em; */
   background-color: white;
 }
 

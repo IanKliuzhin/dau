@@ -1,318 +1,79 @@
-import "./index.css"
-
-import { TimelineLite } from "gsap/TweenMax"
-import { enableSplitText } from "./utils"
-
-enableSplitText()
-
-// const CONTENT_BASE_WIDTH = 1050
-// const CONTENT_BASE_HEIGHT = 800
-
-// const resizeContent = () => {
-
-//     const scale = Math.min(
-//       window.innerWidth / CONTENT_BASE_WIDTH,
-//       window.innerHeight / CONTENT_BASE_HEIGHT,
-//     )
-
-//     const transform = `translateX(-50%) translateY(-50%) scale(${scale})`
-
-//     const content = document.getElementById('content')
-
-//     content.style.webkitTransform = transform
-//     content.style.MozTransform = transform
-//     content.style.msTransform = transform
-//     content.style.OTransform = transform
-//     content.style.transform = transform
-// }
+const onFrameLoad = (frame) => {
+  console.log('frame loaded')
+  const pageName = frame.classList[0]
+  const link = document.getElementById(`${pageName}Link`)
+  link.innerHTML = pageName
+  link.classList.add("active")
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-  // window.addEventListener('resize', () => {
-  //     resizeContent()
-  // })
+  console.log('DOMContentLoaded');
+  const loadingPageName = /#(.+)/.test(window.location.href) ? /#(.+)/.exec(window.location.href)[1] : ""
 
-  // resizeContent()
+  const pageNames = ["institute", "participants", "docs"]
+  const sources = {
+    DAU: './main.html',
+    docs: 'https://evgeniyivanov.com',
+    participants: 'https://i-m-i.ru',
+    institute: 'https://alumniball.strelka.com',
+  }
+  const pages = {
+    DAU: document.getElementsByClassName("main")[0],
+  }
+  const links = {
+    DAU: document.getElementById(`mainLink`),
+  }
 
-  const tl = new TimelineLite({ paused: true })
+  const clearClasses = () => Object.keys(pages).forEach((pageName) => pages[pageName].classList = pageName)
 
-  tl.staggerTo(
-    "#linesContainer",
-    0.2,
-    {
-      width: "98%",
-      height: "96%",
-    },
-    0,
-    "+=.5"
-  )
+  const makeLoader = () => {
+    const container = document.createElement('div')
+    container.classList.add('pulse-container')
+    for (let i = 0; i < 3; i++) {
+      const bubble = document.createElement('div')
+      bubble.classList.add(`pulse-bubble`, `pulse-bubble-${i+1}`)
+      container.appendChild(bubble)
+    }
+    return container
+  }
 
-  const theRelease = new SplitText(".theRelease", { type: "chars" })
-  tl.staggerFromTo(
-    theRelease.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
+  pageNames.forEach((pageName) => {
+    const page = document.createElement('iframe')
+    page.classList.add(pageName)
+    page.style.width = '100%'
+    page.style.height = '100%'
+    page.src = sources[pageName]
+    page.onload = () => onFrameLoad(page)
+    pages[pageName] = page
+    document.body.appendChild(page)
+    if (loadingPageName === pageName) {
+      clearClasses()
+      page.classList.add("visible")
+    }
+  })
 
-  const whichTook = new SplitText("#whichTook", { type: "chars" })
-  tl.staggerFromTo(
-    whichTook.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-  tl.staggerFromTo(
-    "#whichTook>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 3,
-      yoyo: true,
-    },
-    0.12,
-    "+=0.096"
-  )
+  pageNames.concat('DAU').forEach((pageName) => {
+    const link = document.createElement('span')
+    link.classList.add('link')
+    link.id = `${pageName}Link`
+    if (pageName === 'DAU') {
+      link.classList.add("active")
+      link.innerHTML = pageName
+    } else {
+      const loader = makeLoader()
+      link.appendChild(loader)
+    }
+    document.body.appendChild(link)
+    links[pageName] = link
+    link.addEventListener("click", () => {
+      window.history.pushState(pageName, pageName, pageName === 'DAU' ? ' ' : `#${pageName}`);
+      clearClasses()
+      pages[pageName].classList.add("visible")
+    })
+  })
 
-  const from = new SplitText("#from", { type: "chars" })
-  tl.staggerFromTo(
-    from.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-  tl.staggerFromTo(
-    "#from24>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 3,
-      yoyo: true,
-    },
-    0.12,
-    "+=0.096"
-  )
-
-  const jan24 = new SplitText(".jan24", { type: "chars" })
-  tl.staggerFromTo(
-    jan24.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  const to = new SplitText("#to", { type: "chars" })
-  tl.staggerFromTo(
-    to.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=.5"
-  )
-  tl.staggerFromTo(
-    "#to17>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 3,
-      yoyo: true,
-    },
-    0.12,
-    "+=0"
-  )
-
-  const feb17 = new SplitText(".feb17", { type: "chars" })
-  tl.staggerFromTo(
-    feb17.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  tl.staggerFromTo(
-    "#over>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 7,
-      yoyo: true,
-    },
-    0.12,
-    "+=0.096"
-  )
-
-  const isNow = new SplitText("#isNow", { type: "chars" })
-  tl.staggerFromTo(
-    isNow.chars,
-    0.072,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.072,
-    "+=0"
-  )
-
-  tl.staggerFromTo(
-    "#weLook>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 7,
-      yoyo: true,
-    },
-    0.12,
-    "+=0.096"
-  )
-
-  const weLook = new SplitText("#weLook", { type: "chars" })
-  tl.staggerFromTo(
-    weLook.chars,
-    0.024,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  tl.staggerTo(
-    "#weLook",
-    0.096,
-    {
-      marginTop: '2em',
-    },
-    0,
-    "+=0"
-  )
-
-  const soon = new SplitText("#soon", { type: "chars" })
-  tl.staggerFromTo(
-    soon.chars,
-    0.024,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  tl.set("#disapContainer", {opacity: 0}, "+=0.125")
-  tl.staggerTo(
-      "#disapContainer",
-      .3,
-      {
-        height: 0,
-      },
-      0,
-      "+=0"
-    )
-  tl.staggerTo(
-      "#weLook",
-      .036,
-      {
-        marginTop: 0,
-      },
-      0,
-      "+=0"
-    )
-
-  const register = new SplitText("#register", { type: "chars" })
-  tl.staggerFromTo(
-    register.chars,
-    0.024,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-  tl.staggerFromTo(
-    "#register>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 1,
-      yoyo: true,
-    },
-    0.12,
-    "+=0.012"
-  )
-
-  tl.staggerFrom(
-    ".mc-field-group",
-    0.5,
-    {
-      width: 0,
-    },
-    0.2,
-    "-=.25"
-  )
-
-  tl.set("#mc-embedded-subscribe", {visibility: "visible"}, "+=0")
-
-  tl.play()
-})
+  if (loadingPageName === "") {
+    clearClasses()
+    pages.DAU.classList.add("visible")
+  }
+});
