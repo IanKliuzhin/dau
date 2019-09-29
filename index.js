@@ -1,7 +1,7 @@
 import "./index.css"
 
-import { enableSplitText, } from "./utils"
-import { TimelineLite, } from "gsap/TweenMax"
+import { TimelineLite } from "gsap/TweenMax"
+import { enableSplitText } from "./utils"
 
 enableSplitText()
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // resizeContent()
 
-  const tl = new TimelineLite({ paused: true, })
+  const tl = new TimelineLite({ paused: true })
 
   tl.staggerTo(
     "#linesContainer",
@@ -45,21 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     0,
     "+=.5"
   )
-  // const tlGirl = new TimelineLite({paused: true})
-  const theRelease = new SplitText(".theRelease", { type: "chars", })
-  const whichTook = new SplitText("#whichTook", { type: "chars", })
-  const from = new SplitText("#from", { type: "chars", })
-  const jan24 = new SplitText(".jan24", { type: "chars", })
-  const to = new SplitText("#to", { type: "chars", })
-  const feb17 = new SplitText(".feb17", { type: "chars", })
-  const isNow = new SplitText("#isNow", { type: "chars", })
-  const weLook = new SplitText("#weLook", { type: "chars", })
-  const soon = new SplitText("#soon", { type: "chars", })
-  const register = new SplitText("#register", { type: "chars", })
-  // const threeMonths = new SplitText('#threeMonths', {type: 'chars'})
 
-  // tlGirl.to('#girl', 3.1, {transform: "rotate(-15deg)"})
-
+  const theRelease = new SplitText(".theRelease", { type: "chars" })
   tl.staggerFromTo(
     theRelease.chars,
     0.024,
@@ -70,8 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=1"
+    "+=0"
   )
+
+  const whichTook = new SplitText("#whichTook", { type: "chars" })
   tl.staggerFromTo(
     whichTook.chars,
     0.024,
@@ -99,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0.096"
   )
 
+  const from = new SplitText("#from", { type: "chars" })
   tl.staggerFromTo(
     from.chars,
     0.024,
@@ -125,6 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
     0.12,
     "+=0.096"
   )
+
+  const jan24 = new SplitText(".jan24", { type: "chars" })
   tl.staggerFromTo(
     jan24.chars,
     0.024,
@@ -138,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
+  const to = new SplitText("#to", { type: "chars" })
   tl.staggerFromTo(
     to.chars,
     0.024,
@@ -164,6 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
     0.12,
     "+=0"
   )
+
+  const feb17 = new SplitText(".feb17", { type: "chars" })
   tl.staggerFromTo(
     feb17.chars,
     0.024,
@@ -191,6 +186,8 @@ document.addEventListener("DOMContentLoaded", () => {
     0.12,
     "+=0.096"
   )
+
+  const isNow = new SplitText("#isNow", { type: "chars" })
   tl.staggerFromTo(
     isNow.chars,
     0.072,
@@ -218,6 +215,8 @@ document.addEventListener("DOMContentLoaded", () => {
     0.12,
     "+=0.096"
   )
+
+  const weLook = new SplitText("#weLook", { type: "chars" })
   tl.staggerFromTo(
     weLook.chars,
     0.024,
@@ -241,6 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
+  const soon = new SplitText("#soon", { type: "chars" })
   tl.staggerFromTo(
     soon.chars,
     0.024,
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
-  tl.set("#disapContainer", {opacity: 0,}, "+=0.125")
+  tl.set("#disapContainer", {opacity: 0}, "+=0.125")
   tl.staggerTo(
       "#disapContainer",
       .3,
@@ -274,6 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "+=0"
     )
 
+  const register = new SplitText("#register", { type: "chars" })
   tl.staggerFromTo(
     register.chars,
     0.024,
@@ -311,45 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "-=.25"
   )
 
-  tl.set("#mc-embedded-subscribe", {visibility: "visible",}, "+=0")
+  tl.set("#mc-embedded-subscribe", {visibility: "visible"}, "+=0")
 
-  // tl.set("#for_details", {opacity: 1}, "+=.3")
-  // tl.set("#details", {opacity: 1}, "+=0")
-
-  // tl.staggerFrom (
-  //     ["#redmi", "#price"],
-  //     .2,
-  //     {width: 0, paddingLeft: 0, paddingRight: 0},
-  //     .2,
-  //     "+=.2"
-  // )
-
-  // tl.staggerFromTo(
-  //     ".violet_circle",
-  //     .3,
-  //     {opacity: 0, scale: 0},
-  //     {opacity: 1, scale: 1.1},
-  //     .1,
-  //     "+=.3"
-  //   )
-
-  // tl.staggerFromTo(
-  //     "#girl",
-  //     .2,
-  //     {scale: 1},
-  //     {scale: 1.1},
-  //     .1,
-  //     "-=.1"
-  // )
-
-  // tl.staggerTo(
-  //     [".violet_circle", "#girl"],
-  //     .2,
-  //     {scale: 1},
-  //     .1,
-  //     "-=.2"
-  // )
-
-  // tlGirl.play()
   tl.play()
 })
