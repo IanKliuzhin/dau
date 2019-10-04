@@ -1,7 +1,7 @@
 import "./main.css"
 
 import { TimelineLite } from "gsap/TweenMax"
-import { enableSplitText } from "./utils"
+import { enableSplitText } from "../../utils"
 
 enableSplitText()
 
