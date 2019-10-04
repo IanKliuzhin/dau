@@ -4,7 +4,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html --public-url ./ --no-cache",
+    "build": "parcel build index.html ./*.html --public-url ./ --no-cache",
     "start": "parcel index.html"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@types/gsap": "^1.19.2",
+    "docs": "^0.2.2",
     "gsap": "^2.0.0"
   }
 }
