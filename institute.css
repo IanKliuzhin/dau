@@ -4,7 +4,10 @@ html, body {
   margin: 0px;
 }
 
-#bg_institute {
+#bg {
   background-image: url('./institute.png');
+  background-size: cover;
+  background-position-x: 0px;
+  background-repeat: no-repeat;
   height: 100%;
 }

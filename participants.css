@@ -4,7 +4,10 @@ html, body {
   margin: 0px;
 }
 
-#bg_participants {
+#bg {
   background-image: url('./participants.png');
+  background-size: cover;
+  background-position-x: 0px;
+  background-repeat: no-repeat;
   height: 100%;
 }
