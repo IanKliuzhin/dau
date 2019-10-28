@@ -16,21 +16,21 @@ document.addEventListener(
       ? /#(.+)/.exec(window.location.href)[1]
       : ""
 
-    const pageNames = ["institute", "participants", "docs"]
+    const pageNames = ["DAU", "institute", "participants", "docs"]
     const sources = {
       DAU: "./main.html",
-      docs: "about.html",
-      participants: "participants.html",
-      institute: "institute.html",
+      docs: "./about.html",
+      participants: "./participants.html",
+      institute: "./institute.html",
       // docs: "https://evgeniyivanov.com",
       // participants: "https://i-m-i.ru",
       // institute: "https://alumniball.strelka.com",
     }
     const pages = {
-      DAU: document.getElementsByClassName("main")[0],
+      // DAU: document.getElementsByClassName("main")[0],
     }
     const links = {
-      DAU: document.getElementById(`mainLink`),
+      // DAU: document.getElementById(`mainLink`),
     }
 
     const clearClasses = () => Object.keys(pages).forEach((pageName) => (pages[pageName].classList = pageName))
@@ -62,7 +62,8 @@ document.addEventListener(
       }
     })
 
-    pageNames.concat("DAU").forEach((pageName) => {
+    // pageNames.concat("DAU").forEach((pageName) => {
+    pageNames.forEach((pageName) => {
       const link = document.createElement("span")
       link.classList.add("link")
       link.id = `${pageName}Link`
