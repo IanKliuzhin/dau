@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'decimamonox';
+  src: url('../fonts/decimamonox-webfont.woff2') format('woff2'), url('../fonts/decimamonox-webfont.woff') format('woff');
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  overscroll-behavior: none;
+}
+
+/* #bg {
+  background-image: url('./participants.png');
+  background-size: cover;
+  background-position-x: 0px;
+  background-repeat: no-repeat;
+  height: 100%;
+} */
+
+#scrollContainer {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  .card {
+    display: inline-block;
+    height: calc(100% - 50px);
+    background-color: black;
+    margin: 0 50px;
+    p {
+      font-family: 'decimamonox';
+      color: white;
+    }
+  }
+}
