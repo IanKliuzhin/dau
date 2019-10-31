@@ -19,11 +19,11 @@
 
 document.addEventListener('wheel', (e) => {
   // var item = document.documentElement;
-  // console.log(e.deltaY);
+  // console.log(Math.abs(e.deltaY));
   // if (e.deltaY > 0) item.scrollLeft += 100;
   // else item.scrollLeft -= 100;
   var item = document.documentElement;
   // console.log(e.deltaY);
   // console.log(item.scrollLeft);
-  item.scrollLeft += 25 * e.deltaY;
+  item.scrollLeft += Math.abs(e.deltaY) < 25 ? 25 * e.deltaY : e.deltaY;
 });
