@@ -34,21 +34,12 @@ html, body {
     align-items: center;
   }
   .card {
-    display: inline-flex;
     position: relative;
-    flex-wrap: nowrap;
     height: 84%;
     margin: 0 50px;
     overflow-y: hidden;
-    &.vert {
-      flex-direction: column;
-    }
-    &.hor {
-      flex-direction: row;
-    }
     p {
       font-family: 'decimamonox';
-      color: white;
       font-size: 1.2vh;
       line-height: 1.8vh;
       white-space: pre;;
@@ -56,18 +47,53 @@ html, body {
       margin-block-end: 0px;
       margin-inline-start: 0px;
       margin-inline-end: 0px;
+      .gray {
+        color: #333333;
+      }
+    }
+    &.dark {
+      p {
+        color: white;
+      }
+    }
+    
+    &.light {
+      p {
+        color: black;
+      }
     }
     img {
       width: auto;
       margin-right: auto;
+      display: block;
+      &.rightAligned {
+        margin-right: none;
+        margin-left: auto;
+      };
       &.height29 {
         height: 29vh;
-        margin-bottom: 2.5vh;
+      }
+      &.height38 {
+        height: 38vh;
+      }
+      &.height44 {
+        height: 44vh;
+      }
+      &.height47 {
+        height: 47vh;
+      }
+      &.height60 {
+        height: 60vh;
       }
       &.height67 {
         height: 67vh;
-        margin-bottom: 2.5vh;
       }
+      &.height71 {
+        height: 71vh;
+      }
+    }
+    .centered {
+      text-align: center;
     }
     #alina {
       height: 67vh;
@@ -101,6 +127,33 @@ html, body {
         }
       }
     }
+    #table {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 48vh;
+      height: 38vh;
+      border-style: solid;
+      border-color: black;
+      border-width: 1px 0 0 1px;
+      .row {
+        flex-basis: 0;
+        flex-grow: 1;
+        display: flex;
+        border-style: solid;
+        border-color: black;
+        border-width: 0 0 1px 0;
+        .cell {
+          flex-basis: 0;
+          flex-grow: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-style: solid;
+          border-color: black;
+          border-width: 0 1px 0 0;
+        }
+      }
+    }
   }
 }
 
@@ -111,4 +164,16 @@ html, body {
 
 .light {
   background-color: white;
+}
+
+.vert {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.hor {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
