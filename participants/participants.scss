@@ -73,8 +73,17 @@ html, body {
       &.height29 {
         height: 29vh;
       }
+      &.height31 {
+        height: 31vh;
+      }
+      &.height33 {
+        height: 33vh;
+      }
       &.height38 {
         height: 38vh;
+      }
+      &.height43 {
+        height: 43vh;
       }
       &.height44 {
         height: 44vh;
@@ -98,10 +107,9 @@ html, body {
     #alina {
       height: 67vh;
       width: 118vh;
-      margin-bottom: 2.5vh;
       position: relative;
       background-image: url('./assets/vlcsnap19h53m18s840_LOcopy2.jpg'), url("./assets/vlcsnap19h53m17s412_LOcopy1.jpg"), url("./assets/vlcsnap19h52m53s035_LOcopy1.jpg"), url("./assets/vlcsnap19h53m11s555_LOcopy1.jpg"), url("./assets/vlcsnap19h53m07s832_LOcopy1.jpg"), url("./assets/vlcsnap19h53m09s994_LOcopy3.jpg");
-      background-size: cover;
+      background-size: cover; // contain?
       .thumbnailsContainer {
         position: absolute;
         bottom: 21.5%;
@@ -152,6 +160,15 @@ html, body {
           border-color: black;
           border-width: 0 1px 0 0;
         }
+      }
+    }
+    #transmitor {
+      border-radius: 1.5vh;
+      height: 47vh;
+      width: 47vh;
+      background-image: url('./assets/31-item.svg');
+      p {
+        color: black;
       }
     }
   }
