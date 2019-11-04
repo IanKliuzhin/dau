@@ -1,13 +1,6 @@
 @font-face {
-  font-family: 'ASM';
-  font-style: normal;
-  src: url('fonts/asm-regular-webfont.woff2') format('woff2'), url('fonts/asm-regular-webfont.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'ASM';
-  font-weight: bold;
-  src: url('fonts/asm-bold-webfont.woff2') format('woff2'), url('fonts/asm-bold-webfont.woff') format('woff');
+  font-family: 'decimamonox';
+  src: url('./fonts/decimamonox-webfont.woff2') format('woff2'), url('./fonts/decimamonox-webfont.woff') format('woff');
 }
 
 body {
@@ -15,7 +8,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0px;
-  font-family: 'ASM';
+  font-family: 'decimamonox';
 }
 
 iframe {

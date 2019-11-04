@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'ASM';
+  font-family: 'decimamonox';
   src: url('./fonts/decimamonox-webfont.woff2') format('woff2'), url('./fonts/decimamonox-webfont.woff') format('woff');
 }
 
@@ -8,7 +8,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0px;
-  font-family: 'ASM';
+  font-family: 'decimamonox';
   font-size: 0.8em;
   background-color: black;
   color: white;
@@ -95,7 +95,7 @@ body {
 .mc-field-group input  {
   position: relative;
   text-align: end !important;
-  font: 400 1em 'ASM' !important;
+  font: 400 1em 'decimamonox' !important;
   color: white !important;
   background-color: black !important;
   margin: 0em !important;
@@ -109,7 +109,7 @@ body {
   color: white;
   opacity: 1;
   visibility: visible;
-  font: 400 1em 'ASM';
+  font: 400 1em 'decimamonox';
   text-align: start;
 }
 
