@@ -4,7 +4,7 @@
   "main": "participants/participants.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html ./*.html --public-url ./ --no-cache",
+    "build": "parcel build index.html main.html participants/participants.html about.html institute.html --public-url ./ --no-cache",
     "start": "parcel participants/participants.html"
   },
   "repository": {

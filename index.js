@@ -20,7 +20,7 @@ document.addEventListener(
     const sources = {
       DAU: "./main.html",
       docs: "./about.html",
-      participants: "./participants.html",
+      participants: "participants/participants.html",
       institute: "./institute.html",
       // docs: "https://evgeniyivanov.com",
       // participants: "https://i-m-i.ru",
