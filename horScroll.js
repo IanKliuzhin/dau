@@ -1,9 +1,13 @@
 (function() {
   function scrollHorizontally(e) {
       e = window.event || e;
-      var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-      document.documentElement.scrollLeft -= (delta*25);
-      document.body.scrollLeft -= (delta*25);
+    //   console.log('e.wheelDelta', e.wheelDelta)
+    //   console.log('e.detail', e.detail)
+    //   var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+      var delta = Math.abs(e.wheelDelta) < 25 ? 3 * e.wheelDelta : e.wheelDelta;
+    //   console.log(delta)
+      document.documentElement.scrollLeft -= delta;
+      document.body.scrollLeft -= delta;
       e.preventDefault();
   }
   if (window.addEventListener) {
