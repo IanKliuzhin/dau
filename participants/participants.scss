@@ -72,6 +72,9 @@ html, body {
         margin-right: none;
         margin-left: auto;
       };
+      &.height23 {
+        height: 23vh;
+      }
       &.height29 {
         height: 29vh;
       }
@@ -93,6 +96,9 @@ html, body {
       &.height47 {
         height: 47vh;
       }
+      &.height53 {
+        height: 53vh;
+      }
       &.height60 {
         height: 60vh;
       }
@@ -102,9 +108,6 @@ html, body {
       &.height71 {
         height: 71vh;
       }
-    }
-    .centered {
-      text-align: center;
     }
     #alina {
       height: 67vh;
@@ -197,4 +200,9 @@ html, body {
   display: inline-flex;
   flex-wrap: nowrap;
   flex-direction: row;
+}
+
+.centered {
+  justify-content: flex-start;
+  align-items: center;
 }
