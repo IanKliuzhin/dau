@@ -38,6 +38,7 @@ html, body {
     height: 84%;
     margin: 0 50px;
     overflow-y: hidden;
+    border-radius: 0.7vh;
     p {
       font-family: 'decimamonox';
       font-size: 1.2vh;
@@ -66,6 +67,7 @@ html, body {
       width: auto;
       margin-right: auto;
       display: block;
+      border-radius: 0.7vh;
       &.rightAligned {
         margin-right: none;
         margin-left: auto;
@@ -108,7 +110,8 @@ html, body {
       height: 67vh;
       width: 118vh;
       position: relative;
-      background-image: url('./assets/vlcsnap19h53m18s840_LOcopy2.jpg'), url("./assets/vlcsnap19h53m17s412_LOcopy1.jpg"), url("./assets/vlcsnap19h52m53s035_LOcopy1.jpg"), url("./assets/vlcsnap19h53m11s555_LOcopy1.jpg"), url("./assets/vlcsnap19h53m07s832_LOcopy1.jpg"), url("./assets/vlcsnap19h53m09s994_LOcopy3.jpg");
+      border-radius: 0.7vh;
+      background-image: url('./assets/vlcsnap-2019-09-10-19h53m18s840.jpg'), url("./assets/vlcsnap-2019-09-10-19h53m17s412.jpg"), url("./assets/vlcsnap-2019-09-10-19h52m53s035.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m11s555.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m07s832.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m09s994.jpg");
       background-size: cover; // contain?
       .thumbnailsContainer {
         position: absolute;
@@ -124,6 +127,7 @@ html, body {
           height: 9.5vh;
           opacity: 0.7;
           margin-right: 0px;
+          border-radius: 0;
           cursor: pointer;
           transition: height 0.2s;
           &:hover {
