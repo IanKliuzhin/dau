@@ -10,14 +10,6 @@ html, body {
   overscroll-behavior: none;
 }
 
-/* #bg {
-  background-image: url('./participants.png');
-  background-size: cover;
-  background-position-x: 0px;
-  background-repeat: no-repeat;
-  height: 100%;
-} */
-
 #scrollContainer {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -40,10 +32,6 @@ html, body {
     }
     &.light {
       padding-left: 9.4vh;
-      // .card.dark {
-      //   padding-top: 3vh;
-      //   padding-bottom: 3vh;
-      // }
     }
   }
   .card {
@@ -54,7 +42,6 @@ html, body {
     margin: 50px 1.3vh;
     overflow-y: hidden;
     border-radius: 0.7vh;
-    // border: 1px solid red;
     p {
       font-family: 'decimamonox';
       font-size: 1.2vh;
@@ -79,17 +66,27 @@ html, body {
         color: black;
       }
     }
-    &.bigRightPadding {
-      padding-right: 9.9vh;
+    &.hugeRightMargin {
+      margin-right: 26vh;
     }
     &.bigRightMargin {
       margin-right: 9.9vh;
+    }
+    &.smallRightMargin {
+      margin-right: -0.7vh;
     }
     &.short {
       height: calc(100vh - 135px);
     }
     &.negRightMargin {
       margin-right: -29vh;
+    }
+    &.personal {
+      padding-top: 4.1vh;
+      padding-right: 8vh;
+      &.bigRightPadding {
+        padding-right: 11.2vh;
+      }
     }
     img {
       width: auto;
@@ -143,6 +140,12 @@ html, body {
     }
     .blockRightMargin {
       margin-right: 0.5vh;
+    }
+    .bigBlockRightMargin {
+      margin-right: 5vh;
+    }
+    .hugeBlockRightMargin {
+      margin-right: 7vh;
     }
     #alina {
       height: 67vh;
@@ -210,9 +213,15 @@ html, body {
       height: 47vh;
       width: 47vh;
       background-image: url('./assets/31-item.svg');
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: center;
       p {
         color: black;
       }
+    }
+    #item-49 {
+      margin: 0 20vh 0 6vh;
     }
   }
 }
