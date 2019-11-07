@@ -28,21 +28,37 @@ html, body {
   align-items: center;
   .contentContainer {
     height: 100%;
-    padding: 8% 0;
+    // padding: 8% 0;
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
+    &.dark {
+      padding-right: 5.3vh;
+      .card {
+        padding: 2.5vh 4.6vh 0;
+      }
+    }
+    &.light {
+      padding-left: 9.4vh;
+      // .card.dark {
+      //   padding-top: 3vh;
+      //   padding-bottom: 3vh;
+      // }
+    }
   }
   .card {
     position: relative;
-    height: 84%;
-    margin: 0 50px;
+    height: calc(100vh - 100px);
+    padding: 2.5vh 4.6vh 0;
+    box-sizing: border-box;
+    margin: 50px 1.3vh;
     overflow-y: hidden;
     border-radius: 0.7vh;
+    // border: 1px solid red;
     p {
       font-family: 'decimamonox';
       font-size: 1.2vh;
-      line-height: 1.8vh;
+      line-height: 1.85vh;
       white-space: pre;;
       margin-block-start: 0px;
       margin-block-end: 0px;
@@ -63,15 +79,31 @@ html, body {
         color: black;
       }
     }
+    &.bigRightPadding {
+      padding-right: 9.9vh;
+    }
+    &.bigRightMargin {
+      margin-right: 9.9vh;
+    }
+    &.short {
+      height: calc(100vh - 135px);
+    }
+    &.negRightMargin {
+      margin-right: -29vh;
+    }
     img {
       width: auto;
       margin-right: auto;
+      margin-bottom: 2.5vh;
       display: block;
       border-radius: 0.7vh;
       &.rightAligned {
         margin-right: none;
         margin-left: auto;
       };
+      &.smallBottomMargin {
+        margin-bottom: 0.5vh;
+      }
       &.height23 {
         height: 23vh;
       }
@@ -109,10 +141,14 @@ html, body {
         height: 71vh;
       }
     }
+    .blockRightMargin {
+      margin-right: 0.5vh;
+    }
     #alina {
       height: 67vh;
       width: 118vh;
       position: relative;
+      margin-bottom: 3vh;
       border-radius: 0.7vh;
       background-image: url('./assets/vlcsnap-2019-09-10-19h53m18s840.jpg'), url("./assets/vlcsnap-2019-09-10-19h53m17s412.jpg"), url("./assets/vlcsnap-2019-09-10-19h52m53s035.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m11s555.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m07s832.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m09s994.jpg");
       background-size: cover; // contain?
