@@ -4,8 +4,8 @@
   "main": "participants/participants.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html main.html participants/participants.html about.html institute.html --public-url ./ --no-cache",
-    "start": "parcel participants/participants.html"
+    "build": "parcel build index.html ./pages/**/*.html --public-url ./ --no-cache",
+    "start": "node run-parcel.js"
   },
   "repository": {
     "url": "https://github.com/IanKliuzhin/dau-london",
@@ -22,6 +22,7 @@
   "dependencies": {
     "@types/gsap": "^1.19.2",
     "docs": "^0.2.2",
+    "express": "^4.17.1",
     "gsap": "^2.0.0"
   }
 }

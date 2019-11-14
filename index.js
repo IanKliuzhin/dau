@@ -1,3 +1,5 @@
+// import {getHTML} from './getHTML'
+
 const onFrameLoad = (frame) => {
   console.log("frame loaded")
   const pageName = frame.classList[0]
@@ -18,13 +20,10 @@ document.addEventListener(
 
     const pageNames = ["DAU", "institute", "participants", "docs"]
     const sources = {
-      DAU: "./main.html",
-      docs: "./about.html",
-      participants: "participants/participants.html",
-      institute: "./institute.html",
-      // docs: "https://evgeniyivanov.com",
-      // participants: "https://i-m-i.ru",
-      // institute: "https://alumniball.strelka.com",
+      DAU: "./pages/main/main.html",
+      docs: "./pages/about/about.html",
+      participants: "./pages/participants/participants.html",
+      institute: "./pages/institute/institute.html",
     }
     const pages = {
       // DAU: document.getElementsByClassName("main")[0],
