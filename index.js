@@ -1,4 +1,5 @@
 import {getHTML} from './getHTML'
+import { addPicChanger } from "./helpers/picChange";
 
 const pageNames = ["main", "institute", "participants", "documents"]
 const linkTitles = {
@@ -49,7 +50,8 @@ document.addEventListener(
         body.appendChild(content)
         body.classList.add('loaded')
         page.classList.add('loaded')
-      }, 3000);
+        if (pageName === 'participants') addPicChanger(page.contentDocument)
+      }, 1000);
     }
 
     pageNames.forEach((pageName) => {

@@ -8,7 +8,7 @@
   margin-left: 0vw;
   transition: margin-left 1s;
   &.animated {
-    animation: colorize 3s;
+    animation: colorize 1s;
   }
   .loaded & {
     margin-left: -100vw;
