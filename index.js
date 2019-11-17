@@ -1,5 +1,6 @@
-import {getHTML} from './getHTML'
 import { addPicChanger } from "./helpers/picChange";
+import { colorLinks } from "./helpers/linksColorizer";
+import {getHTML} from './getHTML'
 
 const pageNames = ["main", "institute", "participants", "documents"]
 const linkTitles = {
@@ -50,7 +51,10 @@ document.addEventListener(
         body.appendChild(content)
         body.classList.add('loaded')
         page.classList.add('loaded')
-        if (pageName === 'participants') addPicChanger(page.contentDocument)
+        if (pageName === 'participants') {
+          addPicChanger(page.contentDocument)
+          colorLinks(page.contentDocument)
+        }
       }, 1000);
     }
 
@@ -74,7 +78,7 @@ document.addEventListener(
 
     pageNames.forEach((pageName) => {
       const link = document.createElement("span")
-      link.classList.add('link', pageName, 'active')
+      link.classList.add('link', 'light', pageName)
       link.innerHTML = linkTitles[pageName]
       document.body.appendChild(link)
       links[pageName] = link

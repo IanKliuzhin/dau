@@ -27,13 +27,26 @@ html, body {
     display: inline-flex;
     flex-flow: row nowrap;
     align-items: center;
+    position: relative;
+    .viewportBound {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0px;
+    }
     &.dark {
       padding-right: 5.3vh;
+      .viewportBound {
+        right: 0px;
+      }
       .card {
         padding: 2.5vh 4.6vh 0;
       }
     }
     &.light {
+      .viewportBound {
+        left: 0px;
+      }
       padding-left: 9.4vh;
     }
   }

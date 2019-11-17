@@ -1,5 +1,5 @@
-export const addPicChanger = (document) => {
-  const shown = document.getElementById('alina');
+export const addPicChanger = (doc) => {
+  const shown = doc.getElementById('alina');
 
   const thumbnails = shown.getElementsByTagName('img');
   for (var i = 0; i < thumbnails.length; i++) {
@@ -11,4 +11,3 @@ export const addPicChanger = (document) => {
     })
   }
 }
-

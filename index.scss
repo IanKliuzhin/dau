@@ -38,17 +38,15 @@ iframe {
   }
 }
 
-
 .link {
-  position: fixed;
+  position: absolute;
   display: inline-block;
   font-size: 20px;
-  pointer-events: none;
-  color: white;
   font-size: 1em;
-  &.active {
-    cursor: pointer;
-    pointer-events: initial;
+  cursor: pointer;
+  color: white;
+  &.dark {
+    color: black;
   }
   &.main {
     visibility: visible;
