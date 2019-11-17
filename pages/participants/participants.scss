@@ -5,9 +5,10 @@
 
 html, body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0px;
   overscroll-behavior: none;
+  white-space: nowrap;
 }
 
 #scrollContainer {
@@ -18,6 +19,8 @@ html, body {
   display: inline-flex;
   flex-flow: row nowrap;
   align-items: center;
+  vertical-align: middle;
+  margin-left: -0.5vh;
   .contentContainer {
     height: 100%;
     // padding: 8% 0;

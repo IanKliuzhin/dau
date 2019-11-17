@@ -1,7 +1,7 @@
 const Bundler = require('parcel-bundler');
 const express = require('express');
 
-const bundler = new Bundler(['index.html', 'pages/main/main.html', 'pages/participants/participants.html', 'pages/institute/institute.html', 'pages/about/about.html', 'screensaver.html'], {hmrHostname: 'localhost'});
+const bundler = new Bundler(['index.html', 'pages/main/main.html', 'pages/participants/participants.html', 'pages/participants/index.html', 'pages/institute/institute.html', 'pages/institute/index.html', 'pages/documents/documents.html', 'pages/documents/index.html'], {hmrHostname: 'localhost'});
 const app = express();
 
 app.get('/', (req, res, next) => {

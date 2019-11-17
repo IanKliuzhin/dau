@@ -1,0 +1,40 @@
+.screensaver {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 100vh;
+  text-align: center;
+  background-color: green;
+  margin-left: 0vw;
+  transition: margin-left 1s;
+  &.animated {
+    animation: colorize 3s;
+  }
+  .loaded & {
+    margin-left: -100vw;
+  }
+}
+
+@keyframes colorize {
+  from, to {
+    color: red;
+  }
+  15% {
+    color: orange;
+  }
+  30% {
+    color: yellow;
+  }
+  44% {
+    color: green;
+  }
+  58% {
+    color: lightblue;
+  }
+  72% {
+    color: blue;
+  }
+  86% {
+    color: violet;
+  }
+}
