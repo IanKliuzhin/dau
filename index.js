@@ -38,24 +38,22 @@ document.addEventListener(
     const clearVisibiles = () => Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('visible')))
 
     const loadPageContent = (pageName) => {
-      // console.log(pages[pageName].contentDocument)
+      // console.log(pages[pageName].contentWindow.document)
       const page = pages[pageName]
-      const animElem = page.contentDocument.getElementsByClassName('screensaver')[0]
+      const animElem = page.contentWindow.document.getElementsByClassName('screensaver')[0]
       animElem.classList.add('animated')
       let content = ''
       getHTML(contents[pageName], function (response) {
         content = response.getElementById('scrollContainer');
-      });
-      setTimeout(() => {
-        const body = page.contentDocument.getElementsByTagName('body')[0]
+        const body = page.contentWindow.document.getElementsByTagName('body')[0]
         body.appendChild(content)
         body.classList.add('loaded')
         page.classList.add('loaded')
         if (pageName === 'participants') {
-          addPicChanger(page.contentDocument)
-          colorLinks(page.contentDocument)
+          addPicChanger(page.contentWindow.document)
+          colorLinks(page.contentWindow.document)
         }
-      }, 1000);
+      });
     }
 
     pageNames.forEach((pageName) => {

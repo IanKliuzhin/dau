@@ -1,5 +1,3 @@
-import "./main.css"
-
 import { TimelineLite } from "gsap/TweenMax"
 import { enableSplitText } from "../../helpers/utils"
 
