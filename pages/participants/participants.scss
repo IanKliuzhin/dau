@@ -33,20 +33,23 @@ html, body {
       width: 100vw;
       height: 100vh;
       top: 0px;
+      &.light, &.dark {
+        background-color: transparent;
+      }
+      &.start {
+        left: 0px;
+      }
+      &.end {
+        right: 0px;
+      }
     }
     &.dark {
       padding-right: 5.3vh;
-      .viewportBound {
-        right: 0px;
-      }
       .card {
         padding: 2.5vh 4.6vh 0;
       }
     }
     &.light {
-      .viewportBound {
-        left: 0px;
-      }
       padding-left: 9.4vh;
     }
   }
@@ -90,6 +93,9 @@ html, body {
     }
     &.smallRightMargin {
       margin-right: -0.7vh;
+    }
+    &.bigTopPadding {
+      padding-top: 3.5vh;
     }
     &.short {
       height: calc(100vh - 135px);
@@ -143,6 +149,9 @@ html, body {
       }
       &.height53 {
         height: 53vh;
+      }
+      &.height59 {
+        height: 59vh;
       }
       &.height60 {
         height: 60vh;
