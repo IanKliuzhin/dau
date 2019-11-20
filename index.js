@@ -1,4 +1,4 @@
-import { addPicChanger } from "./helpers/picChange";
+import { addThumbnailsPicChanger, addPointsPicShanger } from "./helpers/picChange";
 import { colorLinks } from "./helpers/linksColorizer";
 import {getHTML} from './getHTML'
 
@@ -50,7 +50,8 @@ document.addEventListener(
         body.classList.add('loaded')
         page.classList.add('loaded')
         if (pageName === 'participants') {
-          addPicChanger(page.contentWindow.document)
+          addThumbnailsPicChanger(page.contentWindow.document)
+          addPointsPicShanger(page.contentWindow.document)
           colorLinks(page.contentWindow.document)
         }
       });

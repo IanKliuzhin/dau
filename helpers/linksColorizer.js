@@ -1,9 +1,9 @@
 export const colorLinks = (doc) => {
   const links = document.getElementsByClassName('link')[0]
   console.log(links)
-  const light = doc.querySelector('.contentContainer.light>.viewportBound')
+  const light = doc.querySelectorAll('.contentContainer.light')
   console.log(light)
-  const dark = doc.querySelector('.contentContainer.dark>.viewportBound')
+  const dark = doc.querySelectorAll('.contentContainer.dark')
   console.log(dark)
   const optionsLight = {
     root: null,
@@ -43,15 +43,19 @@ export const colorLinks = (doc) => {
         if (lightVisible) {
           links.classList.remove('dark')
         } else {
-          links.classList.add('dark')
+          links.classList.remove('dark')
         }
-      }
+      } else if (lightVisible) {
+          links.classList.add('dark')
+        } else {
+          // links.classList.add('dark')
+        }
     });
   };
 
   const observerLight = new IntersectionObserver(callback, optionsLight);
   const observerDark = new IntersectionObserver(callback, optionsDark);
 
-  observerLight.observe(light);
-  observerDark.observe(dark);
+  light.forEach((l) => observerLight.observe(l))
+  dark.forEach((d) => observerDark.observe(d))
 }

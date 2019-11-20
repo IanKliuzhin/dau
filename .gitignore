@@ -6,5 +6,6 @@ Icon
 Thumbs.db
 
 dist
+dist1
 .cache
 node_modules
