@@ -1,5 +1,4 @@
-import { addThumbnailsPicChanger, addPointsPicShanger } from "./helpers/picChange";
-import { colorLinks } from "./helpers/linksColorizer";
+import { addPointsPicShanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './getHTML'
 
 const pageNames = ["main", "institute", "participants", "documents"]
@@ -52,7 +51,6 @@ document.addEventListener(
         if (pageName === 'participants') {
           addThumbnailsPicChanger(page.contentWindow.document)
           addPointsPicShanger(page.contentWindow.document)
-          colorLinks(page.contentWindow.document)
         }
       });
     }
@@ -77,7 +75,7 @@ document.addEventListener(
 
     pageNames.forEach((pageName) => {
       const link = document.createElement("span")
-      link.classList.add('link', 'light', pageName)
+      link.classList.add('link', pageName)
       link.innerHTML = linkTitles[pageName]
       document.body.appendChild(link)
       links[pageName] = link
