@@ -18,7 +18,7 @@ export const addPointsPicShanger = (doc) => {
   const containers = [doc.getElementById('nora'), doc.getElementById('vika2')]
   containers.forEach((container) => {
     const shown = container.getElementsByClassName('shown');
-    const points = container.getElementsByClassName('point');
+    const points = container.getElementsByClassName('clickableArea');
     for (var i = 0; i < points.length; i++) {
       points[i].addEventListener('click', (e) => {
         const prev = container.getElementsByClassName('selected')
