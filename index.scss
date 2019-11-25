@@ -47,23 +47,45 @@ iframe {
   cursor: pointer;
   color: rgb(230, 230, 230);
   mix-blend-mode: exclusion;
+  opacity: 0;
   &.main {
     visibility: visible;
-    opacity: 1;
     left: 1.5em;
     top: 1em;
-  }
-  &.institute {
-    right: 1.5em;
-    top: 1em;
-  }
-  &.participants {
-    right: 1.5em;
-    bottom: 1em;
+    @media (max-width: 481px) {
+      top: unset;
+      left: 6vw;
+      bottom: 25vh;
+    }
   }
   &.documents {
     left: 1.5em;
     bottom: 1em;
+    @media (max-width: 481px) {
+      top: unset;
+      left: 6vw;
+      bottom: 17.5vh;
+    }
+  }
+  &.institute {
+    right: 1.5em;
+    top: 1em;
+    @media (max-width: 481px) {
+      top: unset;
+      right: unset;
+      left: 6vw;
+      bottom: 10vh;
+    }
+  }
+  &.participants {
+    right: 1.5em;
+    bottom: 1em;
+    @media (max-width: 481px) {
+      top: unset;
+      right: unset;
+      left: 6vw;
+      bottom: 2.5vh;
+    }
   }
 }
 

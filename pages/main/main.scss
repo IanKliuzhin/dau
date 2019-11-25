@@ -28,14 +28,36 @@ body {
   align-content: space-between;
   background-color: white;
   z-index: 0;
+  @media (max-width: 481px) {
+    display: inline-flex;
+    left: 6%;
+    top: unset;
+    bottom: 0%;
+    width: 0%;
+    height: 30% !important;
+    transform: none;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    background-color: black;
+  }
+  .block {
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    margin: -1px;
+    @media (max-width: 481px) {
+      width: 90%;
+      height: 15vh;
+      margin: 0px;
+      border-bottom: 1px solid white;
+      position: relative;
+      &:last-child {
+        border-bottom: 0px;
+      }
+    }
+  }
 }
 
-.block {
-  width: 50%;
-  height: 50%;
-  background-color: black;
-  margin: -1px;
-}
 
 #disapContainer {
   position: relative;

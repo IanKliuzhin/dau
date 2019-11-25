@@ -1,10 +1,11 @@
 import { addPointsPicShanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './getHTML'
+import { TimelineLite } from "gsap/TweenMax"
 
 const pageNames = ["main", "institute", "participants", "documents"]
 const linkTitles = {
   main: "DAU",
-  institute: "Institute",
+  institute: "The Institute",
   participants: "Participants",
   documents: "Documents",
 }
@@ -89,6 +90,22 @@ document.addEventListener(
         }
       })
     })
+
+    const tl = new TimelineLite({ paused: true })
+    tl.staggerFromTo(
+      [links.main, links.documents, links.institute, links.participants],
+      // links.main,
+      .3,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+      },
+      0,
+      "+=1"
+    )
+    tl.play()
 
     if (loadingPageName === "") {
       clearVisibiles()
