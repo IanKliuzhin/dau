@@ -33,17 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tl = new TimelineLite({ paused: true })
 
-  tl.staggerTo(
-    "#linesContainer",
-    0.2,
-    {
-      width: "98%",
-      height: "96%",
-    },
-    0,
-    "+=.5"
-  )
-
   const theRelease = new SplitText(".theRelease", { type: "chars" })
   tl.staggerFromTo(
     theRelease.chars,
@@ -55,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0.7"
   )
 
   const whichTook = new SplitText("#whichTook", { type: "chars" })

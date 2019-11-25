@@ -78,7 +78,7 @@ document.addEventListener(
       const link = document.createElement("span")
       link.classList.add('link', pageName)
       link.innerHTML = linkTitles[pageName]
-      document.body.appendChild(link)
+      document.getElementById('linksBar').appendChild(link)
       links[pageName] = link
       link.addEventListener("click", () => {
         window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
@@ -92,6 +92,18 @@ document.addEventListener(
     })
 
     const tl = new TimelineLite({ paused: true })
+
+    tl.staggerTo(
+      "#linesContainer",
+      0.2,
+      {
+        width: "98%",
+        height: "96%",
+      },
+      0,
+      "+=1"
+    )
+
     tl.staggerFromTo(
       [links.main, links.documents, links.institute, links.participants],
       // links.main,
@@ -103,7 +115,7 @@ document.addEventListener(
         opacity: 1,
       },
       0,
-      "+=1"
+      "+=0.1"
     )
     tl.play()
 
