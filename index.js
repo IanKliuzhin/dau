@@ -1,6 +1,5 @@
 import { addPointsPicShanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './getHTML'
-import { TimelineLite } from "gsap/TweenMax"
 
 const pageNames = ["main", "institute", "participants", "documents"]
 const linkTitles = {
@@ -84,40 +83,27 @@ document.addEventListener(
         window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
         clearVisibiles()
         const page = pages[pageName]
-        page.classList.add("visible")
+        const linksBar = document.getElementById('linksBar')
+        linksBar.classList.add('above', 'folded')
+        Object.entries(links).forEach(([,link]) => link.classList.remove('visible'))
+        const linesContainer = document.getElementById('linesContainer')
+        setTimeout(() => {
+          link.classList.add('chosen', 'visible')
+          linksBar.classList.remove('above')
+          page.classList.add("visible")
+          linesContainer.classList.add('clickable')
+          linesContainer.addEventListener('click', () => console.log('show linksBar'))
+        }, 1000);
         if (!page.classList.contains('loaded')) {
           loadPageContent(pageName)
         }
       })
     })
 
-    const tl = new TimelineLite({ paused: true })
-
-    tl.staggerTo(
-      "#linesContainer",
-      0.2,
-      {
-        width: "98%",
-        height: "96%",
-      },
-      0,
-      "+=1"
-    )
-
-    tl.staggerFromTo(
-      [links.main, links.documents, links.institute, links.participants],
-      // links.main,
-      .3,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-      },
-      0,
-      "+=0.1"
-    )
-    tl.play()
+    setTimeout(() => {
+      document.getElementById('linesContainer').classList.add('shown')
+      Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
+    }, 300);
 
     if (loadingPageName === "") {
       clearVisibiles()

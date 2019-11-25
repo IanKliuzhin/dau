@@ -55,18 +55,59 @@ iframe {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
   pointer-events: none;
+  background-color: transparent;
+  z-index: 1;
+  @media (min-width: 482px) {
+    &.folded {
+      #linesContainer {
+        visibility: hidden;
+      }
+    }
+  }
+  @media (max-width: 481px) {
+    .link {
+      opacity: 0;
+    }
+    &.above {
+      transition: background-color 0.3s;
+      background-color: black;
+    }
+    &.folded {
+      .link {
+        opacity: 0;
+      }
+      #linesContainer {
+        // transition: bottom 1s, width 1s, height 1s;
+        bottom: calc(100% - 2em);
+        height: 3% !important;
+        width: 5% !important;
+      }
+    }
+  }
   .link {
     position: absolute;
     display: inline-block;
-    font-size: 20px;
+    // font-size: 20px;
     font-size: 1em;
     cursor: pointer;
     color: rgb(230, 230, 230);
     mix-blend-mode: exclusion;
-    opacity: 0;
+    transition: opacity 0.3s 0.2s;
     pointer-events: all;
+    &.visible {
+      opacity: 1;
+    }
+    @media (max-width: 481px) {
+      &.chosen {
+        transition: opacity 0s 0s;
+        top: 0.7em !important;
+        bottom: unset !important;
+        left: 50% !important;
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+    }
     &.main {
       visibility: visible;
       left: 1.5em;
@@ -120,6 +161,15 @@ iframe {
     align-content: center;
     // background-color: white;
     // z-index: 0;
+    &.shown {
+      transition: bottom 0.5s, width 0.5s 0.5s, height 0.5s;
+      // transition: width 0.2s, height 0.2s;
+      width: 98%;
+      height: 96%;
+    }
+    &.clickable {
+      pointer-events: all;
+    }
     @media (max-width: 481px) {
       display: inline-flex;
       left: 6%;
