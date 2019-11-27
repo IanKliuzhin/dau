@@ -40,17 +40,19 @@ document.addEventListener(
       // console.log(pages[pageName].contentWindow.document)
       const page = pages[pageName]
       const animElem = page.contentWindow.document.getElementsByClassName('screensaver')[0]
-      animElem.classList.add('animated')
+      if (animElem) animElem.classList.add('animated')
       let content = ''
       getHTML(contents[pageName], function (response) {
         content = response.getElementById('scrollContainer');
-        const body = page.contentWindow.document.getElementsByTagName('body')[0]
-        body.appendChild(content)
-        body.classList.add('loaded')
-        page.classList.add('loaded')
-        if (pageName === 'participants') {
-          addThumbnailsPicChanger(page.contentWindow.document)
-          addPointsPicShanger(page.contentWindow.document)
+        if (content) {
+          const body = page.contentWindow.document.getElementsByTagName('body')[0]
+          body.appendChild(content)
+          body.classList.add('loaded')
+          page.classList.add('loaded')
+          if (pageName === 'participants') {
+            addThumbnailsPicChanger(page.contentWindow.document)
+            addPointsPicShanger(page.contentWindow.document)
+          }
         }
       });
     }
@@ -58,13 +60,18 @@ document.addEventListener(
     pageNames.forEach((pageName) => {
       const page = document.createElement("iframe")
       page.classList.add(pageName)
+      if (pageName === "main") {
+        page.classList.add('visible')
+      }
       page.style.width = "100%"
       page.style.height = "100%"
       document.body.appendChild(page)
       pages[pageName] = page
       // page.src = sources[pageName]
       page.src = sources[pageName]
-      if (pageName !== "main" && loadingPageName === pageName) {
+      if (loadingPageName === "" && pageName === "main") {
+        page.classList.add('visible')
+      } else if (loadingPageName === pageName) {
         clearVisibiles()
         setTimeout(() => {
           loadPageContent(pageName)
@@ -72,6 +79,19 @@ document.addEventListener(
         }, 300);
       }
     })
+
+    const showLinksBar = () => {
+      const linksBar = document.getElementById('linksBar')
+      const linesContainer = document.getElementById('linesContainer')
+      linesContainer.removeEventListener('click', showLinksBar)
+      Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'chosen'))
+      linksBar.classList.remove('folded')
+      linksBar.classList.add('expanded')
+      clearVisibiles()
+      setTimeout(() => {
+        Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
+      }, 1000);
+    }
 
     pageNames.forEach((pageName) => {
       const link = document.createElement("span")
@@ -83,16 +103,17 @@ document.addEventListener(
         window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
         clearVisibiles()
         const page = pages[pageName]
+        page.classList.add("visible")
         const linksBar = document.getElementById('linksBar')
+        linksBar.classList.remove('expanded')
         linksBar.classList.add('above', 'folded')
         Object.entries(links).forEach(([,link]) => link.classList.remove('visible'))
         const linesContainer = document.getElementById('linesContainer')
         setTimeout(() => {
           link.classList.add('chosen', 'visible')
           linksBar.classList.remove('above')
-          page.classList.add("visible")
           linesContainer.classList.add('clickable')
-          linesContainer.addEventListener('click', () => console.log('show linksBar'))
+          linesContainer.addEventListener('click', showLinksBar)
         }, 1000);
         if (!page.classList.contains('loaded')) {
           loadPageContent(pageName)
@@ -100,14 +121,17 @@ document.addEventListener(
       })
     })
 
-    setTimeout(() => {
-      document.getElementById('linesContainer').classList.add('shown')
-      Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
-    }, 300);
-
-    if (loadingPageName === "") {
-      clearVisibiles()
-      pages.main.classList.add("visible", "loaded")
+    if (loadingPageName === '') {
+      setTimeout(() => {
+        document.getElementById('linesContainer').classList.add('shown')
+        Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
+      }, 300);
+    } else {
+      document.getElementById('linksBar').classList.add('folded')
+      setTimeout(() => {
+        document.getElementById('linesContainer').classList.add('shown')
+        links[loadingPageName].classList.add('visible', 'chosen')
+      }, 1000);
     }
   },
   true
