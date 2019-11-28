@@ -14,7 +14,7 @@ export const addThumbnailsPicChanger = (doc) => {
   });
 }
 
-export const addPointsPicShanger = (doc) => {
+export const addPointsPicChanger = (doc) => {
   const containers = [doc.getElementById('nora'), doc.getElementById('vika2')]
   containers.forEach((container) => {
     const shown = container.getElementsByClassName('shown');
