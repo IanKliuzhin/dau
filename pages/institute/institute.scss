@@ -61,7 +61,7 @@ html, body {
     }
     &.dark {
       p {
-        color: white;
+        color: rgb(230, 230, 230);
       }
     }
     
@@ -76,6 +76,12 @@ html, body {
     &.rightMargin0_5 {
       margin-right: 0.5vh;
     }
+    &.rightMargin2_9 {
+      margin-right: 2.9vh;
+    }
+    &.rightMargin8_5 {
+      margin-right: 8.5vh;
+    }
     // &.rightMargin4 {
     //   margin-right: 4vh;
     // }
@@ -88,22 +94,25 @@ html, body {
     &.rightMargin24 {
       margin-right: 24vh;
     }
+    &.rightMargin31 {
+      margin-right: 24vh;
+    }
     // &.topPadding3_5 {
     //   padding-top: 3.5vh;
     // }
-    // &.short {
-    //   height: calc(100vh - 135px);
-    // }
+    &.short {
+      height: calc(100vh - 135px);
+    }
     // &.rightMargin-29 {
     //   margin-right: -29vh;
     // }
-    // &.tempResident {
-    //   padding-top: 4.1vh;
+    &.tempResident {
+      padding-top: 4.1vh;
     //   padding-right: 8vh;
     //   &.rightPading11_2 {
     //     padding-right: 11.2vh;
     //   }
-    // }
+    }
     img {
       width: auto;
       margin-right: auto;
@@ -147,9 +156,9 @@ html, body {
       // &.height47 {
       //   height: 47vh;
       // }
-      // &.height53 {
-      //   height: 53vh;
-      // }
+      &.height53 {
+        height: 53vh;
+      }
       &.height59 {
         height: 59vh;
       }

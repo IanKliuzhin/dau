@@ -9,7 +9,7 @@ body {
   height: 100%;
   margin: 0px;
   font-family: 'decimamonox';
-  background-color: black;
+  background-color: rgb(25, 25, 25);
 }
 
 iframe {
@@ -79,7 +79,7 @@ iframe {
     }
     &.above {
       transition: background-color 0.3s;
-      background-color: black;
+      background-color: rgb(25, 25, 25);
     }
     &.folded {
       .link {
@@ -218,23 +218,23 @@ iframe {
       flex-flow: column nowrap;
       align-items: flex-start;
       padding: 0 4vw;
-      background-color: black;
+      background-color: rgb(25, 25, 25);
     }
     .block {
       flex-basis: 49%;;
       height: 50%;
       box-sizing: border-box;
       &:nth-child(1), &:nth-child(3) {
-        border-right: 1px solid white;
+        border-right: 1px solid rgb(230, 230, 230);
       }
       &:nth-child(1), &:nth-child(2) {
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid rgb(230, 230, 230);
       }
       @media (max-width: 481px) {
         width: 90%;
         height: 15vh;
         margin: 0px;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid rgb(230, 230, 230);
         position: relative;
         transition: width 0.5s 0.6s;
         &:last-child {

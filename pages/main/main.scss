@@ -10,8 +10,8 @@ body {
   margin: 0px;
   font-family: 'decimamonox';
   font-size: 0.8em;
-  background-color: black;
-  color: white;
+  background-color: rgb(25, 25, 25);
+  color: rgb(230, 230, 230);
   padding: 3.5em 1.9em;
 }
 
@@ -55,7 +55,7 @@ body {
   width: 0.1em;
   height: 1em;
   top: 0.1em;
-  background-color: white;
+  background-color: rgb(230, 230, 230);
 }
 
 #mc_embed_signup {
@@ -65,7 +65,7 @@ body {
 
 .mc-field-group {
   padding: 10px 0 4px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(230, 230, 230);
   width: 20em;
   overflow: hidden;
 }
@@ -74,8 +74,8 @@ body {
   position: relative;
   text-align: end !important;
   font: 400 1em 'decimamonox' !important;
-  color: white !important;
-  background-color: black !important;
+  color: rgb(230, 230, 230) !important;
+  background-color: rgb(25, 25, 25) !important;
   margin: 0em !important;
   padding: 0 !important;
   border: 0px !important;
@@ -84,7 +84,7 @@ body {
 }
 
 .mc-field-group input::placeholder {
-  color: white;
+  color: rgb(230, 230, 230);
   opacity: 1;
   visibility: visible;
   font: 400 1em 'decimamonox';

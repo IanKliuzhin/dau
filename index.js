@@ -1,4 +1,4 @@
-import { addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './getHTML'
 
 const pageNames = ["main", "institute", "participants", "documents"]
@@ -52,6 +52,8 @@ document.addEventListener(
           if (pageName === 'participants') {
             addThumbnailsPicChanger(page.contentWindow.document)
             addPointsPicChanger(page.contentWindow.document)
+          } else if (pageName === "institute") {
+            addNumsPicChanger(page.contentWindow.document)
           }
         }
       });
