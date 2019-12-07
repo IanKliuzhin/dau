@@ -223,10 +223,10 @@ html, body {
       }
     }
     #alina {
-      background-image: url('./assets/vlcsnap-2019-09-10-19h53m18s840.jpg'), url("./assets/vlcsnap-2019-09-10-19h53m17s412.jpg"), url("./assets/vlcsnap-2019-09-10-19h52m53s035.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m11s555.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m07s832.jpg"), url("./assets/vlcsnap-2019-09-10-19h53m09s994.jpg");
+      background-image: url('./assets/part_3.jpg'), url("./assets/part_4.jpg"), url("./assets/part_5.jpg"), url("./assets/part_6.jpg"), url("./assets/part_7.jpg"), url("./assets/part_8.jpg");
     }
     #vika {
-      background-image: url('./assets/vlcsnap-2019-09-10-20h18m41s485_LOcopy2.jpg'), url("./assets/vlcsnap-2019-09-10-20h18m39s735_LOcopy2.jpg"), url("./assets/vlcsnap-2019-09-10-20h18m27s630_LOcopy2.jpg"), url("./assets/vlcsnap-2019-09-10-20h18m36s669_LOcopy2.jpg"), url("./assets/vlcsnap-2019-09-10-20h18m20s155_LOcopy2.jpg"), url("./assets/vlcsnap-2019-09-10-20h18m34s799_LOcopy2.jpg");
+      background-image: url('./assets/part_97.jpg'), url("./assets/part_98.jpg"), url("./assets/part_99.jpg"), url("./assets/part_100.jpg"), url("./assets/part_101.jpg"), url("./assets/part_102.jpg");
       .thumbnailsContainer {
         bottom: 16%;
       }
@@ -262,7 +262,7 @@ html, body {
       border-radius: 1.5vh;
       height: 47vh;
       width: 47vh;
-      background-image: url('./assets/31-item.svg');
+      background-image: url('./assets/part_34.svg');
       background-size: 90%;
       background-repeat: no-repeat;
       background-position: center;
@@ -284,21 +284,21 @@ html, body {
         width: 102vh;
         right: 0px;
         top: 0px;
-        background-image: url('./assets/vlcsnap-2019-09-10-19h43m43s108.jpg'), url("./assets/vlcsnap-2019-09-10-19h42m57s444.jpg"), url("./assets/vlcsnap-2019-09-10-19h43m51s547.jpg"), url("./assets/vlcsnap-2019-09-10-19h43m24s967.jpg");
+        background-image: url('./assets/part_139.jpg'), url("./assets/part_137.jpg"), url("./assets/part_140.jpg"), url("./assets/part_138.jpg");
         background-size: contain;
         background-repeat: no-repeat;
         border-radius: 0.7vh;
         &.selected_1 {
-          background-image: url('./assets/vlcsnap-2019-09-10-19h43m43s108.jpg');
+          background-image: url('./assets/part_139.jpg');
         }
         &.selected_2 {
-          background-image: url("./assets/vlcsnap-2019-09-10-19h42m57s444.jpg");
+          background-image: url("./assets/part_137.jpg");
         }
         &.selected_3 {
-          background-image: url("./assets/vlcsnap-2019-09-10-19h43m51s547.jpg");
+          background-image: url("./assets/part_140.jpg");
         }
         &.selected_4 {
-          background-image: url("./assets/vlcsnap-2019-09-10-19h43m24s967.jpg");
+          background-image: url("./assets/part_138.jpg");
         }
       }
       &:hover {
@@ -352,21 +352,21 @@ html, body {
         width: 100%;
         left: 0px;
         bottom: 0px;
-        background-image: url('./assets/2019-10-27_at_02.09.38.jpg'), url("./assets/2019-10-27_at_02.09.38.jpg"), url("./assets/2019-10-27_at_02.09.38.jpg"), url("./assets/2019-10-27_at_02.09.38.jpg");
+        background-image: url('./assets/part_136.jpg'), url("./assets/part_136.jpg"), url("./assets/part_136.jpg"), url("./assets/part_136.jpg");
         background-size: contain;
         border-radius: 0.7vh;
         background-repeat: no-repeat;
         &.selected_1 {
-          background-image: url('./assets/2019-10-27_at_02.09.38.jpg');
+          background-image: url('./assets/part_136.jpg');
         }
         &.selected_2 {
-          background-image: url("./assets/2019-10-27_at_02.09.38.jpg");
+          background-image: url("./assets/part_136.jpg");
         }
         &.selected_3 {
-          background-image: url("./assets/2019-10-27_at_02.09.38.jpg");
+          background-image: url("./assets/part_136.jpg");
         }
         &.selected_4 {
-          background-image: url("./assets/2019-10-27_at_02.09.38.jpg");
+          background-image: url("./assets/part_136.jpg");
         }
       }
       &:hover {
