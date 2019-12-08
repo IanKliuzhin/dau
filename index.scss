@@ -10,6 +10,7 @@ body {
   margin: 0px;
   font-family: 'decimamonox';
   background-color: rgb(25, 25, 25);
+  position: fixed;
 }
 
 iframe {
@@ -109,16 +110,16 @@ iframe {
       .link {
         transition: opacity 0s 0s;
         &.main {
-          bottom: 85vh;
+          bottom: 85%;
         }
         &.documents {
-          bottom: 58vh;
+          bottom: 58%;
         }
         &.institute {
-          bottom: 35vh;
+          bottom: 35%;
         }
         &.participants {
-          bottom: 11vh;
+          bottom: 11%;
         }
       }
     }
