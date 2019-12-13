@@ -9,16 +9,16 @@ const linkTitles = {
   documents: "Documents",
 }
 const sources = {
-  main: "./pages/main/main.html",
-  documents: "./pages/documents/index.html",
-  participants: "./pages/participants/index.html",
-  institute: "./pages/institute/index.html",
+  main: "pages/main/main.html",
+  documents: "pages/documents/index.html",
+  participants: "pages/participants/index.html",
+  institute: "pages/institute/index.html",
 }
 const contents = {
-  main: "./pages/main/main.html",
-  documents: "./pages/documents/documents.html",
-  participants: "./pages/participants/participants.html",
-  institute: "./pages/institute/institute.html",
+  main: "pages/main/main.html",
+  documents: "pages/documents/documents.html",
+  participants: "pages/participants/participants.html",
+  institute: "pages/institute/institute.html",
 }
 
 document.addEventListener(

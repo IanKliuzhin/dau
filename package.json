@@ -1,10 +1,10 @@
 {
   "name": "dau-london",
   "version": "1.0.0",
-  "main": "participants/participants.html",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html ./pages/**/*.html --public-url ./ --no-cache",
+    "build": "parcel build index.html pages/**/*.html pages/**/*.js pages/**/*.scss pages/**/assets/**.jpg pages/**/assets/**.svg --public-url . --no-cache",
     "start": "node run-parcel.js"
   },
   "repository": {
