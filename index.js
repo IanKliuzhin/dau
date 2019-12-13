@@ -27,10 +27,9 @@ document.addEventListener(
     // console.log(e)
     if (e.target.defaultView.frameElement) return
 
-    const loadingPageName = /#(.+)/.test(window.location.href)
-      ? /#(.+)/.exec(window.location.href)[1]
-      : ""
+    const getVisiblePageName = () => (/#(.+)/.test(window.location.href) ? /#(.+)/.exec(window.location.href)[1] : 'main')
 
+    const loadingPageName = /#(.+)/.test(window.location.href) ? /#(.+)/.exec(window.location.href)[1] : ""
     const pages = {}
     const links = {}
 
@@ -102,10 +101,16 @@ document.addEventListener(
       document.getElementById('linksBar').appendChild(link)
       links[pageName] = link
       link.addEventListener("click", () => {
+        const oldPageName = getVisiblePageName()
         window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
         clearVisibiles()
-        const page = pages[pageName]
-        page.classList.add("visible")
+        console.log({oldPageName});
+        const oldPage = pages[oldPageName]
+        const newPage = pages[pageName]
+        newPage.classList.add("visible", "withTransition")
+        Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_documents')))
+        Object.keys(pages).forEach((pageName) => (pages[pageName].classList.add(`when_${getVisiblePageName()}`)))
+        oldPage.classList.add("withTransition")
         const linksBar = document.getElementById('linksBar')
         linksBar.classList.remove('expanded')
         linksBar.classList.add('above', 'folded')
@@ -116,8 +121,9 @@ document.addEventListener(
           linksBar.classList.remove('above')
           linesContainer.classList.add('clickable')
           linesContainer.addEventListener('click', showLinksBar)
+          Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('withTransition')))
         }, 1000);
-        if (!page.classList.contains('loaded')) {
+        if (!newPage.classList.contains('loaded')) {
           loadPageContent(pageName)
         }
       })

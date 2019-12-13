@@ -4,12 +4,12 @@
   width: 100%;
   line-height: 100vh;
   text-align: center;
-  background-color: green;
+  background-color: rgb(25, 25, 25);
   margin-left: 0vw;
   transition: margin-left 1s;
-  &.animated {
-    animation: colorize 1s;
-  }
+  // &.animated {
+  //   animation: colorize 1s;
+  // }
   .loaded & {
     margin-left: -100vw;
   }
