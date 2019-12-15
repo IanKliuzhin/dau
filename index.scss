@@ -86,11 +86,11 @@ iframe {
   mix-blend-mode: difference;
   z-index: 1;
   @media (min-width: 482px) {
-    &.folded {
-      #linesContainer {
+    // &.folded {
+      #burger {
         visibility: hidden;
       }
-    }
+    // }
   }
   @media (max-width: 481px) {
     .link {
@@ -105,7 +105,7 @@ iframe {
         opacity: 0;
         transition: opacity 0s 0s;
       }
-      #linesContainer {
+      #burger {
         // transition: bottom 1s, width 1s, height 1s;
         transition: bottom 0.5s, width 0.5s, height 0.5s;
         bottom: calc(100% - 2em);
@@ -118,7 +118,7 @@ iframe {
       }
     }
     &.expanded {
-      #linesContainer {
+      #burger {
         height: 96% !important;
         transition: bottom 0.5s 0.5s, width 0.5s, height 0.5s 0.5s;
         .block {
@@ -204,13 +204,9 @@ iframe {
       }
     }
   }
-  #linesContainer {
+  #burger {
     position: absolute;
-    display: flex;
-    left: 50%;
-    top: 50%;
-    width: 0%;
-    height: 0%;
+    display: none;
     transform: translate(-50%, -50%);
     flex-flow: row wrap;
     justify-content: center;
@@ -228,7 +224,6 @@ iframe {
     @media (max-width: 481px) {
       display: inline-flex;
       left: 0%;
-      top: unset;
       bottom: 0%;
       width: 0%;
       height: 30% !important;

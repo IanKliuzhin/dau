@@ -83,8 +83,8 @@ document.addEventListener(
 
     const showLinksBar = () => {
       const linksBar = document.getElementById('linksBar')
-      const linesContainer = document.getElementById('linesContainer')
-      linesContainer.removeEventListener('click', showLinksBar)
+      const burger = document.getElementById('burger')
+      burger.removeEventListener('click', showLinksBar)
       Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'chosen'))
       linksBar.classList.remove('folded')
       linksBar.classList.add('expanded')
@@ -104,7 +104,6 @@ document.addEventListener(
         const oldPageName = getVisiblePageName()
         window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
         clearVisibiles()
-        console.log({oldPageName});
         const oldPage = pages[oldPageName]
         const newPage = pages[pageName]
         newPage.classList.add("visible", "withTransition")
@@ -115,14 +114,17 @@ document.addEventListener(
         linksBar.classList.remove('expanded')
         linksBar.classList.add('above', 'folded')
         Object.entries(links).forEach(([,link]) => link.classList.remove('visible'))
-        const linesContainer = document.getElementById('linesContainer')
+        const burger = document.getElementById('burger')
         setTimeout(() => {
           link.classList.add('chosen', 'visible')
           linksBar.classList.remove('above')
-          linesContainer.classList.add('clickable')
-          linesContainer.addEventListener('click', showLinksBar)
+          burger.classList.add('clickable')
+          burger.addEventListener('click', showLinksBar)
           Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('withTransition')))
-        }, 1000);
+          if (oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('shown')
+          else if (pageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
+          pages.main.contentWindow.document.tl.progress(1, false);
+        }, 600);
         if (!newPage.classList.contains('loaded')) {
           loadPageContent(pageName)
         }
@@ -131,13 +133,14 @@ document.addEventListener(
 
     if (loadingPageName === '') {
       setTimeout(() => {
-        document.getElementById('linesContainer').classList.add('shown')
+        document.getElementById('burger').classList.add('shown')
         Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
+        pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
       }, 300);
     } else {
       document.getElementById('linksBar').classList.add('folded')
       setTimeout(() => {
-        document.getElementById('linesContainer').classList.add('shown')
+        document.getElementById('burger').classList.add('shown')
         links[loadingPageName].classList.add('visible', 'chosen')
       }, 1000);
     }

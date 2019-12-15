@@ -302,4 +302,5 @@ document.addEventListener("DOMContentLoaded", () => {
   tl.set("#mc-embedded-subscribe", {visibility: "visible"}, "+=0")
 
   tl.play()
+  document.tl = tl;
 })
