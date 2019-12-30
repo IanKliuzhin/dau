@@ -1,5 +1,6 @@
 import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './getHTML'
+import { makeMapHints } from "./helpers/mapHintsMaker";
 
 const pageNames = ["main", "institute", "participants", "documents"]
 const linkTitles = {
@@ -53,6 +54,7 @@ document.addEventListener(
             addPointsPicChanger(page.contentWindow.document)
           } else if (pageName === "institute") {
             addNumsPicChanger(page.contentWindow.document)
+            makeMapHints(page.contentWindow.document)
           }
         }
       });
@@ -133,7 +135,8 @@ document.addEventListener(
 
     if (loadingPageName === '') {
       setTimeout(() => {
-        document.getElementById('burger').classList.add('shown')
+        const burger = document.getElementById('burger')
+        if (burger) burger.classList.add('shown')
         Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
       }, 300);
