@@ -1,4 +1,4 @@
-import {getHTML} from '../getHTML'
+import {getHTML} from './getHTML'
 
 const locations = {
   "D1 - 1st level": {
@@ -20,7 +20,9 @@ const locations = {
     room21: "Guest's room (1938-68)",
   },
   "D1 - 2nd level": {
-    room76: "Corridor (1966-1968)",
+    room80: "Room 29 (1966-1968)",
+    room78: "Room 27 (1966-1968)",
+    room79: "Corridor (1966-1968)",
     room74: "Room 26 (1938-1968)",
     room72: "Room 25 (1938-1968)",
     room73: "Room 24 (1938-1968)",
@@ -32,6 +34,7 @@ const locations = {
   "D2 - 2nd level": {
     room67: "Bedroom 1 — Dau's room\n(1938-1968)",
     room68: "Bedroom 2 — Nora's room\n(1938-1968)",
+    room81: "Stairs (1938-68)",
     room65: "Pass (1938-1968)",
     room66: "Brattery — Denis's room\n(1938-1968)",
     room02: "Balcony (1938-1968)",
@@ -59,7 +62,7 @@ const locations = {
     room41: "Personnel department (1938-52)\nSpecial department (1952-56)\nParty nucleus (1956-68) ",
     room64: "Corridor of main entrance",
     room63: "Guard's room",
-    room77: "Cashdesk",
+    room76: "Cashdesk",
   },
   "2nd level": {
     room59: "Theoretical department",
@@ -99,6 +102,44 @@ const locations = {
   },
 }
 
+const makeHintLines = (roomName, locName) => {
+  const texts = [locName].concat(roomName.split('\n'))
+  let longestLineLength = texts[0].length
+  let needCut = false
+  texts.forEach((t) => {
+    if (t.length !== longestLineLength) needCut = true
+    if (t.length > longestLineLength) longestLineLength = t.length
+  })
+
+  const lines = []
+
+  texts.forEach((text, index) => {
+    const line = document.createElement('div')
+    line.classList.add('line')
+    const p = document.createElement('p')
+    p.innerHTML = text
+    line.appendChild(p)
+    if (texts[index - 1]) {
+      if (texts[index - 1].length - text.length > 0) line.classList.add('longerOver')
+      else if (texts[index - 1].length - text.length < 0) line.classList.add('shorterOver')
+      else line.classList.add('equalOver')
+    }
+    if (texts[index + 1]) {
+      if (texts[index + 1].length - text.length > 0) line.classList.add('longerBelow')
+      else if (texts[index + 1].length - text.length < 0) line.classList.add('shorterBelow')
+      else line.classList.add('equalBelow')
+    }
+    if (needCut && text.length !== longestLineLength) {
+      const cut = document.createElement('div')
+      cut.classList.add('cut')
+      line.classList.add('withCut')
+      line.appendChild(cut)
+    }
+    lines.push(line);
+  })
+  return lines;
+}
+
 export const makeMapHints = (doc) => {
   const container = doc.getElementById("mapContainer")
   getHTML('pages/institute/assets/inst_map.svg', function (response) {
@@ -113,35 +154,11 @@ export const makeMapHints = (doc) => {
           const roomParams = room.getBBox()
           const hint = document.createElement('div')
           hint.classList.add('hint')
-          const cut = document.createElement('div')
-          cut.classList.add('cut')
-
-          const bottomLine = document.createElement('div')
-          bottomLine.classList.add('line')
-          const bottomText = document.createElement('p')
-          bottomText.innerHTML = roomName
-          hint.appendChild(bottomLine)
-          bottomLine.appendChild(bottomText)
-
-          if (locName.length > 0) {
-            const topLine = document.createElement('div')
-            topLine.classList.add('line')
-            const topText = document.createElement('p')
-            topText.innerHTML = locName
-            topLine.appendChild(topText)
-            hint.appendChild(topLine)
-            if (locName.length > roomName.length) {
-              bottomLine.classList.add('withCut')
-              bottomLine.appendChild(cut)
-            } else {
-              topLine.classList.add('withCut')
-              topLine.appendChild(cut)
-            }
-          }
+          makeHintLines(roomName, locName).forEach((line) => hint.appendChild(line));
           hint.style.left = `${(roomParams.x + roomParams.width) / svgParams.width * 100}%`
           hint.style.top = `${(roomParams.y + roomParams.height) / svgParams.height * 100}%`
-          room.onmouseover = () => hint.style.visibility = 'visible'
-          room.onmouseout = () => hint.style.visibility = 'hidden'
+          room.onmouseover = () => hint.style.opacity = 1
+          room.onmouseout = () => hint.style.opacity = 0
           container.appendChild(hint)
         }
       })

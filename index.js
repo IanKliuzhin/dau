@@ -1,5 +1,5 @@
 import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
-import {getHTML} from './getHTML'
+import {getHTML} from './helpers/getHTML'
 import { makeMapHints } from "./helpers/mapHintsMaker";
 
 const pageNames = ["main", "institute", "participants", "documents"]

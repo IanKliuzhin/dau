@@ -113,6 +113,9 @@ html, body {
     //     padding-right: 11.2vh;
     //   }
     }
+    &.overVis {
+      overflow: visible;
+    }
     img {
       width: auto;
       margin-right: auto;
@@ -505,40 +508,56 @@ html, body {
   svg {
     .room {
       pointer-events: all !important;
+      cursor: help;
     }
   }
   .hint {
     position: absolute;
     display: inline-flex;
     flex-flow: column nowrap;
-    border-radius: 0.5vh;
+    border-radius: 0.4vh;
     font-family: 'decimamonox';
     overflow: hidden;
-    visibility: hidden;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 0.2s;
     .line {
       display: inline-flex;
       overflow: hidden;
-      &:first-child {
-        p {
-          padding-bottom: 0.5vh;
+      &.longerOver {
+        &.withCut p {
+          border-top-right-radius: 0;
         }
+        .cut::before {
+          border-top-left-radius: 0.4vh;
+        }
+      }
+      &.longerBelow {
         &.withCut p {
           border-bottom-right-radius: 0;
         }
         .cut::before {
-          border-bottom-left-radius: 0.5vh;
+          border-bottom-left-radius: 0.4vh;
+        }
+      }
+      &.equalOver {
+        p {
+          border-top-right-radius: 0;
+        }
+      }
+      &.equalBelow {
+        p {
+          border-bottom-right-radius: 0;
+        }
+      }
+      &:first-child {
+        p {
+          padding-bottom: 0.5vh;
         }
       }
       &:last-child {
         p {
           padding-top: 0.5vh;
-        }
-        &.withCut p {
-          border-top-right-radius: 0;
-        }
-        .cut::before {
-          border-top-left-radius: 0.5vh;
         }
       }
       &:not(:first-child, :last-child) {
@@ -546,17 +565,17 @@ html, body {
           padding-top: 0.5vh;
           padding-bottom: 0.5vh;
         }
-        .cut::before {
-          border-top-left-radius: 0.5vh;
-          border-top-left-radius: 0.5vh;
-        }
+        // .cut::before {
+        //   border-top-left-radius: 0.5vh;
+        //   border-top-left-radius: 0.5vh;
+        // }
       }
       p {
         color: white;
         padding: 1vh 1.25vh;
         background-color: #191919;
-        border-bottom-right-radius: 0.5vh;
-        border-top-right-radius: 0.5vh;
+        border-bottom-right-radius: 0.4vh;
+        border-top-right-radius: 0.4vh;
         font-size: 1.2vh;
       }
       .cut {
