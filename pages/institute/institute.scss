@@ -506,6 +506,7 @@ html, body {
 #mapContainer {
   position: relative;
   svg {
+    height: 59vh;
     .room {
       pointer-events: all !important;
       cursor: help;
