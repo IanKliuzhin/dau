@@ -513,7 +513,7 @@ html, body {
     }
   }
   .hint {
-    position: absolute;
+    position: fixed;
     display: inline-flex;
     flex-flow: column nowrap;
     border-radius: 0.4vh;
@@ -566,10 +566,6 @@ html, body {
           padding-top: 0.5vh;
           padding-bottom: 0.5vh;
         }
-        // .cut::before {
-        //   border-top-left-radius: 0.5vh;
-        //   border-top-left-radius: 0.5vh;
-        // }
       }
       p {
         color: white;

@@ -103,7 +103,8 @@ const locations = {
 }
 
 const makeHintLines = (roomName, locName) => {
-  const texts = [locName].concat(roomName.split('\n'))
+  const texts = roomName.split('\n')
+  if (locName) texts.unshift(locName)
   let longestLineLength = texts[0].length
   let needCut = false
   texts.forEach((t) => {
@@ -147,17 +148,18 @@ export const makeMapHints = (doc) => {
     if (content) {
       container.appendChild(content)
       const map = container.querySelector('svg')
-      const svgParams = map.getBBox()
       Object.keys(locations).forEach((locName) => {
         for (const [roomID, roomName] of Object.entries(locations[locName])) {
           const room = map.getElementsByClassName(roomID)[0]
-          const roomParams = room.getBBox()
           const hint = document.createElement('div')
           hint.classList.add('hint')
           makeHintLines(roomName, locName).forEach((line) => hint.appendChild(line));
-          hint.style.left = `${(roomParams.x + roomParams.width) / svgParams.width * 100}%`
-          hint.style.top = `${(roomParams.y + roomParams.height) / svgParams.height * 100}%`
-          room.onmouseover = () => hint.style.opacity = 1
+          room.onmouseover = () => {
+            const roomRectParams = room.getBoundingClientRect()
+            hint.style.left = `${roomRectParams.x + roomRectParams.width}px`
+            hint.style.top = `${roomRectParams.y + roomRectParams.height}px`
+            hint.style.opacity = 1
+          }
           room.onmouseout = () => hint.style.opacity = 0
           container.appendChild(hint)
         }
