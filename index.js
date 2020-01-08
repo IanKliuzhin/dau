@@ -50,9 +50,19 @@ document.addEventListener(
           body.classList.add('loaded')
           page.classList.add('loaded')
           if (pageName === 'participants') {
+            const scroll = sessionStorage.getItem('scroll_participants')
             addThumbnailsPicChanger(page.contentWindow.document)
             addPointsPicChanger(page.contentWindow.document)
+            if (scroll) {
+              page.contentWindow.document.documentElement.scrollLeft = parseInt(scroll, 0)
+              page.contentWindow.document.body.scrollLeft = parseInt(scroll, 0)
+            }
           } else if (pageName === "institute") {
+            const scroll = sessionStorage.getItem('scroll_institute')
+            if (scroll) {
+              page.contentWindow.document.documentElement.scrollLeft = parseInt(scroll, 0)
+              page.contentWindow.document.body.scrollLeft = parseInt(scroll, 0)
+            }
             addNumsPicChanger(page.contentWindow.document)
             makeMapHints(page.contentWindow.document)
           }

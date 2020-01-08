@@ -9,6 +9,7 @@
       // console.log(e.wheelDelta, delta)
       document.documentElement.scrollLeft -= delta;
       document.body.scrollLeft -= delta;
+      sessionStorage.setItem(`scroll_${document.documentElement.className}`, document.body.scrollLeft)
       e.preventDefault();
   }
   if (window.addEventListener) {
