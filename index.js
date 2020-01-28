@@ -1,4 +1,5 @@
 import { addNumsPicChanger, addNumsPicChanger2, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+import { addVertScroll } from "./helpers/vertScroll";
 import {getHTML} from './helpers/getHTML'
 import { lazyLoadImages } from "./helpers/lazyImagesLoader";
 import { makeMapHints } from "./helpers/mapHintsMaker";
@@ -36,6 +37,35 @@ document.addEventListener(
     const links = {}
 
     const clearVisibiles = () => Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('visible')))
+
+    const changePage = (pageName, oldPageName) => {
+      clearVisibiles()
+      const oldPage = pages[oldPageName]
+      const newPage = pages[pageName]
+      newPage.classList.add("visible", "withTransition")
+      Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_about')))
+      Object.keys(pages).forEach((pageName) => (pages[pageName].classList.add(`when_${getVisiblePageName()}`)))
+      oldPage.classList.add("withTransition")
+      const linksBar = document.getElementById('linksBar')
+      linksBar.classList.remove('expanded')
+      linksBar.classList.add('above', 'folded')
+      Object.entries(links).forEach(([,link]) => link.classList.remove('visible'))
+      const burger = document.getElementById('burger')
+      setTimeout(() => {
+        links[pageName].classList.add('chosen', 'visible')
+        linksBar.classList.remove('above')
+        burger.classList.add('clickable')
+        burger.addEventListener('click', showLinksBar)
+        Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('withTransition')))
+        if (oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('shown', 'withTransition')
+        else if (pageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
+        pages.main.contentWindow.document.tl.progress(1, false);
+      }, 600);
+      if (oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
+      if (pageName !== 'about' && !newPage.classList.contains('loaded')) {
+        loadPageContent(pageName)
+      }
+    }
 
     const loadPageContent = (pageName) => {
       // console.log(pages[pageName].contentWindow.document)
@@ -121,31 +151,7 @@ document.addEventListener(
       if (pageName === 'main' || pageName === 'about') link.addEventListener("click", () => {
         const oldPageName = getVisiblePageName()
         window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
-        clearVisibiles()
-        const oldPage = pages[oldPageName]
-        const newPage = pages[pageName]
-        newPage.classList.add("visible", "withTransition")
-        Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_about')))
-        Object.keys(pages).forEach((pageName) => (pages[pageName].classList.add(`when_${getVisiblePageName()}`)))
-        oldPage.classList.add("withTransition")
-        const linksBar = document.getElementById('linksBar')
-        linksBar.classList.remove('expanded')
-        linksBar.classList.add('above', 'folded')
-        Object.entries(links).forEach(([,link]) => link.classList.remove('visible'))
-        const burger = document.getElementById('burger')
-        setTimeout(() => {
-          link.classList.add('chosen', 'visible')
-          linksBar.classList.remove('above')
-          burger.classList.add('clickable')
-          burger.addEventListener('click', showLinksBar)
-          Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('withTransition')))
-          if (oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('shown')
-          else if (pageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
-          pages.main.contentWindow.document.tl.progress(1, false);
-        }, 600);
-        if (!newPage.classList.contains('loaded')) {
-          loadPageContent(pageName)
-        }
+        changePage(pageName, oldPageName)
       })
     })
 
@@ -156,6 +162,10 @@ document.addEventListener(
         Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
       }, 300);
+      setTimeout(() => {
+        pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
+        addVertScroll(pages.main, pages.about, changePage)
+      }, 1500);
     } else {
       document.getElementById('linksBar').classList.add('folded')
       setTimeout(() => {

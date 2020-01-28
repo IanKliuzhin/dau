@@ -125,7 +125,8 @@ body {
     justify-content: center;
     align-content: center;
     // z-index: 0;
-    transition: bottom 0.5s 0.5s, width 0.5s, height 0.5s 0.5s;
+    transition: bottom 0.5s 0.5s;
+
     .block {
       flex-basis: 49%;;
       height: 50%;
@@ -138,6 +139,9 @@ body {
         border-bottom: 1px solid rgb(230, 230, 230);
       }
     }
+  }
+  &.withTransition #lines {
+    transition: bottom 0.5s 0.5s, width 0.5s, height 0.5s 0.5s;
   }
   &.shown {
     #lines {
