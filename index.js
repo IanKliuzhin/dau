@@ -13,7 +13,7 @@ const linkTitles = {
 }
 const sources = {
   main: "pages/main/main.html",
-  about: "pages/about/index.html",
+  about: "pages/about/about.html",
   participants: "pages/participants/index.html",
   institute: "pages/institute/index.html",
 }
@@ -39,6 +39,7 @@ document.addEventListener(
     const clearVisibiles = () => Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('visible')))
 
     const changePage = (pageName, oldPageName) => {
+      window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
       clearVisibiles()
       const oldPage = pages[oldPageName]
       const newPage = pages[pageName]
@@ -62,9 +63,10 @@ document.addEventListener(
         pages.main.contentWindow.document.tl.progress(1, false);
       }, 600);
       if (oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
-      if (pageName !== 'about' && !newPage.classList.contains('loaded')) {
-        loadPageContent(pageName)
-      }
+      // if (!newPage.classList.contains('loaded')) {
+      //   loadPageContent(pageName)
+      // }
+      if (pageName === 'main') addVertScroll(pages.main, pages.about, changePage)
     }
 
     const loadPageContent = (pageName) => {
@@ -150,7 +152,6 @@ document.addEventListener(
       links[pageName] = link
       if (pageName === 'main' || pageName === 'about') link.addEventListener("click", () => {
         const oldPageName = getVisiblePageName()
-        window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
         changePage(pageName, oldPageName)
       })
     })
