@@ -1,24 +1,24 @@
 import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './helpers/getHTML'
-import { makeMapHints } from "./helpers/mapHintsMaker";
 import { lazyLoadImages } from "./helpers/lazyImagesLoader";
+import { makeMapHints } from "./helpers/mapHintsMaker";
 
-const pageNames = ["main", "institute", "participants", "documents"]
+const pageNames = ["main", "institute", "participants", "about"]
 const linkTitles = {
   main: "DAU",
-  institute: "The Institute",
-  participants: "Participants",
-  documents: "Documents",
+  institute: "The Institute [Coming Soon]",
+  participants: "Participants [Coming Soon]",
+  about: "About DAU Project",
 }
 const sources = {
   main: "pages/main/main.html",
-  documents: "pages/documents/index.html",
+  about: "pages/about/index.html",
   participants: "pages/participants/index.html",
   institute: "pages/institute/index.html",
 }
 const contents = {
   main: "pages/main/main.html",
-  documents: "pages/documents/documents.html",
+  about: "pages/about/about.html",
   participants: "pages/participants/participants.html",
   institute: "pages/institute/institute.html",
 }
@@ -115,14 +115,14 @@ document.addEventListener(
       link.innerHTML = linkTitles[pageName]
       document.getElementById('linksBar').appendChild(link)
       links[pageName] = link
-      link.addEventListener("click", () => {
+      if (pageName === 'main' || pageName === 'about') link.addEventListener("click", () => {
         const oldPageName = getVisiblePageName()
         window.history.pushState(pageName, pageName, pageName === "main" ? " " : `#${pageName}`)
         clearVisibiles()
         const oldPage = pages[oldPageName]
         const newPage = pages[pageName]
         newPage.classList.add("visible", "withTransition")
-        Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_documents')))
+        Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_about')))
         Object.keys(pages).forEach((pageName) => (pages[pageName].classList.add(`when_${getVisiblePageName()}`)))
         oldPage.classList.add("withTransition")
         const linksBar = document.getElementById('linksBar')
