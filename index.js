@@ -66,7 +66,17 @@ document.addEventListener(
       // if (!newPage.classList.contains('loaded')) {
       //   loadPageContent(pageName)
       // }
-      if (pageName === 'main') addVertScroll(pages.main, pages.about, changePage)
+      switch (pageName) {
+        case 'main':
+          addVertScroll(pages.main, pages.about, changePage)
+          break;
+        case 'about':
+          lazyLoadImages(newPage.contentWindow.document)
+          addNumsPicChanger2(newPage.contentWindow.document)
+          break;
+        default:
+          break;
+      }
     }
 
     const loadPageContent = (pageName) => {
