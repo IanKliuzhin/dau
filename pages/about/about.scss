@@ -4,19 +4,176 @@ html, body {
   margin: 0px;
   overscroll-behavior: none;
   white-space: nowrap;
-  background: yellow;
 }
 
 #scrollContainer {
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   white-space: nowrap;
   height: 100vh;
   display: inline-flex;
-  flex-flow: row nowrap;
+  flex-direction: column;
+  //flex-flow: row nowrap;
   align-items: center;
-  justify-content: center; // убрать
+  //justify-content: center; // убрать
   width: 100%; // убрать
   vertical-align: middle;
   margin-left: -0.5vh;
+
+  p {
+    font-family: 'decimamonox';
+    font-size: 1.2vh;
+    line-height: 1.85vh;
+    white-space: pre;;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    // .gray {
+    //   color: #333333;
+    // }
+  }
+
+  .textWrapper{
+    display: flex;
+  }
+  .leftTextBlock{
+    min-width: 10vw;
+    padding-left: 5vw;
+    padding-right: 3vw;
+  }
+  .rightTextBlock{}
+
+  .imgContainer {
+    margin-right: auto;
+    margin-bottom: 2.5vh;
+    display: block;
+    position: relative;
+    // border-radius: 5px;
+    // overflow: hidden;
+    &.rightAligned {
+      margin-right: 0;
+      margin-left: auto;
+    }
+
+    &.bottomMargin0_5 {
+      margin-bottom: 0.5vh;
+    }
+
+    &.bottomMargin1 {
+      margin-bottom: 1vh;
+    }
+
+    &.lazy {
+      background-color: #c4c4c4;
+    }
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      top: 0px;
+      // width: auto;
+      background-size: contain;
+      background-repeat: no-repeat;
+      border-radius: 0.7vh;
+    }
+    &.loaded {
+      //.img.about_1 {
+      //  background-image: url("./assets/about_1.jpg") ;
+      //}
+      //.img.about_2 {
+      //  background-image: url("./assets/about_2.jpg");
+      //}
+      //.img.about_3 {
+      //  background-image: url("./assets/about_3.jpg");
+      //}
+      //.img.about_4 {
+      //  background-image: url("./assets/about_4.jpg");
+      //}
+      //.img.about_5 {
+      //  background-image: url("./assets/about_5.jpg");
+      //}
+    }
+
+    #cadrNumsContainer {
+      display: flex;
+      flex-flow: row nowrap;
+      .cadrNum {
+        margin-right: 1.5vh;
+        cursor: pointer;
+        &.chosen {
+          opacity: 0.5;
+        }
+        p {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+.cadrsContainer {
+  .cadr {
+    display: none;
+    &.visible {
+      display: block;
+    }
+    img {
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 0.7vh;
+
+      display: inline-block;
+      &.width70 {
+        width: 70vw;
+        //padding-bottom: 60.422671%;
+      }
+    }
+  }
+}
+
+.cadrNumsContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: calc(18vw - 1vh);
+  .cadrNum {
+    padding: 1vh;
+    cursor: pointer;
+    &.chosen {
+      opacity: 0.5;
+    }
+    p {
+      pointer-events: none;
+    }
+  }
+}
+
+.dark, .light{
+  //height: 100%;
+  width: 100%;
+  padding-left: 20%;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.dark {
+  p {
+    color: rgb(230, 230, 230);
+  }
+  background-color: rgb(25, 25, 25);
+}
+
+.light {
+  background-color: rgb(230, 230, 230);
+  p {
+    color: rgb(25, 25, 25);
+  }
+}
+
+@font-face {
+  font-family: 'decimamonox';
+  src: url('/fonts/decimamonox-webfont.woff2') format('woff2'), url('/fonts/decimamonox-webfont.woff') format('woff');
 }

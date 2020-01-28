@@ -9,3 +9,5 @@ dist
 dist1
 .cache
 node_modules
+
+.idea/

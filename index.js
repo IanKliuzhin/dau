@@ -1,4 +1,4 @@
-import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+import { addNumsPicChanger, addNumsPicChanger2, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './helpers/getHTML'
 import { lazyLoadImages } from "./helpers/lazyImagesLoader";
 import { makeMapHints } from "./helpers/mapHintsMaker";
@@ -68,6 +68,9 @@ document.addEventListener(
             addNumsPicChanger(page.contentWindow.document)
             makeMapHints(page.contentWindow.document)
             lazyLoadImages(page.contentWindow.document)
+          } else if (pageName === "about") {
+            lazyLoadImages(page.contentWindow.document)
+            addNumsPicChanger2(page.contentWindow.document)
           }
         }
       });

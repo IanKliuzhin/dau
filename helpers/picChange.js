@@ -15,7 +15,7 @@ export const addThumbnailsPicChanger = (doc) => {
 }
 
 export const addPointsPicChanger = (doc) => {
-  const containers = [doc.getElementById('nora'), doc.getElementById('vika2')]
+  const containers = [doc.getElementById('nora'), doc.getElementById('vika2'), doc.getElementById('natasha'), doc.getElementById('degeneration')]
   containers.forEach((container) => {
     const shown = container.getElementsByClassName('shown');
     const points = container.getElementsByClassName('clickableArea');
@@ -43,5 +43,25 @@ export const addNumsPicChanger = (doc) => {
       if (prevCadr.length > 0) prevCadr[0].classList.remove('visible')
       cadrsContainer.getElementsByClassName(`cadr${i + 1}`)[0].classList.add('visible')
     })
+  }
+}
+
+export const addNumsPicChanger2 = (doc) => {
+  const cadrsContainers = doc.getElementsByClassName("cadrsContainer");
+  const cadrNumsContainers = doc.getElementsByClassName("cadrNumsContainer");
+  for (let j = 0; j < cadrsContainers.length; j++) {
+
+    const nums = cadrNumsContainers[j].getElementsByClassName('cadrNum')
+
+    for (let i = 0; i < nums.length; i++) {
+      nums[i].addEventListener('click', (e) => {
+        const prev = cadrNumsContainers[j].getElementsByClassName('chosen');
+        if (prev.length > 0) prev[0].classList.remove('chosen')
+        e.target.classList.add('chosen');
+        const prevCadr = cadrsContainers[j].getElementsByClassName('visible')
+        if (prevCadr.length > 0) prevCadr[0].classList.remove('visible')
+        cadrsContainers[j].getElementsByClassName(`cadr${i + 1}`)[0].classList.add('visible')
+      })
+    }
   }
 }
