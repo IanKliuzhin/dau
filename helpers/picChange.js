@@ -2,13 +2,13 @@ export const addThumbnailsPicChanger = (doc) => {
   const showns = [doc.getElementById('alina'), doc.getElementById('vika')];
 
   showns.forEach((shown) => {
-    const thumbnails = shown.getElementsByTagName('img');
+    const thumbnails = shown.getElementsByClassName('imgContainer');
     for (var i = 0; i < thumbnails.length; i++) {
       thumbnails[i].addEventListener('click', (e) => {
         const prev = shown.getElementsByClassName('selected')
         if (prev.length > 0) prev[0].classList.remove('selected')
         e.target.classList.add('selected');
-        shown.style.backgroundImage = `url(${e.target.getAttribute('src')})`
+        shown.style.backgroundImage = window.getComputedStyle(e.target.getElementsByClassName('img')[0]).getPropertyValue('background-image')
       })
     }
   });

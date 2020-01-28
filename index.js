@@ -1,6 +1,7 @@
 import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import {getHTML} from './helpers/getHTML'
 import { makeMapHints } from "./helpers/mapHintsMaker";
+import { lazyLoadImages } from "./helpers/lazyImagesLoader";
 
 const pageNames = ["main", "institute", "participants", "documents"]
 const linkTitles = {
@@ -53,6 +54,7 @@ document.addEventListener(
             const scroll = sessionStorage.getItem('scroll_participants')
             addThumbnailsPicChanger(page.contentWindow.document)
             addPointsPicChanger(page.contentWindow.document)
+            lazyLoadImages(page.contentWindow.document)
             if (scroll) {
               page.contentWindow.document.documentElement.scrollLeft = parseInt(scroll, 0)
               page.contentWindow.document.body.scrollLeft = parseInt(scroll, 0)
@@ -65,6 +67,7 @@ document.addEventListener(
             }
             addNumsPicChanger(page.contentWindow.document)
             makeMapHints(page.contentWindow.document)
+            lazyLoadImages(page.contentWindow.document)
           }
         }
       });
