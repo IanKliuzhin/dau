@@ -20,11 +20,17 @@ body {
     display: inline-block;
     line-height: 1.5;
   }
+  @media (max-width: 481px) {
+    max-width: 216px;
+  }
 }
 
 #shiftContainer {
-  margin-top: 2vh;
+  margin-top: 2em;
   position: relative;
+  @media (max-width: 481px) {
+    margin-top: 0;
+  }
 }
 
 .shiftContainer div {
@@ -37,6 +43,9 @@ body {
 
 .nat_title {
   margin-top: 3em;
+  @media (max-width: 481px) {
+    margin-top: 1em;
+  }
 }
 
 .nat {
@@ -45,6 +54,9 @@ body {
 
 .nat_date {
   margin-top: 2em;
+  @media (max-width: 481px) {
+    margin-top: 1em;
+  }
 }
 
 
@@ -54,10 +66,16 @@ body {
 
 .deg_title {
   margin-top: 3em;
+  @media (max-width: 481px) {
+    margin-top: 1em;
+  }
 }
 
 .deg_date {
-  margin-top: 2em;;
+  margin-top: 2em;
+  @media (max-width: 481px) {
+    margin-top: 1em;
+  }
 }
 
 .deg_tbc_place {
@@ -71,6 +89,9 @@ body {
 .feb_11 {
   margin-top: 3em;
   position: relative;
+  @media (max-width: 481px) {
+    margin-top: 1em;
+  }
 }
 
 // #register {
