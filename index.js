@@ -52,6 +52,12 @@ document.addEventListener(
       linksBar.classList.add('above', 'folded')
       Object.entries(links).forEach(([,link]) => link.classList.remove('visible'))
       const burger = document.getElementById('burger')
+      if (pageName === "main") {
+        pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
+        const lines = pages.main.contentWindow.document.getElementById('lines')
+        lines.style.width = ""
+        lines.style.height = ""
+      }
       setTimeout(() => {
         links[pageName].classList.add('chosen', 'visible')
         linksBar.classList.remove('above')
@@ -59,7 +65,7 @@ document.addEventListener(
         burger.addEventListener('click', showLinksBar)
         Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('withTransition')))
         if (oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('shown', 'withTransition')
-        else if (pageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
+        // else if (pageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
         pages.main.contentWindow.document.tl.progress(1, false);
       }, 600);
       if (oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
@@ -118,7 +124,9 @@ document.addEventListener(
       });
     }
 
-    pageNames.forEach((pageName) => {
+    const releasePageNames = ["main", "about"]
+
+    releasePageNames.forEach((pageName) => {
       const page = document.createElement("iframe")
       page.classList.add(pageName)
       if (pageName === "main") {

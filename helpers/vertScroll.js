@@ -18,10 +18,7 @@ export const addVertScroll = (main, about, changePage) => {
         lines.style.height = `${oldHeight - 9.6}%`
         about.style.top = `${oldTop - 5}%`
       } else {
-        lines.style.width = ""
-        lines.style.height = ""
         about.style.top = ""
-        lines.classList.remove('shown')
         main.classList.remove('visible')
         changePage('about', 'main')
         if (mainDoc.removeEventListener) {
