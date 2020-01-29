@@ -117,7 +117,7 @@ document.addEventListener(
             makeMapHints(page.contentWindow.document)
             lazyLoadImages(page.contentWindow.document)
           } else if (pageName === "about") {
-            lazyLoadImages(page.contentWindow.document)
+            // lazyLoadImages(page.contentWindow.document)
             addNumsPicChanger2(page.contentWindow.document)
           }
         }
@@ -140,11 +140,13 @@ document.addEventListener(
       page.src = sources[pageName]
       if (loadingPageName === "" && pageName === "main") {
         page.classList.add('visible')
-      } else if (loadingPageName === pageName) {
+      } else if (loadingPageName === 'about') {
         clearVisibiles()
         setTimeout(() => {
           // loadPageContent(pageName)
           page.classList.add("loaded", "visible")
+          // lazyLoadImages(page.contentWindow.document)
+          addNumsPicChanger2(page.contentWindow.document)
         }, 300);
       }
     })
