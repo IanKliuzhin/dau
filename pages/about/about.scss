@@ -29,6 +29,20 @@ html, body {
       font-size: 0.9vw;
       white-space: pre;
     }
+    iframe {
+      @media (min-width: 320px) {
+        margin: -365px 0;
+      }
+      @media (min-width: 500px) {
+        margin: -305px 0;
+      }
+      @media (min-width: 845px) {
+        margin: -220px 0;
+      }
+      @media (min-width: 1350px) {
+        margin: -100px 0;
+      }
+    }
   }
 
 
