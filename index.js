@@ -182,8 +182,9 @@ document.addEventListener(
         const burger = document.getElementById('burger')
         if (burger) burger.classList.add('shown')
         Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
+        console.log('pages.main.contentWindow.document.getElementById("linesContainer")', pages.main.contentWindow.document.getElementById("linesContainer"));
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
-      }, 300);
+      }, 650);
       setTimeout(() => {
         pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
         addVertScroll(pages.main, pages.about, changePage)
