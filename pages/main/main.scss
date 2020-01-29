@@ -15,39 +15,68 @@ body {
   padding: 3.5em 1.9em;
 }
 
-#disapContainer {
+.line {
+  div {
+    display: inline-block;
+    line-height: 1.5;
+  }
+}
+
+#shiftContainer {
+  margin-top: 2vh;
   position: relative;
 }
 
-#disapContainer div {
+.shiftContainer div {
   position: relative;
 }
 
-#whichTook {
-  margin-top: 2em;
+.at_fest {
+  position: relative;
 }
 
-#from24 {
-  margin-top: 2em;
-}
-
-#over {
+.nat_title {
   margin-top: 3em;
 }
 
-#over .carriage, #weLook .carriage {
+.nat {
+  position: relative;
+}
+
+.nat_date {
+  margin-top: 2em;
+}
+
+
+.nat_tbc_place {
+  position: relative;
+}
+
+.deg_title {
+  margin-top: 3em;
+}
+
+.deg_date {
+  margin-top: 2em;;
+}
+
+.deg_tbc_place {
+  position: relative;
+}
+
+.at_fest .carriage, .nat_title .carriage {
   margin-right: -0.7em;
 }
 
-#weLook {
+.feb_11 {
   margin-top: 3em;
   position: relative;
 }
 
-#register {
-  margin-top: 2em;
-  position: relative;
-}
+// #register {
+//   margin-top: 2em;
+//   position: relative;
+// }
 
 .carriage {
   display: inline-block;
