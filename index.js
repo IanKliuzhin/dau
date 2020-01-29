@@ -143,7 +143,7 @@ document.addEventListener(
       } else if (loadingPageName === pageName) {
         clearVisibiles()
         setTimeout(() => {
-          loadPageContent(pageName)
+          // loadPageContent(pageName)
           page.classList.add("loaded", "visible")
         }, 300);
       }
