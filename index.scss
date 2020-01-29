@@ -156,7 +156,11 @@ iframe {
     &.visible {
       opacity: 1;
     }
+    &.disabled {
+      color: #808080;
+    }
     @media (max-width: 481px) {
+      font-size: 3vw;
       &.chosen {
         transition: opacity 0s 0s;
         top: 0.7em !important;

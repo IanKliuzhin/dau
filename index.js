@@ -172,6 +172,7 @@ document.addEventListener(
         const oldPageName = getVisiblePageName()
         changePage(pageName, oldPageName)
       })
+      else link.classList.add('disabled')
     })
 
     if (loadingPageName === '') {
