@@ -9,7 +9,15 @@ body {
   height: 100%;
   margin: 0px;
   font-family: 'decimamonox';
-  font-size: 0.8em;
+  font-size: 9px;
+  line-height: 14px;
+  font-feature-settings: 'liga' off;
+  font-variant-ligatures: no-common-ligatures;
+  @media (max-width: 680px) {
+    font-size: 12px;
+    line-height: 18.6px;
+  }
+
   // background-color: rgb(25, 25, 25);
   color: rgb(230, 230, 230);
   padding: 3.5em 1.9em;
@@ -18,17 +26,17 @@ body {
 .line {
   div {
     display: inline-block;
-    line-height: 1.5;
+    // line-height: 1.5;
   }
-  @media (max-width: 481px) {
-    max-width: 216px;
+  @media (max-width: 680px) {
+    max-width: 260px;
   }
 }
 
 #shiftContainer {
   margin-top: 2em;
   position: relative;
-  @media (max-width: 481px) {
+  @media (max-width: 680px) {
     margin-top: 0;
   }
 }
@@ -43,7 +51,7 @@ body {
 
 .nat_title {
   margin-top: 3em;
-  @media (max-width: 481px) {
+  @media (max-width: 680px) {
     margin-top: 1em;
   }
 }
@@ -54,7 +62,7 @@ body {
 
 .nat_date {
   margin-top: 2em;
-  @media (max-width: 481px) {
+  @media (max-width: 680px) {
     margin-top: 1em;
   }
 }
@@ -66,14 +74,14 @@ body {
 
 .deg_title {
   margin-top: 3em;
-  @media (max-width: 481px) {
+  @media (max-width: 680px) {
     margin-top: 1em;
   }
 }
 
 .deg_date {
   margin-top: 2em;
-  @media (max-width: 481px) {
+  @media (max-width: 680px) {
     margin-top: 1em;
   }
 }
@@ -89,8 +97,9 @@ body {
 .feb_11 {
   margin-top: 3em;
   position: relative;
-  @media (max-width: 481px) {
+  @media (max-width: 680px) {
     margin-top: 1em;
+    max-width: 190px;
   }
 }
 
@@ -101,7 +110,7 @@ body {
 
 .carriage {
   display: inline-block;
-  position: absolute;
+  position: relative;
   width: 0.1em;
   height: 1em;
   top: 0.1em;
@@ -160,7 +169,7 @@ body {
   pointer-events: none;
   mix-blend-mode: difference;
   z-index: 1;
-  @media (max-width: 481px) {
+  @media (max-width: 680px) {
     display: none;
   }
   #lines {

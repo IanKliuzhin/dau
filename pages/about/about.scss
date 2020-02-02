@@ -1,14 +1,26 @@
 @font-face {
-  font-family: 'decimamonox';
-  src: url('/fonts/decimamonox-webfont.woff2') format('woff2'), url('/fonts/decimamonox-webfont.woff') format('woff');
+  font-family: "decimamonox";
+  src: url("/fonts/decimamonox-webfont.woff2") format("woff2"),
+    url("/fonts/decimamonox-webfont.woff") format("woff");
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100vh;
   margin: 0px;
   overscroll-behavior: none;
-  white-space: nowrap;
+}
+
+@media (min-width: 681px) {
+  .mobile {
+    display: none !important;
+  }
+}
+@media (max-width: 680px) {
+  .desktop {
+    display: none !important;
+  }
 }
 
 #scrollContainer {
@@ -21,190 +33,191 @@ html, body {
 
   .contentWrapper {
     display: inline-block;
-    text-align: left;
-    .textline {
-      font-family: "decimamonox";
-      display: block;
-      line-height: 1.8;
-      font-size: 0.9vw;
-      white-space: pre;
+    width: 375px;
+    position: relative;
+    @media (min-width: 681px) {
+      width: 612px;
     }
-    iframe {
-      @media (min-width: 320px) {
-        margin: -365px 0;
-      }
-      @media (min-width: 500px) {
-        margin: -305px 0;
-      }
-      @media (min-width: 845px) {
-        margin: -220px 0;
-      }
-      @media (min-width: 1350px) {
-        margin: -100px 0;
+
+    &.hor {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      .textContentWrapper {
+        @media (min-width: 681px) {
+          &.dau {
+            width: 79px;
+            padding: 0 8px;
+          }
+        }
       }
     }
-  }
 
-
-  .columnsWrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    .leftTextBlock {
+    .textContentWrapper {
       display: inline-block;
+      text-align: left;
+      padding: 0 34px;
+      width: 100%;
+      box-sizing: border-box;
+      .text {
+        font-family: "decimamonox";
+        display: block;
+        font-size: 12px;
+        line-height: 18.6px;
+        font-feature-settings: "liga" off;
+        font-variant-ligatures: no-common-ligatures;
+        @media (min-width: 680px) {
+          font-size: 9px;
+          line-height: 14px;
+        }
+      }
+      .columnsWrapper {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        .leftTextBlock {
+          display: inline-flex;
+          flex-flow: column nowrap;
+          // flex-grow: 0;
+          width: 109px;
+           @media (min-width: 681px) {
+            margin-left: 59px;
+            width: 120px;
+           }
+        }
+        .rightTextBlock {
+          display: inline-flex;
+          flex-flow: column nowrap;
+          // flex-grow: 0;
+          width: 123px;
+          @media (min-width: 681px) {
+            width: unset;
+          }
+        }
+        &.cast {
+          flex-flow: column nowrap;
+          margin-bottom: 14px;
+          @media (min-width: 681px) {
+            flex-flow: row nowrap;
+            margin-bottom: 0px;
+            .role {
+              margin-left: 59px;
+              width: 120px;
+            }
+          }
+        }
+      }
+    }
+
+    .imgWrapper {
+      img {
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 4px;
+    
+        display: inline-block;
+    
+        &.width30 {
+          width: 30vw;
+        }
+      }
+    }
+
+    .cadrsContainer {
+      display: inline-block;
+      padding: 0 8px;
+      .cadr {
+        display: none;
+        &.visible {
+          display: block;
+        }
+        img {
+          width: 100%;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border-radius: 4px;
+          display: inline-block;
+        }
+      }
     }
     
-    .rightTextBlock {
-      display: inline-block;
-    }
-  }
-
-  .blocksWrapper{
-    width: 71vw;
-    display: flex;
-    justify-content: space-between;
-
-    .leftBlock{
-      margin-right: 1vw;
-    }
-    .rightBlock{
-
-    }
-    .leftBlock, .rightBlock{
-      flex: 1;
-      position: relative;
-      img {
-        width: 35vw;
-        height: auto;
-        border-radius: 0.7vh;
-      }
-      .leftTextBlock {
-        min-width: 10vw;
-        padding-left: 5vw;
-        padding-right: 3vw;
-      }
-      .rightTextBlock {}
-    }
-
-  }
-
-
-
-  .imgContainer {
-    margin-right: auto;
-    margin-bottom: 2.5vh;
-    display: block;
-    position: relative;
-    &.rightAligned {
-      margin-right: 0;
-      margin-left: auto;
-    }
-
-    &.bottomMargin0_5 {
-      margin-bottom: 0.5vh;
-    }
-
-    &.bottomMargin1 {
-      margin-bottom: 1vh;
-    }
-
-    &.lazy {
-      background-color: #c4c4c4;
-    }
-    img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0px;
-      top: 0px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      border-radius: 0.7vh;
-    }
-    &.width57 {
-      width: 57vh;
-      &.height29 {
-        padding-top: 50.8771929824561%;
-      }
-    }
-    &.loaded {
-    }
-
-    #cadrNumsContainer {
-      display: flex;
+    .cadrNumsContainer {
+      display: inline-flex;
       flex-flow: row nowrap;
+      margin-left: -7px;
       .cadrNum {
-        margin-right: 1.5vh;
+        padding: 7px;
         cursor: pointer;
         &.chosen {
           opacity: 0.5;
         }
-        p {
+        .text {
           pointer-events: none;
+        }
+      }
+    }
+
+    .filmBlocksContainer {
+      display: inline-flex;
+      flex-flow: column nowrap;
+      position: relative;
+      .filmBlock {
+        img {
+          width: 100%;
+          height: auto;
+          padding: 0 8px;
+          box-sizing: border-box;
+        }
+        margin-bottom: 42px;
+      }
+      @media (min-width: 681px) {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 598px;
+        position: relative;
+        .filmBlock {
+          width: calc(50% - 2px);
+          .textContentWrapper {
+            padding: 0;
+            max-width: 276px;
+            text-align: left;
+            .cast {
+              margin-bottom: 14px;
+              .role {
+                margin-left: 0px;
+              }
+            }
+          }
+          img {
+            padding: 0px;
+          }
+        }
+      }
+    }
+    .videoContainer {
+      width: 100%;
+      padding: 0 8px;
+      box-sizing: border-box;
+      iframe {
+        border-radius: 4px;
+        height: 200px;
+        @media (min-width: 681px) {
+          height: 400px;
         }
       }
     }
   }
 }
 
-.imgWrapper {
-  img {
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 0.7vh;
-
-    display: inline-block;
-
-    &.width30 {
-      width: 30vw;
-      //padding-bottom: 60.422671%;
-    }
-  }
-}
-.cadrsContainer {
-  display: inline-block;
-  .cadr {
-    display: none;
-    &.visible {
-      display: block;
-    }
-    img {
-      width: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 0.7vh;
-
-      display: inline-block;
-      &.width70 {
-        width: 70vw;
-        //padding-bottom: 60.422671%;
-      }
-    }
-  }
-}
-
-.cadrNumsContainer {
-  display: inline-flex;
-  flex-flow: row nowrap;
-  .cadrNum {
-    padding: 0.4em;
-    cursor: pointer;
-    &.chosen {
-      opacity: 0.5;
-    }
-    p {
-      pointer-events: none;
-    }
-  }
-}
-
-.dark, .light{
+.dark,
+.light {
   width: 100%;
 }
 
 .dark {
-  .textline {
+  .textline, .text {
     color: rgb(230, 230, 230);
   }
   background-color: rgb(25, 25, 25);
@@ -212,7 +225,7 @@ html, body {
 
 .light {
   background-color: rgb(230, 230, 230);
-  .textline {
+  .textline, .text {
     color: rgb(25, 25, 25);
   }
 }

@@ -312,6 +312,24 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
+  tl.staggerFromTo(
+    ".feb_11>.carriage",
+    0.12,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+      repeat: 6,
+      yoyo: true,
+    },
+    0.12,
+    "+=0"
+  )
+
+  tl.set(".feb_11>.carriage", {opacity: 0}, "+=0")
+
+
   // tl.staggerFromTo(
   //   "#weLook>.carriage",
   //   0.12,
