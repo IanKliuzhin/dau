@@ -33,7 +33,7 @@ body {
 
   .contentWrapper {
     display: inline-block;
-    width: 375px;
+    width: 100%;
     position: relative;
     @media (min-width: 681px) {
       width: 80%;
@@ -56,11 +56,11 @@ body {
     .textContentWrapper {
       display: inline-block;
       text-align: left;
-      padding: 0 34px;
+      padding: 0 9%;
       width: 100%;
       box-sizing: border-box;
       @media (min-width: 681px) {
-        padding: 0 8px;
+        padding: 0 2%;
       }
       .text {
         font-family: "decimamonox";
@@ -83,7 +83,7 @@ body {
           display: inline-flex;
           flex-flow: column nowrap;
           // flex-grow: 0;
-          width: 109px;
+          width: 29%;
            @media (min-width: 681px) {
             margin-left: 13%;
             width: 21%;
@@ -93,7 +93,7 @@ body {
           display: inline-flex;
           flex-flow: column nowrap;
           // flex-grow: 0;
-          width: 123px;
+          width: 32.8%;
           @media (min-width: 681px) {
             width: 24em;
           }
@@ -130,7 +130,7 @@ body {
 
     .cadrsContainer {
       display: inline-block;
-      padding: 0 8px;
+      padding: 0 2%;
       .cadr {
         display: none;
         &.visible {
@@ -149,9 +149,9 @@ body {
     .cadrNumsContainer {
       display: inline-flex;
       flex-flow: row nowrap;
-      margin-left: -7px;
+      margin-left: -1.86%;
       .cadrNum {
-        padding: 7px;
+        padding: 1.86%;
         cursor: pointer;
         &.chosen {
           opacity: 0.5;
@@ -170,7 +170,7 @@ body {
         img {
           width: 100%;
           height: auto;
-          padding: 0 8px;
+          padding: 0 2%;
           box-sizing: border-box;
         }
         margin-bottom: 42px;
@@ -178,7 +178,7 @@ body {
       @media (min-width: 681px) {
         flex-flow: row nowrap;
         justify-content: space-between;
-        width: calc(100% - 14px);
+        width: calc(100% - 3.7%);
         position: relative;
         .filmBlock {
           width: calc(50% - 2px);

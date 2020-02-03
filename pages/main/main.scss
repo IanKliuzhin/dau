@@ -46,7 +46,9 @@ body {
 
 .at_fest {
   position: relative;
-  max-width: 9em;
+  @media (max-width: 905px) {
+    max-width: 22em;
+  }
 }
 
 .nat_title {
