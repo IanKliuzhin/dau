@@ -50,7 +50,7 @@ document.addEventListener(
       const linksBar = document.getElementById('linksBar')
       linksBar.classList.remove('expanded')
       linksBar.classList.add('above', 'folded')
-      Object.entries(links).forEach(([,link]) => link.classList.remove('visible'))
+      Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'clickable'))
       const burger = document.getElementById('burger')
       burger.classList.add('clicked')
       if (pageName === "main") {
@@ -60,7 +60,11 @@ document.addEventListener(
         lines.style.height = ""
       }
       setTimeout(() => {
-        links[pageName].classList.add('chosen', 'visible')
+        Object.keys(links).forEach((pN) => {
+          if (pN === pageName) links[pN].classList.add("chosen", "visible")
+          else links[pN].classList.add("clickable")
+        })
+        // links[pageName].classList.add('chosen', 'visible')
         linksBar.classList.remove('above')
         burger.classList.add('clickable')
         burger.addEventListener('click', showLinksBar)
@@ -142,13 +146,16 @@ document.addEventListener(
       if (loadingPageName === "" && pageName === "main") {
         page.classList.add('visible')
       } else if (loadingPageName === 'about') {
-        clearVisibiles()
+        // clearVisibiles()
+        // setTimeout(() => {
+        //   // loadPageContent(pageName)
+        //   page.classList.add("loaded", "visible")
+        //   // lazyLoadImages(page.contentWindow.document)
+        //   addNumsPicChanger2(page.contentWindow.document)
+        // }, 300);
         setTimeout(() => {
-          // loadPageContent(pageName)
-          page.classList.add("loaded", "visible")
-          // lazyLoadImages(page.contentWindow.document)
-          addNumsPicChanger2(page.contentWindow.document)
-        }, 300);
+          changePage('about', 'main')
+        }, 500);
       }
     })
 
@@ -156,12 +163,12 @@ document.addEventListener(
       const linksBar = document.getElementById('linksBar')
       const burger = document.getElementById('burger')
       burger.removeEventListener('click', showLinksBar)
-      Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'chosen'))
+      Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'clickable', 'chosen'))
       linksBar.classList.remove('folded')
       linksBar.classList.add('expanded')
       clearVisibiles()
       setTimeout(() => {
-        Object.entries(links).forEach(([,link]) => link.classList.add('visible'))
+        Object.entries(links).forEach(([,link]) => link.classList.add('visible', 'clickable'))
       }, 1000);
     }
 
@@ -183,6 +190,7 @@ document.addEventListener(
       setTimeout(() => {
         if (burger) burger.classList.add('shown')
         Object.entries(links).forEach(([pageName,link]) => (pageName !== 'main') && link.classList.add('visible'))
+        links.about.classList.add('clickable')
         // console.log('pages.main.contentWindow.document.getElementById("linesContainer")', pages.main.contentWindow.document.getElementById("linesContainer"));
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
       }, 650);
@@ -197,6 +205,7 @@ document.addEventListener(
         burger.classList.add('shown', 'clickable')
         burger.addEventListener('click', showLinksBar)
         links[loadingPageName].classList.add('visible', 'chosen')
+        links.main.classList.add('clickable')
       }, 1000);
     }
   },

@@ -112,7 +112,7 @@ iframe {
       #burger {
         // transition: bottom 1s, width 1s, height 1s;
         transition: bottom 0.5s, width 0.5s, height 0.5s;
-        bottom: calc(100% - 2em);
+        bottom: calc(100% - 1.75em);
         height: 1.5em !important;
         width: 100% !important;
         .block {
@@ -149,13 +149,12 @@ iframe {
   .link {
     position: absolute;
     display: inline-block;
-    // font-size: 1vw;
     color: rgb(240, 240, 240);
     mix-blend-mode: exclusion;
     transition: opacity 0.3s 0.2s;
     pointer-events: none;
-    font-size: 9px;
-    line-height: 14px;
+    font-size: 9pt;
+    line-height: 14pt;
     font-feature-settings: 'liga' off;
     font-variant-ligatures: no-common-ligatures;
     &.main, &.about {
@@ -163,17 +162,19 @@ iframe {
     }
     &.visible {
       opacity: 1;
+    }
+    &.clickable {
       pointer-events: all;
     }
     &.disabled {
       color: #808080;
     }
     @media (max-width: 680px) {
-      font-size: 12px;
-      line-height: 18.6px;
+      font-size: 12pt;
+      line-height: 18.6pt;
       &.chosen {
         transition: opacity 0s 0s;
-        top: 0.7em !important;
+        top: 0.3em !important;
         bottom: unset !important;
         left: 50% !important;
         transform: translateX(-50%);
