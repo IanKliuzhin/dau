@@ -29,7 +29,7 @@ body {
     // line-height: 1.5;
   }
   @media (max-width: 680px) {
-    max-width: 260px;
+    max-width: 22em;
   }
 }
 
@@ -51,9 +51,9 @@ body {
 
 .nat_title {
   margin-top: 3em;
-  @media (max-width: 680px) {
-    margin-top: 1em;
-  }
+  // @media (max-width: 680px) {
+  //   margin-top: 1em;
+  // }
 }
 
 .nat {
@@ -74,9 +74,9 @@ body {
 
 .deg_title {
   margin-top: 3em;
-  @media (max-width: 680px) {
-    margin-top: 1em;
-  }
+  // @media (max-width: 680px) {
+  //   margin-top: 1em;
+  // }
 }
 
 .deg_date {
@@ -98,8 +98,8 @@ body {
   margin-top: 3em;
   position: relative;
   @media (max-width: 680px) {
-    margin-top: 1em;
-    max-width: 190px;
+    // margin-top: 1em;
+    max-width: 16em;
   }
 }
 
