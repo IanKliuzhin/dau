@@ -153,8 +153,8 @@ iframe {
     mix-blend-mode: exclusion;
     transition: opacity 0.3s 0.2s;
     pointer-events: none;
-    font-size: 9pt;
-    line-height: 14pt;
+    font-size: 1vw;
+    line-height: 1.55vw;
     font-feature-settings: 'liga' off;
     font-variant-ligatures: no-common-ligatures;
     &.main, &.about {

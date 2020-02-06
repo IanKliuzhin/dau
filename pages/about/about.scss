@@ -93,7 +93,7 @@ body {
           display: inline-flex;
           flex-flow: column nowrap;
           // flex-grow: 0;
-          width: 32.8%;
+          width: 52%;
           @media (min-width: 681px) {
             width: 24em;
           }
@@ -116,15 +116,10 @@ body {
     .imgWrapper {
       img {
         width: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
+        // background-size: cover;
+        // background-repeat: no-repeat;
         border-radius: 4px;
-    
         display: inline-block;
-    
-        &.width30 {
-          width: 30vw;
-        }
       }
     }
 
@@ -167,13 +162,18 @@ body {
       flex-flow: column nowrap;
       position: relative;
       .filmBlock {
+        position: relative;
+        text-align: left;
         img {
-          width: 100%;
+          width: 96%;
           height: auto;
-          padding: 0 2%;
-          box-sizing: border-box;
+          margin: 0 auto;
+          border-radius: 4px;
         }
-        margin-bottom: 42px;
+        margin-bottom: 74.4px;
+        .textContentWrapper {
+          max-width: 91.2%;
+        }
       }
       @media (min-width: 681px) {
         flex-flow: row nowrap;
@@ -182,6 +182,7 @@ body {
         position: relative;
         .filmBlock {
           width: calc(50% - 2px);
+          margin-bottom: 6.2vw;
           .textContentWrapper {
             padding: 0;
             // max-width: 276px;
@@ -194,9 +195,9 @@ body {
               }
             }
           }
-          img {
-            padding: 0px;
-          }
+          // img {
+          //   padding: 0px;
+          // }
         }
       }
     }
@@ -230,7 +231,7 @@ body {
 }
 
 .dark {
-  .textline, .text {
+  .text {
     color: rgb(230, 230, 230);
   }
   background-color: rgb(25, 25, 25);
@@ -238,7 +239,7 @@ body {
 
 .light {
   background-color: rgb(230, 230, 230);
-  .textline, .text {
+  .text {
     color: rgb(25, 25, 25);
   }
 }
