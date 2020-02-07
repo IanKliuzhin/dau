@@ -145,7 +145,7 @@ document.addEventListener(
       page.src = sources[pageName]
       if (loadingPageName === "" && pageName === "main") {
         page.classList.add('visible')
-      } else if (loadingPageName === 'about') {
+      } else if (loadingPageName === 'about' && pageName === "about") {
         // clearVisibiles()
         // setTimeout(() => {
         //   // loadPageContent(pageName)

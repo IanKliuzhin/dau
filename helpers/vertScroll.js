@@ -18,9 +18,11 @@ export const addVertScroll = (main, about, changePage) => {
         lines.style.height = `${oldHeight - 9.6}%`
         about.style.top = `${oldTop - 5}%`
       } else {
-        about.style.top = ""
-        main.classList.remove('visible')
-        changePage('about', 'main')
+        if (main.classList.contains('visible')) {
+          about.style.top = ""
+          main.classList.remove('visible')
+          changePage('about', 'main')
+        }
         if (mainDoc.removeEventListener) {
             mainDoc.removeEventListener("mousewheel", scrollVertically);
             mainDoc.removeEventListener("DOMMouseScroll", scrollVertically);

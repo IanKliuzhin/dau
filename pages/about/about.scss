@@ -100,7 +100,7 @@ body {
         }
         &.cast {
           flex-flow: column nowrap;
-          margin-bottom: 14px;
+          margin-bottom: 18px;
           @media (min-width: 681px) {
             flex-flow: row nowrap;
             margin-bottom: 0px;
@@ -130,6 +130,7 @@ body {
         display: none;
         &.visible {
           display: block;
+          cursor: pointer;
         }
         img {
           width: 100%;
@@ -137,6 +138,7 @@ body {
           background-repeat: no-repeat;
           border-radius: 4px;
           display: inline-block;
+          pointer-events: none;
         }
       }
     }
@@ -144,16 +146,17 @@ body {
     .cadrNumsContainer {
       display: inline-flex;
       flex-flow: row nowrap;
-      margin-left: -1.86%;
+      margin-left: 2%;
       .cadrNum {
-        padding: 1.86%;
+        padding: 2%;
+        min-width: 1em;
         cursor: pointer;
         &.chosen {
           opacity: 0.5;
         }
-        .text {
-          pointer-events: none;
-        }
+        // .text {
+        //   pointer-events: none;
+        // }
       }
     }
 
@@ -170,7 +173,7 @@ body {
           margin: 0 auto;
           border-radius: 4px;
         }
-        margin-bottom: 74.4px;
+        margin-bottom: 54px;
         .textContentWrapper {
           max-width: 91.2%;
         }
@@ -188,16 +191,17 @@ body {
             // max-width: 276px;
             text-align: left;
             .cast {
-              margin-bottom: 14px;
+              margin-bottom: 18px;
               .role {
                 margin-left: 0px;
                 width: 50%;
               }
             }
           }
-          // img {
-          //   padding: 0px;
-          // }
+          img {
+            // padding: 0px;
+            margin-left: 2%;
+          }
         }
       }
     }

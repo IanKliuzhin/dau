@@ -9,8 +9,8 @@ body {
   height: 100%;
   margin: 0px;
   font-family: 'decimamonox';
-  font-size: 9pt;
-  line-height: 14pt;
+  font-size: 1vw;
+  line-height: 1.55vw;
   font-feature-settings: 'liga' off;
   font-variant-ligatures: no-common-ligatures;
   @media (max-width: 680px) {
@@ -33,11 +33,11 @@ body {
 }
 
 #shiftContainer {
-  margin-top: 1.5em;
+  // margin-top: 0.5em;
   position: relative;
-  @media (max-width: 680px) {
-    margin-top: 0;
-  }
+  // @media (max-width: 680px) {
+  //   margin-top: 0;
+  // }
 }
 
 .shiftContainer div {
@@ -52,7 +52,7 @@ body {
 }
 
 .nat_title {
-  margin-top: 2.5em;
+  margin-top: 2em;
   // @media (max-width: 680px) {
   //   margin-top: 1em;
   // }
@@ -63,7 +63,7 @@ body {
 }
 
 .nat_date {
-  margin-top: 1.5em;
+  // margin-top: 1.5em;
   @media (max-width: 680px) {
     margin-top: 1em;
   }
@@ -75,14 +75,14 @@ body {
 }
 
 .deg_title {
-  margin-top: 2.5em;
+  margin-top: 2em;
   // @media (max-width: 680px) {
   //   margin-top: 1em;
   // }
 }
 
 .deg_date {
-  margin-top: 2em;
+  // margin-top: 2em;
   @media (max-width: 680px) {
     margin-top: 1em;
   }
@@ -97,7 +97,7 @@ body {
 }
 
 .feb_11 {
-  margin-top: 2.5em;
+  margin-top: 2em;
   position: relative;
   @media (max-width: 680px) {
     // margin-top: 1em;
