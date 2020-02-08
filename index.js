@@ -1,5 +1,6 @@
 import { addNumsPicChanger, addNumsPicChanger2, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import { addVertScroll } from "./helpers/vertScroll";
+import { enableSubmit } from "./helpers/enableSubmit";
 import {getHTML} from './helpers/getHTML'
 import { lazyLoadImages } from "./helpers/lazyImagesLoader";
 import { makeMapHints } from "./helpers/mapHintsMaker";
@@ -84,6 +85,7 @@ document.addEventListener(
         case 'about':
           lazyLoadImages(newPage.contentWindow.document)
           addNumsPicChanger2(newPage.contentWindow.document)
+          enableSubmit(newPage.contentWindow.document)
           break;
         default:
           break;

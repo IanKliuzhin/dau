@@ -1,5 +1,6 @@
 import { TimelineLite } from "gsap/TweenMax"
 import { enableSplitText } from "../../helpers/utils"
+import { enableSubmit } from "../../helpers/enableSubmit"
 
 enableSplitText()
 
@@ -445,4 +446,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tl.play()
   document.tl = tl;
+
+  enableSubmit(document)
 })
