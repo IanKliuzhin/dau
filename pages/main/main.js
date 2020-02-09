@@ -48,19 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0.7"
   )
 
-  const whichTook = new SplitText(".at_fest", { type: "chars" })
-  tl.staggerFromTo(
-    whichTook.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
+  const whichTook = new SplitText(".at_fest", { type: "words" })
+  whichTook.words.forEach(word => {
+    const splittedWord = new SplitText(word, { type: "chars" })
+    tl.staggerFromTo(
+      splittedWord.chars,
+      0.024,
+      {
+        opacity: 0.1,
+      },
+      {
+        opacity: 1,
+      },
+      0.024,
+      "+=0"
+    )
+  })
 
   tl.staggerTo(
       "#shiftContainer",
