@@ -115,6 +115,7 @@ body {
         display: inline-flex;
         flex-flow: row nowrap;
         align-items: flex-start;
+        margin-top: 90px;
         .text.dau {
           display: inline-block;
         }
@@ -218,28 +219,7 @@ body {
       width: 100%;
       padding: 0 8px;
       box-sizing: border-box;
-      @media (min-width: 320px) {
-        margin: -365px 0 -330px;
-      }
-      @media (min-width: 420px) {
-        margin: -345px 0 -305px;
-      }
-      @media (min-width: 480px) {
-        margin: -345px 0 -305px;
-      }
-      @media (min-width: 510px) {
-        margin: -315px 0 -265px;
-      }
-      @media (min-width: 600px) {
-        margin: -295px 0 -255px;
-      }
-      @media (min-width: 765px) {
-        margin: -220px 0;
-      }
-      @media (min-width: 1200px) {
-        margin: -100px 0;
-      }
-      height: 900px;
+      height: calc(56.25vw - 9px);
       iframe {
         border-radius: 4px;
       }
@@ -256,7 +236,16 @@ body {
     font-variant-ligatures: no-common-ligatures;
     .agreement {
       // max-width: 30em;
-      opacity: 0.5;
+      color: rgba(230, 230, 230, 0.5);
+      a:link {
+        color: rgb(230, 230, 230);
+        text-decoration: inherit;
+        text-decoration: underline;
+      }
+      a:visited {
+        color: rgb(230, 230, 230);
+        cursor: auto;
+      }
     }
     .mc-field-group {
       display: flex;
