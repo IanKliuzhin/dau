@@ -14,14 +14,13 @@ body {
   line-height: 1.55vw;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
+  color: rgb(230, 230, 230);
+  padding: 3.5em 1.9em;
   @media (max-width: 680px) {
     font-size: 12px;
     line-height: 18.6px;
+    padding: 59px 9%;
   }
-
-  // background-color: rgb(25, 25, 25);
-  color: rgb(230, 230, 230);
-  padding: 3.5em 1.9em;
 }
 
 @media (min-width: 681px) {

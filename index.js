@@ -37,6 +37,10 @@ document.addEventListener(
     const pages = {}
     const links = {}
 
+    const linksBar = document.getElementById('linksBar')
+    const burger = document.getElementById('burger')
+    const closer = burger.getElementsByClassName('closer')[0]
+    const sharing = linksBar.getElementsByClassName('sharing')[0]
     const clearVisibiles = () => Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('visible')))
 
     const changePage = (pageName, oldPageName) => {
@@ -48,11 +52,7 @@ document.addEventListener(
       Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_about')))
       Object.keys(pages).forEach((pageName) => (pages[pageName].classList.add(`when_${getVisiblePageName()}`)))
       oldPage.classList.add("withTransition")
-      const linksBar = document.getElementById('linksBar')
-      linksBar.classList.remove('expanded')
-      linksBar.classList.add('above', 'folded')
-      Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'clickable'))
-      const burger = document.getElementById('burger')
+      hideLinksBar()
       burger.classList.add('clicked')
       if (pageName === "main") {
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
@@ -162,8 +162,8 @@ document.addEventListener(
     })
 
     const showLinksBar = () => {
-      const linksBar = document.getElementById('linksBar')
-      const burger = document.getElementById('burger')
+      // const linksBar = document.getElementById('linksBar')
+      // const burger = document.getElementById('burger')
       burger.removeEventListener('click', showLinksBar)
       Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'clickable', 'chosen'))
       linksBar.classList.remove('folded')
@@ -171,6 +171,25 @@ document.addEventListener(
       clearVisibiles()
       setTimeout(() => {
         Object.entries(links).forEach(([,link]) => link.classList.add('visible', 'clickable'))
+        sharing.classList.add('visible', 'clickable')
+        burger.classList.add('closeable')
+        closer.addEventListener('click', hideLinksBar)
+      }, 1000);
+    }
+
+    const hideLinksBar = () => {
+      linksBar.classList.remove('expanded')
+      linksBar.classList.add('above', 'folded')
+      Object.entries(links).forEach(([,link]) => link.classList.remove('visible', 'clickable'))
+      sharing.classList.remove('visible', 'clickable')
+      closer.removeEventListener('click', hideLinksBar)
+      burger.classList.remove('closeable')
+      const vpn = getVisiblePageName()
+      pages[vpn].classList.add("visible", "withTransition")
+      setTimeout(() => {
+        links[vpn].classList.add("chosen", "visible")
+        burger.classList.add('clickable')
+        burger.addEventListener('click', showLinksBar)
       }, 1000);
     }
 
@@ -187,12 +206,13 @@ document.addEventListener(
       else link.classList.add('disabled')
     })
 
-    const burger = document.getElementById('burger')
+    // const burger = document.getElementById('burger')
     if (loadingPageName === '') {
       setTimeout(() => {
         if (burger) burger.classList.add('shown')
         Object.entries(links).forEach(([pageName,link]) => (pageName !== 'main') && link.classList.add('visible'))
         links.about.classList.add('clickable')
+        sharing.classList.add('visible', 'clickable')
         // console.log('pages.main.contentWindow.document.getElementById("linesContainer")', pages.main.contentWindow.document.getElementById("linesContainer"));
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
       }, 650);
