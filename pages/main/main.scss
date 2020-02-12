@@ -10,8 +10,8 @@ body {
   height: 100%;
   margin: 0px;
   font-family: "decimamonox";
-  font-size: 1vw;
-  line-height: 1.55vw;
+  font-size: 10.7pt;
+  line-height: 1.55;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
   color: rgb(230, 230, 230);
@@ -41,16 +41,21 @@ body {
   @media (max-width: 680px) {
     max-width: 80%;
   }
+  a:link {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  a:visited {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: auto;
+  }
+  a.underline {
+    div {
+      text-decoration: underline;
+    }
+  }
   &.sharing {
-    a:link {
-      text-decoration: inherit;
-      color: inherit;
-    }
-    a:visited {
-      text-decoration: inherit;
-      color: inherit;
-      cursor: auto;
-    }
     .share {
       opacity: 0.5;
     }
@@ -77,40 +82,48 @@ body {
 }
 
 .nat_title {
-  margin-top: 2em;
-  // @media (max-width: 680px) {
-  //   margin-top: 1em;
-  // }
+  margin-top: 2.5vw;
+  @media (max-width: 680px) {
+    margin-top: 37.2px;
+  }
 }
 
 .nat {
   position: relative;
 }
 
-.nat_date {
-  // margin-top: 1.5em;
-  @media (max-width: 680px) {
-    margin-top: 1em;
-  }
+// .nat_date {
+//   @media (max-width: 680px) {
+//     margin-top: 1em;
+//   }
+// }
+
+.nat_place {
+  vertical-align: top;
 }
 
 .nat_tbc_place {
   position: relative;
+  @media (max-width: 680px) {
+    max-width: 16em;
+  }
+  @media (max-width: 312px) {
+    max-width: 13em;
+  }
 }
 
 .deg_title {
-  margin-top: 2em;
-  // @media (max-width: 680px) {
-  //   margin-top: 1em;
-  // }
-}
-
-.deg_date {
-  // margin-top: 2em;
+  margin-top: 2.5vw;
   @media (max-width: 680px) {
-    margin-top: 1em;
+    margin-top: 37.2px;
   }
 }
+
+// .deg_date {
+//   @media (max-width: 680px) {
+//     margin-top: 1em;
+//   }
+// }
 
 .deg_place {
   vertical-align: top;
@@ -119,7 +132,10 @@ body {
 .deg_tbc_place {
   position: relative;
   @media (max-width: 680px) {
-    max-width: 17em;
+    max-width: 16em;
+  }
+  @media (max-width: 312px) {
+    max-width: 13em;
   }
 }
 
@@ -127,14 +143,9 @@ body {
 .nat_title .carriage {
   margin-right: -0.7em;
 }
-
-.feb_11 {
-  margin-top: 2em;
-  position: relative;
-  @media (max-width: 680px) {
-    // margin-top: 1em;
-    max-width: 16em;
-  }
+.nat_tickets .carriage,
+.deg_tickets .carriage {
+  margin-left: -0.5em;
 }
 
 // #register {
@@ -149,7 +160,7 @@ body {
   width: 0.1em;
   // height: 100%;
   background-color: rgb(230, 230, 230);
-  height: 1vw;
+  height: 10.7pt;
   top: 0.2vw;
   @media (max-width: 680px) {
     height: 12px;
@@ -162,8 +173,8 @@ body {
   position: absolute;
   background-color: transparent;
   font-family: "decimamonox";
-  font-size: 1vw;
-  line-height: 1.55vw;
+  font-size: 10.7pt;
+  line-height: 1.55;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
   top: 55%;
@@ -203,8 +214,8 @@ body {
         border: 0px !important;
         outline: none;
         font-family: "decimamonox";
-        font-size: 1vw;
-        line-height: 1.55vw;
+        font-size: 10.7pt;
+        line-height: 1.55;
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         width: 100%;
@@ -216,7 +227,7 @@ body {
         }
         &::placeholder {
           color: rgb(230, 230, 230);
-          opacity: 1;
+          opacity: 0.5;
           visibility: visible;
           font: 400 1em "decimamonox";
           text-align: start;
@@ -236,8 +247,8 @@ body {
         background-color: transparent;
         border-width: 0;
         font-family: "decimamonox";
-        font-size: 1vw;
-        line-height: 1.55vw;
+        font-size: 10.7pt;
+        line-height: 1.55;
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         @media (max-width: 680px) {
@@ -255,6 +266,15 @@ body {
   #mce-responses {
     #mce-error-response {
       max-width: 30em;
+      a:link {
+        color: rgb(230, 230, 230);
+        text-decoration: inherit;
+        text-decoration: underline;
+      }
+      a:visited {
+        color: rgb(230, 230, 230);
+        cursor: auto;
+      }
     }
     #mce-success-response {
       text-transform: uppercase;

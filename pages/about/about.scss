@@ -4,9 +4,15 @@
     url("/fonts/decimamonox-webfont.woff") format("woff");
 }
 
-html,
+html {
+  width: 100wv;
+}
 body {
   width: 100%;
+}
+
+html,
+body {
   height: 100vh;
   margin: 0px;
   overscroll-behavior: none;
@@ -70,8 +76,31 @@ body {
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         @media (min-width: 680px) {
-          font-size: 1vw;
-          line-height: 1.55vw;
+          font-size: 10.7pt;
+          line-height: 1.55;
+        }
+        a:link {
+          text-decoration: inherit;
+          color: inherit;
+        }
+        a:visited {
+          text-decoration: inherit;
+          color: inherit;
+          cursor: auto;
+        }
+        a.underline {
+          text-decoration: underline;
+          &:visited {
+            text-decoration: underline;
+          }
+        }
+        &.sharing {
+          div {
+            display: inline-block;
+          }
+          .share {
+            opacity: 0.5;
+          }
         }
       }
       .columnsWrapper {
@@ -111,11 +140,10 @@ body {
           }
         }
       }
-      &.form {
+      .form {
         display: inline-flex;
         flex-flow: row nowrap;
         align-items: flex-start;
-        margin-top: 90px;
         .text.dau {
           display: inline-block;
         }
@@ -217,10 +245,20 @@ body {
     }
     .videoContainer {
       width: 100%;
-      padding: 0 8px;
       box-sizing: border-box;
-      height: calc(56.25vw - 9px);
+      overflow: hidden;
+      position: relative;
+      padding: 0 8px 56.25% 8px;
+      @media (min-width: 681px) {
+        .mobile {
+          display: none !important;
+        }
+      }
       iframe {
+        position: absolute;
+        top: 0;
+        left: 8px;
+        width: calc(100% - 16px);
         border-radius: 4px;
       }
     }
@@ -277,7 +315,7 @@ body {
           -webkit-text-fill-color: rgb(230, 230, 230);
           &::placeholder {
             color: rgb(230, 230, 230);
-            opacity: 1;
+            opacity: 0.5;
             visibility: visible;
             font: 400 1em 'decimamonox';
             text-align: start;
@@ -285,6 +323,12 @@ body {
           &:-internal-autofill-selected {
             background-color: rgb(25, 25, 25) !important;
             color: rgb(230, 230, 230) !important;
+          }
+          @media (max-width: 333px) {
+            width: 16em;
+          }
+          @media (max-width: 280px) {
+            width: 15em;
           }
         }
       }
@@ -298,8 +342,8 @@ body {
           background-color: transparent;
           border-width: 0;
           font-family: 'decimamonox';
-          font-size: 1vw;
-          line-height: 1.55vw;
+          font-size: 10.7pt;
+          line-height: 1.55;
           font-feature-settings: 'liga' off;
           font-variant-ligatures: no-common-ligatures;
           padding-left: 0;
@@ -318,6 +362,15 @@ body {
     #mce-responses {
       #mce-error-response {
         max-width: 30em;
+        // a:link {
+        //   color: rgb(230, 230, 230);
+        //   text-decoration: inherit;
+        //   text-decoration: underline;
+        // }
+        // a:visited {
+        //   color: rgb(230, 230, 230);
+        //   cursor: auto;
+        // }
       }
       #mce-success-response {
         text-transform: uppercase;

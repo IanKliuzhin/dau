@@ -34,22 +34,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tl = new TimelineLite({ paused: true })
 
-  const theRelease = new SplitText(".berlinale", { type: "chars" })
-  tl.staggerFromTo(
-    theRelease.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0.7"
-  )
+  const berlinale = new SplitText(".berlinale", { type: "words" })
+  berlinale.words.forEach((word) => {
+    const splittedWord = new SplitText(word, { type: "chars" })
+    tl.staggerFromTo(
+      splittedWord.chars,
+      0.024,
+      {
+        opacity: 0.1,
+      },
+      {
+        opacity: 1,
+      },
+      0.024,
+      "+=0"
+    )
+  })
 
   const whichTook = new SplitText(".at_fest", { type: "words" })
-  whichTook.words.forEach(word => {
+  whichTook.words.forEach((word) => {
     const splittedWord = new SplitText(word, { type: "chars" })
     tl.staggerFromTo(
       splittedWord.chars,
@@ -174,9 +177,26 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=.5"
   )
 
-  const natTbcPlace = new SplitText(".nat_tbc_place", { type: "chars" })
+  const natTbcPlace = new SplitText(".nat_tbc_place", { type: "words" })
+  natTbcPlace.words.forEach((word) => {
+    const splittedWord = new SplitText(word, { type: "chars" })
+    tl.staggerFromTo(
+      splittedWord.chars,
+      0.024,
+      {
+        opacity: 0.1,
+      },
+      {
+        opacity: 1,
+      },
+      0.024,
+      "+=0"
+    )
+  })
+
+  const natTickets = new SplitText(".nat_tickets", { type: "chars" })
   tl.staggerFromTo(
-    natTbcPlace.chars,
+    natTickets.chars,
     0.024,
     {
       opacity: 0.1,
@@ -185,11 +205,12 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=.5"
+    "+=0"
   )
 
+
   tl.staggerFromTo(
-    ".nat_tbc_place>.carriage",
+    ".nat_tickets + .carriage",
     0.12,
     {
       opacity: 0,
@@ -273,9 +294,26 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
-  const degTbcPlace = new SplitText(".deg_tbc_place", { type: "chars" })
+  const degTbcPlace = new SplitText(".deg_tbc_place", { type: "words" })
+  degTbcPlace.words.forEach((word) => {
+    const splittedWord = new SplitText(word, { type: "chars" })
+    tl.staggerFromTo(
+      splittedWord.chars,
+      0.024,
+      {
+        opacity: 0.1,
+      },
+      {
+        opacity: 1,
+      },
+      0.024,
+      "+=0"
+    )
+  })
+
+  const degTickets = new SplitText(".deg_tickets", { type: "chars" })
   tl.staggerFromTo(
-    degTbcPlace.chars,
+    degTickets.chars,
     0.024,
     {
       opacity: 0.1,
@@ -288,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
   )
 
   tl.staggerFromTo(
-    ".deg_tbc_place>.carriage",
+    ".deg_tickets + .carriage",
     0.12,
     {
       opacity: 0,
@@ -302,37 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0.096"
   )
 
-  const isNow = new SplitText(".feb_11", { type: "chars" })
-  tl.staggerFromTo(
-    isNow.chars,
-    0.072,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.072,
-    "+=0"
-  )
-
-  tl.staggerFromTo(
-    ".feb_11>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 6,
-      yoyo: true,
-    },
-    0.12,
-    "+=0"
-  )
-
-  tl.set(".feb_11>.carriage", {opacity: 0}, "+=0")
-
+  tl.set(".deg_tickets + .carriage", {opacity: 0}, "+=0")
 
   // tl.staggerFromTo(
   //   "#weLook>.carriage",
