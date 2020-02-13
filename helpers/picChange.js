@@ -53,31 +53,34 @@ export const addNumsPicChanger = (doc) => {
   }
 }
 
-export const addNumsPicChanger2 = (doc) => {
+export const addCountPicChanger = (doc) => {
   const cadrsContainers = doc.getElementsByClassName("cadrsContainer")
-  const cadrNumsContainers = doc.getElementsByClassName("cadrNumsContainer")
+  const cadrCountContainers = doc.getElementsByClassName("cadrCountContainer")
   for (let j = 0; j < cadrsContainers.length; j++) {
-    const nums = cadrNumsContainers[j].getElementsByClassName("cadrNum")
-
-    for (let i = 0; i < nums.length; i++) {
-      const changeNumByClick = (e) => {
-        const prev = cadrNumsContainers[j].getElementsByClassName("chosen")
-        if (prev.length > 0) prev[0].classList.remove("chosen")
-        e.target.classList.add("chosen")
-        const prevCadr = cadrsContainers[j].getElementsByClassName("visible")
-        if (prevCadr.length > 0) prevCadr[0].classList.remove("visible")
-        cadrsContainers[j].getElementsByClassName(`cadr${i + 1}`)[0].classList.add("visible")
-      }
-      nums[i].addEventListener("click", changeNumByClick, false)
-    }
+    const chosen = cadrCountContainers[j].getElementsByClassName("chosen")[0]
+    const amountElement = cadrCountContainers[j].getElementsByClassName("amount")[0]
+    const amount = parseInt(amountElement.innerHTML, 10)
+    console.log('amount', amount);
+    // for (let i = 0; i < nums.length; i++) {
+    //   const changeNumByClick = (e) => {
+    //     const prev = cadrCountContainers[j].getElementsByClassName("chosen")
+    //     if (prev.length > 0) prev[0].classList.remove("chosen")
+    //     e.target.classList.add("chosen")
+    //     const prevCadr = cadrsContainers[j].getElementsByClassName("visible")
+    //     if (prevCadr.length > 0) prevCadr[0].classList.remove("visible")
+    //     cadrsContainers[j].getElementsByClassName(`cadr${i + 1}`)[0].classList.add("visible")
+    //   }
+    //   nums[i].addEventListener("click", changeNumByClick, false)
+    // }
 
     const changeCadrByClick = () => {
-      const prevNum = cadrNumsContainers[j].getElementsByClassName("chosen")
-      if (prevNum.length > 0) {
-        const curNumber = parseInt(prevNum[0].innerHTML, 10)
-        const nextNumber = curNumber > nums.length - 1 ? 1 : curNumber + 1
-        prevNum[0].classList.remove("chosen")
-        cadrNumsContainers[j].getElementsByClassName(`cadrNum${nextNumber}`)[0].classList.add("chosen")
+      if (chosen) {
+        console.log('chosen', chosen);
+        console.log('chosen.innerHTML', chosen.innerHTML);
+        const curNumber = parseInt(chosen.innerHTML, 10)
+        console.log('curNumber', curNumber);
+        const nextNumber = curNumber === amount ? 1 : curNumber + 1
+        chosen.innerHTML = nextNumber
         const prevCadr = cadrsContainers[j].getElementsByClassName("visible")
         if (prevCadr.length > 0) prevCadr[0].classList.remove("visible")
         cadrsContainers[j].getElementsByClassName(`cadr${nextNumber}`)[0].classList.add("visible")

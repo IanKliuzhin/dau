@@ -10,8 +10,8 @@ body {
   height: 100%;
   margin: 0px;
   font-family: "decimamonox";
-  font-size: 10.7pt;
-  line-height: 1.55;
+  font-size: 1vw;
+  line-height: 1.55vw;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
   color: rgb(230, 230, 230);
@@ -160,7 +160,7 @@ body {
   width: 0.1em;
   // height: 100%;
   background-color: rgb(230, 230, 230);
-  height: 10.7pt;
+  height: 1vw;
   top: 0.2vw;
   @media (max-width: 680px) {
     height: 12px;
@@ -173,8 +173,8 @@ body {
   position: absolute;
   background-color: transparent;
   font-family: "decimamonox";
-  font-size: 10.7pt;
-  line-height: 1.55;
+  font-size: 1vw;
+  line-height: 1.55vw;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
   top: 55%;
@@ -214,8 +214,8 @@ body {
         border: 0px !important;
         outline: none;
         font-family: "decimamonox";
-        font-size: 10.7pt;
-        line-height: 1.55;
+        font-size: 1vw;
+        line-height: 1.55vw;
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         width: 100%;
@@ -247,8 +247,8 @@ body {
         background-color: transparent;
         border-width: 0;
         font-family: "decimamonox";
-        font-size: 10.7pt;
-        line-height: 1.55;
+        font-size: 1vw;
+        line-height: 1.55vw;
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         @media (max-width: 680px) {

@@ -163,6 +163,12 @@ body {
     .cadrsContainer {
       display: inline-block;
       padding: 0 2%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       .cadr {
         display: none;
         &.visible {
@@ -180,21 +186,9 @@ body {
       }
     }
     
-    .cadrNumsContainer {
+    .cadrCountContainer {
       display: inline-flex;
       flex-flow: row nowrap;
-      margin-left: 2%;
-      .cadrNum {
-        padding: 2%;
-        min-width: 1em;
-        cursor: pointer;
-        &.chosen {
-          opacity: 0.5;
-        }
-        // .text {
-        //   pointer-events: none;
-        // }
-      }
     }
 
     .filmBlocksContainer {

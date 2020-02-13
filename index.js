@@ -1,4 +1,4 @@
-import { addNumsPicChanger, addNumsPicChanger2, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+import { addNumsPicChanger, addCountPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import { addVertScroll } from "./helpers/vertScroll";
 import { enableSubmit } from "./helpers/enableSubmit";
 import {getHTML} from './helpers/getHTML'
@@ -116,11 +116,11 @@ document.addEventListener(
         case 'about':
           if (oldPageName) {
             lazyLoadImages(newPage.contentWindow.document)
-            addNumsPicChanger2(newPage.contentWindow.document)
+            addCountPicChanger(newPage.contentWindow.document)
             enableSubmit(newPage.contentWindow.document)
           } else pages.about.onload = () => {
             lazyLoadImages(newPage.contentWindow.document)
-            addNumsPicChanger2(newPage.contentWindow.document)
+            addCountPicChanger(newPage.contentWindow.document)
             enableSubmit(newPage.contentWindow.document)
           }
           break;
@@ -162,7 +162,7 @@ document.addEventListener(
             lazyLoadImages(page.contentWindow.document)
           } else if (pageName === "about") {
             // lazyLoadImages(page.contentWindow.document)
-            addNumsPicChanger2(page.contentWindow.document)
+            addCountPicChanger(page.contentWindow.document)
           }
         }
       });
@@ -189,7 +189,7 @@ document.addEventListener(
         //   // loadPageContent(pageName)
         //   page.classList.add("loaded", "visible")
         //   // lazyLoadImages(page.contentWindow.document)
-        //   addNumsPicChanger2(page.contentWindow.document)
+        //   addCountPicChanger(page.contentWindow.document)
         // }, 300);
         changePage('about', null)
       }
