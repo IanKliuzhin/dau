@@ -9,6 +9,15 @@ html {
 }
 body {
   width: 100%;
+  font-family: "decimamonox";
+  font-size: 12px;
+  line-height: 18.6px;
+  font-feature-settings: "liga" off;
+  font-variant-ligatures: no-common-ligatures;
+  @media (min-width: 681px) {
+    font-size: 1vw;
+    line-height: 1.55;
+  }
 }
 
 html,
@@ -42,7 +51,7 @@ body {
     width: 100%;
     position: relative;
     @media (min-width: 681px) {
-      width: 80%;
+      width: 72.8%;
     }
 
     &.hor {
@@ -69,16 +78,16 @@ body {
         padding: 0 2%;
       }
       .text {
-        font-family: "decimamonox";
         display: block;
-        font-size: 12px;
-        line-height: 18.6px;
-        font-feature-settings: "liga" off;
-        font-variant-ligatures: no-common-ligatures;
-        @media (min-width: 680px) {
-          font-size: 10.7pt;
-          line-height: 1.55;
-        }
+        // font-size: 12px;
+        // font-family: "decimamonox";
+        // line-height: 18.6px;
+        // font-feature-settings: "liga" off;
+        // font-variant-ligatures: no-common-ligatures;
+        // @media (min-width: 680px) {
+        //   font-size: 10.7pt;
+        //   line-height: 1.55;
+        // }
         a:link {
           text-decoration: inherit;
           color: inherit;
@@ -114,8 +123,8 @@ body {
           // flex-grow: 0;
           width: 29%;
            @media (min-width: 681px) {
-            margin-left: 13%;
-            width: 21%;
+            margin-left: 17ch;
+            width: 28ch;
            }
         }
         .rightTextBlock {
@@ -134,8 +143,8 @@ body {
             flex-flow: row nowrap;
             margin-bottom: 0px;
             .role {
-              margin-left: 13%;
-              width: 21%;
+              margin-left: 17ch;
+              width: 28ch;
             }
           }
         }
@@ -162,7 +171,7 @@ body {
 
     .cadrsContainer {
       display: inline-block;
-      padding: 0 2%;
+      padding: 0 8px;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -khtml-user-select: none;
@@ -184,6 +193,9 @@ body {
           pointer-events: none;
         }
       }
+      @media (min-width: 681px) {
+        padding: 0;
+      }
     }
     
     .cadrCountContainer {
@@ -199,11 +211,11 @@ body {
         position: relative;
         text-align: left;
         img {
-          width: 96%;
+          width: calc(100% - 16px);
           height: auto;
           margin: 0 auto;
           border-radius: 4px;
-          margin-left: 2%;
+          margin-left: 8px;
         }
         margin-bottom: 54px;
         .textContentWrapper {
@@ -213,10 +225,10 @@ body {
       @media (min-width: 681px) {
         flex-flow: row nowrap;
         justify-content: space-between;
-        width: calc(100% - 3.7%);
+        width: 100%;
         position: relative;
         .filmBlock {
-          width: calc(50% - 2px);
+          width: calc(50% - 3px);
           margin-bottom: 6.2vw;
           .textContentWrapper {
             padding: 0;
@@ -232,6 +244,7 @@ body {
           }
           img {
             // padding: 0px;
+            width: 100%;
             margin-left: 0%;
           }
         }
@@ -243,11 +256,6 @@ body {
       overflow: hidden;
       position: relative;
       padding: 0 8px 56.25% 8px;
-      @media (min-width: 681px) {
-        .mobile {
-          display: none !important;
-        }
-      }
       iframe {
         position: absolute;
         top: 0;
@@ -255,17 +263,27 @@ body {
         width: calc(100% - 16px);
         border-radius: 4px;
       }
+      @media (min-width: 681px) {
+        padding: 0 0 56.25% 0;
+        iframe {
+          left: 0px;
+          width: 100%;
+        }
+        .mobile {
+          display: none !important;
+        }
+      }
     }
   }
 
   #mc_embed_signup {
     display: inline-block;
     background-color: transparent;
-    font-family: 'decimamonox';
-    font-size: 12px;
-    line-height: 18.6px;
-    font-feature-settings: 'liga' off;
-    font-variant-ligatures: no-common-ligatures;
+    // font-family: 'decimamonox';
+    // font-size: 12px;
+    // line-height: 18.6px;
+    // font-feature-settings: 'liga' off;
+    // font-variant-ligatures: no-common-ligatures;
     .agreement {
       // max-width: 30em;
       color: rgba(230, 230, 230, 0.5);
@@ -299,11 +317,11 @@ body {
           padding: 0 !important;
           border: 0px !important;
           outline: none;
-          font-family: 'decimamonox';
-          font-size: 12px;
-          line-height: 18.6px;
-          font-feature-settings: 'liga' off;
-          font-variant-ligatures: no-common-ligatures;
+          // font-family: 'decimamonox';
+          // font-size: 12px;
+          // line-height: 18.6px;
+          // font-feature-settings: 'liga' off;
+          // font-variant-ligatures: no-common-ligatures;
           width: 20em;
           -webkit-box-shadow: inset 0 0 0 50px rgb(25, 25, 25);
           -webkit-text-fill-color: rgb(230, 230, 230);
@@ -335,16 +353,16 @@ body {
           color: white;
           background-color: transparent;
           border-width: 0;
-          font-family: 'decimamonox';
-          font-size: 10.7pt;
-          line-height: 1.55;
-          font-feature-settings: 'liga' off;
-          font-variant-ligatures: no-common-ligatures;
+          // font-family: 'decimamonox';
+          // font-size: 10.7pt;
+          // line-height: 1.55;
+          // font-feature-settings: 'liga' off;
+          // font-variant-ligatures: no-common-ligatures;
           padding-left: 0;
-          @media (max-width: 680px) {
-            font-size: 12px;
-            line-height: 18.6px;
-          }
+          // @media (max-width: 680px) {
+          //   font-size: 12px;
+          //   line-height: 18.6px;
+          // }
           &.enabled {
             opacity: 1;
             pointer-events: all;
