@@ -29,7 +29,7 @@ export const addPointsPicChanger = (doc) => {
         const prev = container.getElementsByClassName("selected")
         if (prev.length > 0) prev[0].classList.remove("selected")
         e.target.classList.add("selected")
-        shown[0].className = `shown selected_${e.target.getAttribute("data-id")}`
+        shown[0].className = `img shown selected_${e.target.getAttribute("data-id")}`
       })
     }
   })

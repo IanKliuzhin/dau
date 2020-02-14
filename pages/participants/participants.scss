@@ -146,6 +146,12 @@ html, body {
           padding-top: 507.1428571428571%;
         }
       }
+      &.width23 {
+        width: 23vh;
+        &.height31 {
+          padding-top: 132.9479768786127%;
+        }
+      }
       &.width24 {
         width: 24vh;
         &.height60 {
@@ -161,6 +167,12 @@ html, body {
           padding-top: 151.6129032258065%;
         }
       }
+      &.width37 {
+        width: 37vh;
+        &.height57 {
+          padding-top: 155.2346570397112%;
+        }
+      }
       &.width39 {
         width: 39vh;
         &.height53 {
@@ -173,6 +185,12 @@ html, body {
           padding-top: 100%;
         }
       }
+      &.width44 {
+        width: 44vh;
+        &.height66 {
+          padding-top: 150.1510574018127%;
+        }
+      }
       &.width45 {
         width: 45vh;
         &.height23 {
@@ -182,7 +200,7 @@ html, body {
       &.width47 {
         width: 47vh;
         &.height31 {
-          padding-top: 65.9574468085106%;
+          padding-top: 65.95744680%;
         }
       }
       &.width48 {
@@ -212,6 +230,18 @@ html, body {
           padding-top: 75.8064516129032%;
         }
       }
+      &.width92 {
+        width: 92vh;
+        &.height57 {
+          padding-top: 62.5909752547307%;
+        }
+      }
+      &.width100 {
+        width: 100vh;
+        &.height67 {
+          padding-top: 60.7712765957447%;
+        }
+      }
       &.width106 {
         width: 106vh;
         &.height67 {
@@ -222,6 +252,12 @@ html, body {
         width: 110vh;
         &.height67 {
           padding-top: 60.9090909090909%;
+        }
+      }
+      &.width117 {
+        width: 110vh;
+        &.height66 {
+          padding-top: 56.8649885583524%;
         }
       }
       // &.height23 {
@@ -820,12 +856,16 @@ html, body {
       width: 107vh;
       position: relative;
       margin-bottom: 3vh;
-      .shown {
+      border-radius: 0.7vh;
+      overflow: hidden;
+      .imgContainer {
         position: absolute;
         height: 100%;
         width: 102vh;
         right: 0px;
         top: 0px;
+      }
+      .shown {
         background-size: contain;
         background-repeat: no-repeat;
         border-radius: 0.7vh;
@@ -876,6 +916,7 @@ html, body {
             border-radius: 4px;
             position: relative;
             background: white;
+            pointer-events: none;
           }
           &.selected {
             .point {
@@ -890,12 +931,16 @@ html, body {
       width: 37.5vh;
       position: relative;
       margin-bottom: 3vh;
-      .shown {
+      border-radius: 0.7vh;
+      overflow: hidden;
+      .imgContainer {
         position: absolute;
         height: 58vh;
         width: 100%;
         left: 0px;
-        bottom: 0px;
+        bottom: -61vh;
+      }
+      .shown {
         background-size: contain;
         border-radius: 0.7vh;
         background-repeat: no-repeat;
@@ -946,6 +991,7 @@ html, body {
             border-radius: 4px;
             position: relative;
             background: black;
+            pointer-events: none;
           }
           &.selected {
             .point {
