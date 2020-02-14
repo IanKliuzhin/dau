@@ -166,17 +166,12 @@ iframe {
     line-height: 1.55;
     font-feature-settings: 'liga' off;
     font-variant-ligatures: no-common-ligatures;
-    &.main, &.about {
-      cursor: pointer;
-    }
+    cursor: pointer;
     &.visible {
       opacity: 1;
     }
     &.clickable {
       pointer-events: all;
-    }
-    &.disabled {
-      color: #808080;
     }
     @media (max-width: 680px) {
       font-size: 12px;

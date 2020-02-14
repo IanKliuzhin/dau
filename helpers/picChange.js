@@ -20,8 +20,6 @@ export const addPointsPicChanger = (doc) => {
   const containers = [
     doc.getElementById("nora"),
     doc.getElementById("vika2"),
-    doc.getElementById("natasha"),
-    doc.getElementById("degeneration"),
   ]
   containers.forEach((container) => {
     const shown = container.getElementsByClassName("shown")
