@@ -58,25 +58,10 @@ export const addCountPicChanger = (doc) => {
     const chosen = cadrCountContainers[j].getElementsByClassName("chosen")[0]
     const amountElement = cadrCountContainers[j].getElementsByClassName("amount")[0]
     const amount = parseInt(amountElement.innerHTML, 10)
-    console.log('amount', amount);
-    // for (let i = 0; i < nums.length; i++) {
-    //   const changeNumByClick = (e) => {
-    //     const prev = cadrCountContainers[j].getElementsByClassName("chosen")
-    //     if (prev.length > 0) prev[0].classList.remove("chosen")
-    //     e.target.classList.add("chosen")
-    //     const prevCadr = cadrsContainers[j].getElementsByClassName("visible")
-    //     if (prevCadr.length > 0) prevCadr[0].classList.remove("visible")
-    //     cadrsContainers[j].getElementsByClassName(`cadr${i + 1}`)[0].classList.add("visible")
-    //   }
-    //   nums[i].addEventListener("click", changeNumByClick, false)
-    // }
 
     const changeCadrByClick = () => {
       if (chosen) {
-        console.log('chosen', chosen);
-        console.log('chosen.innerHTML', chosen.innerHTML);
         const curNumber = parseInt(chosen.innerHTML, 10)
-        console.log('curNumber', curNumber);
         const nextNumber = curNumber === amount ? 1 : curNumber + 1
         chosen.innerHTML = nextNumber
         const prevCadr = cadrsContainers[j].getElementsByClassName("visible")

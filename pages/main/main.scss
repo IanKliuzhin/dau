@@ -143,8 +143,8 @@ body {
 .nat_title .carriage {
   margin-right: -0.7em;
 }
-.nat_tickets .carriage,
-.deg_tickets .carriage {
+.nat_tickets + .carriage,
+.deg_tickets + .carriage {
   margin-left: -0.5em;
 }
 
