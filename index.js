@@ -206,6 +206,11 @@ document.addEventListener(
       else link.classList.add('disabled')
     })
 
+    const awkwardLink = document.createElement('a')
+    awkwardLink.innerHTML = 'ONLINE CINEMA&nbsp;&nbsp;&nbsp;(coming shortly)'
+    awkwardLink.href = 'https://www.dau.movie/'
+    links.main.appendChild(awkwardLink)
+
     // const burger = document.getElementById('burger')
     if (loadingPageName === '') {
       pages.main.onload = () => {

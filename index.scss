@@ -138,16 +138,23 @@ iframe {
       .link {
         transition: opacity 0s 0s;
         &.main {
-          bottom: 83%;
+          bottom: 86%;
+          a {
+            position: absolute;
+            margin-left: 0;
+            left: 0;
+            top: 16.4vh;
+            white-space: nowrap;
+          }
         }
         &.digital {
-          bottom: 65%;
+          bottom: 54.5%;
         }
         &.institute {
-          bottom: 47%;
+          bottom: 39.3%;
         }
         &.participants {
-          bottom: 28%;
+          bottom: 24.1%;
         }
       }
       .sharing {
@@ -193,6 +200,19 @@ iframe {
       visibility: visible;
       left: 1.5em;
       top: 1em;
+      a {
+        margin-left: 3em;
+        pointer-events: all;
+        &:link {
+          text-decoration: inherit;
+          color: inherit;
+        }
+        &:visited {
+          text-decoration: inherit;
+          color: inherit;
+          cursor: auto;
+        }
+      }
       @media (max-width: 680px) {
         top: unset;
         left: 9%;
