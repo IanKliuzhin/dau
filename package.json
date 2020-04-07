@@ -4,7 +4,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html pages/about/about.html pages/about/about.scss pages/about/assets/**.jpg pages/about/assets/**.png pages/about/assets/**.svg pages/main/main.html pages/main/main.js pages/main/main.scss pages/agreement/**.html pages/agreement/**.css --public-url . --no-cache",
+    "build": "parcel build index.html pages/**/*.html pages/**/*.js pages/**/*.css pages/**/*.scss pages/**/assets/**.jpg pages/**/assets/**.png pages/**/assets/**.svg  --public-url . --no-cache",
     "start": "node run-parcel.js"
   },
   "repository": {

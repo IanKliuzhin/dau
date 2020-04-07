@@ -1,4 +1,4 @@
-import { addNumsPicChanger, addCountPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+import { addCountPicChanger, addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import { addVertScroll } from "./helpers/vertScroll";
 import { enableSubmit } from "./helpers/enableSubmit";
 import {getHTML} from './helpers/getHTML'
@@ -8,8 +8,8 @@ import { makeMapHints } from "./helpers/mapHintsMaker";
 const pageNames = ["main", "institute", "participants", "about"]
 const linkTitles = {
   main: "DAU",
-  institute: "The Institute [Coming Soon]",
-  participants: "Participants [Coming Soon]",
+  institute: "The Institute",
+  participants: "Participants",
   about: "About DAU Project",
 }
 const sources = {
@@ -106,9 +106,9 @@ document.addEventListener(
         if (oldPageName) pages.main.contentWindow.document.tl.progress(1, false);
       }, 600);
       if (oldPageName && oldPageName === "main") pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
-      // if (!newPage.classList.contains('loaded')) {
-      //   loadPageContent(pageName)
-      // }
+      if (!newPage.classList.contains('loaded')) {
+        loadPageContent(pageName)
+      }
       switch (pageName) {
         case 'main':
           addVertScroll(pages.main, pages.about, changePage)
@@ -168,14 +168,14 @@ document.addEventListener(
       });
     }
 
-    const releasePageNames = ["main", "about"]
+    // const releasePageNames = ["main", "about"]
 
-    releasePageNames.forEach((pageName) => {
+    pageNames.forEach((pageName) => {
       const page = document.createElement("iframe")
       page.classList.add(pageName)
-      if (pageName === "main") {
-        page.classList.add('visible')
-      }
+      // if (pageName === "main") {
+      //   page.classList.add('visible')
+      // }
       page.style.width = "100%"
       page.style.height = "100%"
       document.body.appendChild(page)
@@ -183,15 +183,15 @@ document.addEventListener(
       page.src = sources[pageName]
       if (loadingPageName === "" && pageName === "main") {
         page.classList.add('visible')
-      } else if (loadingPageName === 'about' && pageName === "about") {
-        // clearVisibiles()
-        // setTimeout(() => {
-        //   // loadPageContent(pageName)
-        //   page.classList.add("loaded", "visible")
-        //   // lazyLoadImages(page.contentWindow.document)
-        //   addCountPicChanger(page.contentWindow.document)
-        // }, 300);
-        changePage('about', null)
+      } else if (loadingPageName === pageName) {
+        clearVisibiles()
+        setTimeout(() => {
+          // loadPageContent(pageName)
+          // lazyLoadImages(page.contentWindow.document)
+          // addCountPicChanger(page.contentWindow.document)
+          changePage(pageName, null)
+          page.classList.add("loaded", "visible")
+        }, 300);
       }
     })
 
@@ -201,19 +201,18 @@ document.addEventListener(
       link.innerHTML = linkTitles[pageName]
       document.getElementById('linksBar').appendChild(link)
       links[pageName] = link
-      if (pageName === 'main' || pageName === 'about') link.addEventListener("click", () => {
+      link.addEventListener("click", () => {
         const oldPageName = getVisiblePageName()
         changePage(pageName, oldPageName)
       })
-      else link.classList.add('disabled')
     })
 
     // const burger = document.getElementById('burger')
     if (loadingPageName === '') {
       pages.main.onload = () => {
         if (burger) burger.classList.add('shown')
-        Object.entries(links).forEach(([pageName,link]) => (pageName !== 'main') && link.classList.add('visible'))
-        links.about.classList.add('clickable')
+        Object.entries(links).forEach(([pageName,link]) => (pageName !== 'main') && link.classList.add('visible', 'clickable'))
+        // links.about.classList.add('clickable')
         sharing.classList.add('visible', 'clickable')
         // console.log('pages.main.contentWindow.document.getElementById("linesContainer")', pages.main.contentWindow.document.getElementById("linesContainer"));
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')

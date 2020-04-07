@@ -15,7 +15,7 @@ html, body {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  height: 100vh;
+  height: 100%;
   display: inline-flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -146,6 +146,12 @@ html, body {
           padding-top: 507.1428571428571%;
         }
       }
+      &.width23 {
+        width: 23vh;
+        &.height31 {
+          padding-top: 132.9479768786127%;
+        }
+      }
       &.width24 {
         width: 24vh;
         &.height60 {
@@ -161,6 +167,12 @@ html, body {
           padding-top: 151.6129032258065%;
         }
       }
+      &.width37 {
+        width: 37vh;
+        &.height57 {
+          padding-top: 155.2346570397112%;
+        }
+      }
       &.width39 {
         width: 39vh;
         &.height53 {
@@ -173,6 +185,12 @@ html, body {
           padding-top: 100%;
         }
       }
+      &.width44 {
+        width: 44vh;
+        &.height66 {
+          padding-top: 150.1510574018127%;
+        }
+      }
       &.width45 {
         width: 45vh;
         &.height23 {
@@ -182,13 +200,16 @@ html, body {
       &.width47 {
         width: 47vh;
         &.height31 {
-          padding-top: 65.9574468085106%;
+          padding-top: 65.95744680%;
         }
       }
       &.width48 {
         width: 48vh;
         &.height38 {
           padding-top: 79.45%;
+        }
+        &.height67 {
+          padding-top: 139.6067415730337%;
         }
       }
       &.width51 {
@@ -212,6 +233,18 @@ html, body {
           padding-top: 75.8064516129032%;
         }
       }
+      &.width92 {
+        width: 92vh;
+        &.height57 {
+          padding-top: 62.5909752547307%;
+        }
+      }
+      &.width100 {
+        width: 100vh;
+        &.height67 {
+          padding-top: 60.7712765957447%;
+        }
+      }
       &.width106 {
         width: 106vh;
         &.height67 {
@@ -222,6 +255,12 @@ html, body {
         width: 110vh;
         &.height67 {
           padding-top: 60.9090909090909%;
+        }
+      }
+      &.width117 {
+        width: 110vh;
+        &.height66 {
+          padding-top: 56.8649885583524%;
         }
       }
       // &.height23 {
@@ -269,6 +308,51 @@ html, body {
         //     background-image: url("./assets/part_#{$i}.jpg");
         //   }
         // }
+        .img.part_001 {
+          background-image: url("./assets/part_001.jpg");
+        }
+        .img.part_002 {
+          background-image: url("./assets/part_002.jpg");
+        }
+        .img.part_003 {
+          background-image: url("./assets/part_003.jpg");
+        }
+        .img.part_004 {
+          background-image: url("./assets/part_004.jpg");
+        }
+        .img.part_005 {
+          background-image: url("./assets/part_005.jpg");
+        }
+        .img.part_006 {
+          background-image: url("./assets/part_006.jpg");
+        }
+        .img.part_007 {
+          background-image: url("./assets/part_007.jpg");
+        }
+        .img.part_008 {
+          background-image: url("./assets/part_008.jpg");
+        }
+        .img.part_009 {
+          background-image: url("./assets/part_009.jpg");
+        }
+        .img.part_010 {
+          background-image: url("./assets/part_010.jpg");
+        }
+        .img.part_011 {
+          background-image: url("./assets/part_011.jpg");
+        }
+        .img.part_012 {
+          background-image: url("./assets/part_012.jpg");
+        }
+        .img.part_013 {
+          background-image: url("./assets/part_013.jpg");
+        }
+        .img.part_014 {
+          background-image: url("./assets/part_014.jpg");
+        }
+        .img.part_015 {
+          background-image: url("./assets/part_015.jpg");
+        }
         .img.part_1 {
           background-image: url("./assets/part_1.jpg");
         }
@@ -820,12 +904,16 @@ html, body {
       width: 107vh;
       position: relative;
       margin-bottom: 3vh;
-      .shown {
+      border-radius: 0.7vh;
+      overflow: hidden;
+      .imgContainer {
         position: absolute;
         height: 100%;
         width: 102vh;
         right: 0px;
         top: 0px;
+      }
+      .shown {
         background-size: contain;
         background-repeat: no-repeat;
         border-radius: 0.7vh;
@@ -876,6 +964,7 @@ html, body {
             border-radius: 4px;
             position: relative;
             background: white;
+            pointer-events: none;
           }
           &.selected {
             .point {
@@ -890,12 +979,16 @@ html, body {
       width: 37.5vh;
       position: relative;
       margin-bottom: 3vh;
-      .shown {
+      border-radius: 0.7vh;
+      overflow: hidden;
+      .imgContainer {
         position: absolute;
         height: 58vh;
         width: 100%;
         left: 0px;
-        bottom: 0px;
+        bottom: -61vh;
+      }
+      .shown {
         background-size: contain;
         border-radius: 0.7vh;
         background-repeat: no-repeat;
@@ -946,6 +1039,7 @@ html, body {
             border-radius: 4px;
             position: relative;
             background: black;
+            pointer-events: none;
           }
           &.selected {
             .point {
