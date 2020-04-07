@@ -1,26 +1,27 @@
-import { addCountPicChanger, addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
-import { addVertScroll } from "./helpers/vertScroll";
-import { enableSubmit } from "./helpers/enableSubmit";
+import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+// import { addCountPicChanger, addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+// import { addVertScroll } from "./helpers/vertScroll";
+// import { enableSubmit } from "./helpers/enableSubmit";
 import {getHTML} from './helpers/getHTML'
 import { lazyLoadImages } from "./helpers/lazyImagesLoader";
 import { makeMapHints } from "./helpers/mapHintsMaker";
 
-const pageNames = ["main", "institute", "participants", "about"]
+const pageNames = ["main", "institute", "participants", "digital"]
 const linkTitles = {
   main: "DAU",
   institute: "The Institute",
   participants: "Participants",
-  about: "About DAU Project",
+  digital: "DAU&nbsp;&nbsp;&nbsp;&nbsp;DIGITAL&nbsp;&nbsp;(coming soon)",
 }
 const sources = {
   main: "pages/main/main.html",
-  about: "pages/about/about.html",
+  digital: "/",
   participants: "pages/participants/index.html",
   institute: "pages/institute/index.html",
 }
 const contents = {
   main: "pages/main/main.html",
-  about: "pages/about/about.html",
+  digital: "",
   participants: "pages/participants/participants.html",
   institute: "pages/institute/institute.html",
 }
@@ -81,7 +82,7 @@ document.addEventListener(
       const oldPage = pages[oldPageName]
       const newPage = pages[pageName]
       newPage.classList.add("visible", "withTransition")
-      Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_about')))
+      Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_digital')))
       Object.keys(pages).forEach((pageName) => (pages[pageName].classList.add(`when_${getVisiblePageName()}`)))
       if (oldPageName) oldPage.classList.add("withTransition")
       hideLinksBar()
@@ -109,24 +110,24 @@ document.addEventListener(
       if (!newPage.classList.contains('loaded')) {
         loadPageContent(pageName)
       }
-      switch (pageName) {
-        case 'main':
-          addVertScroll(pages.main, pages.about, changePage)
-          break;
-        case 'about':
-          if (oldPageName) {
-            lazyLoadImages(newPage.contentWindow.document)
-            addCountPicChanger(newPage.contentWindow.document)
-            enableSubmit(newPage.contentWindow.document)
-          } else pages.about.onload = () => {
-            lazyLoadImages(newPage.contentWindow.document)
-            addCountPicChanger(newPage.contentWindow.document)
-            enableSubmit(newPage.contentWindow.document)
-          }
-          break;
-        default:
-          break;
-      }
+      // switch (pageName) {
+      //   case 'main':
+      //     addVertScroll(pages.main, pages.about, changePage)
+      //     break;
+      //   case 'about':
+      //     if (oldPageName) {
+      //       lazyLoadImages(newPage.contentWindow.document)
+      //       addCountPicChanger(newPage.contentWindow.document)
+      //       enableSubmit(newPage.contentWindow.document)
+      //     } else pages.about.onload = () => {
+      //       lazyLoadImages(newPage.contentWindow.document)
+      //       addCountPicChanger(newPage.contentWindow.document)
+      //       enableSubmit(newPage.contentWindow.document)
+      //     }
+      //     break;
+      //   default:
+      //     break;
+      // }
     }
 
     const loadPageContent = (pageName) => {
@@ -160,17 +161,14 @@ document.addEventListener(
             addNumsPicChanger(page.contentWindow.document)
             makeMapHints(page.contentWindow.document)
             lazyLoadImages(page.contentWindow.document)
-          } else if (pageName === "about") {
-            // lazyLoadImages(page.contentWindow.document)
-            addCountPicChanger(page.contentWindow.document)
           }
         }
       });
     }
 
-    // const releasePageNames = ["main", "about"]
+    const releasePageNames = ["main", "participants", "institute"]
 
-    pageNames.forEach((pageName) => {
+    releasePageNames.forEach((pageName) => {
       const page = document.createElement("iframe")
       page.classList.add(pageName)
       // if (pageName === "main") {
@@ -201,10 +199,11 @@ document.addEventListener(
       link.innerHTML = linkTitles[pageName]
       document.getElementById('linksBar').appendChild(link)
       links[pageName] = link
-      link.addEventListener("click", () => {
+      if (releasePageNames.includes(pageName)) link.addEventListener("click", () => {
         const oldPageName = getVisiblePageName()
         changePage(pageName, oldPageName)
       })
+      else link.classList.add('disabled')
     })
 
     // const burger = document.getElementById('burger')
@@ -218,7 +217,7 @@ document.addEventListener(
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
         setTimeout(() => {
           pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
-          addVertScroll(pages.main, pages.about, changePage)
+          // addVertScroll(pages.main, pages.about, changePage)
         }, 850);
       }
     } else {

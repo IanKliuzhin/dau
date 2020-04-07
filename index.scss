@@ -39,7 +39,7 @@ iframe {
       top: -100%;
       left: 0%;
     }
-    &.when_about {
+    &.when_digital {
       top: 0%;
       left: 100%;
     }
@@ -51,12 +51,12 @@ iframe {
       top: 100%;
       left: 0%;
     }
-    &.when_about {
+    &.when_digital {
       top: 0%;
       left: 100%;
     }
   }
-  &.about {
+  &.digital {
     left: 0%;
     top: 100%;
   }
@@ -72,7 +72,7 @@ iframe {
       &.main {
         transition: top .6s 1s, left .6s 1s, right .6s 1s, bottom .6s 1s, opacity .2s 1s;
       }
-      &.about {
+      &.digital {
         top: 59px !important;
         height: calc(100% - 59px) !important;
       }
@@ -140,7 +140,7 @@ iframe {
         &.main {
           bottom: 83%;
         }
-        &.about {
+        &.digital {
           bottom: 65%;
         }
         &.institute {
@@ -173,6 +173,10 @@ iframe {
     &.clickable {
       pointer-events: all;
     }
+    &.disabled {
+      color: #808080;
+      cursor: default;
+    }
     @media (max-width: 680px) {
       font-size: 12px;
       line-height: 18.6px;
@@ -195,7 +199,7 @@ iframe {
         bottom: 32.5%;
       }
     }
-    &.about {
+    &.digital {
       left: 1.5em;
       bottom: 1em;
       @media (max-width: 680px) {
