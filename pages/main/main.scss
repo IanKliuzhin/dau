@@ -4,6 +4,13 @@
     url("/fonts/decimamonox-webfont.woff") format("woff");
 }
 
+@font-face {
+  font-family: "druk-bold";
+  font-weight: 700;
+  src: url("/fonts/Druk-Bold-Web.woff2") format("woff2"),
+    url("/fonts/Druk-Bold-Web.woff") format("woff");
+}
+
 body {
   overflow: hidden;
   width: 100%;
@@ -15,11 +22,16 @@ body {
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
   color: rgb(230, 230, 230);
-  padding: 3.5em 1.9em;
+  padding: 3.5vw 1.9vw;
   @media (max-width: 680px) {
     font-size: 12px;
     line-height: 18.6px;
     padding: 59px 9%;
+  }
+  @media (min-width: 1090px) {
+    font-size: 12px;
+    line-height: 18.6px;
+    padding: 38px 21px;
   }
 }
 
@@ -74,78 +86,41 @@ body {
   position: relative;
 }
 
-.at_fest {
-  position: relative;
-  @media (max-width: 905px) {
-    max-width: 22em;
-  }
-}
-
-.nat_title {
-  margin-top: 2.5vw;
+.dau_nat {
+  margin-top: 0.5vw;
   @media (max-width: 680px) {
     margin-top: 37.2px;
   }
+  @media (min-width: 1090px) {
+    margin-top: 6px;
+  }
 }
 
-.nat {
-  position: relative;
+.dau_deg {
+  margin-top: 1.5vw;
+  @media (max-width: 680px) {
+    margin-top: 37.2px;
+  }
+  @media (min-width: 1090px) {
+    margin-top: 18px;
+  }
 }
 
-// .nat_date {
-//   @media (max-width: 680px) {
-//     margin-top: 1em;
-//   }
-// }
-
-.nat_place {
-  vertical-align: top;
-}
-
-.nat_tbc_place {
+.for_outst {
   position: relative;
   @media (max-width: 680px) {
-    max-width: 16em;
+    max-width: 17em;
   }
   @media (max-width: 312px) {
     max-width: 13em;
   }
 }
 
-.deg_title {
-  margin-top: 2.5vw;
-  @media (max-width: 680px) {
-    margin-top: 37.2px;
-  }
-}
-
-// .deg_date {
-//   @media (max-width: 680px) {
-//     margin-top: 1em;
-//   }
-// }
-
-.deg_place {
-  vertical-align: top;
-}
-
-.deg_tbc_place {
-  position: relative;
-  @media (max-width: 680px) {
-    max-width: 16em;
-  }
-  @media (max-width: 312px) {
-    max-width: 13em;
-  }
-}
-
-.at_fest .carriage,
-.nat_title .carriage {
+.silv_bear .carriage,
+.for_outst .carriage,
+.film_fest .carriage,
+.ber_spec .carriage {
   margin-right: -0.7em;
-}
-.nat_tickets + .carriage,
-.deg_tickets + .carriage {
-  margin-left: -0.5em;
 }
 
 // #register {
@@ -166,15 +141,48 @@ body {
     height: 12px;
     top: 3.3px;
   }
+  @media (min-width: 1090px) {
+    height: 11px;
+  }
+}
 
+.watch_now {
+  margin-top: 3vw;
+  a {
+    font-size: 10.5vw;
+    line-height: 1.2;
+    font-family: 'druk-bold';
+    font-weight: bold;
+    @media (max-width: 680px) {
+      font-size: 68px;
+      line-height: 2;
+    }
+    &:link {
+      color: rgb(230, 230, 230);
+      text-decoration: inherit;
+    }
+    &:visited {
+      color: rgb(230, 230, 230);
+      cursor: auto;
+    }
+  }
+  @media (max-width: 680px) {
+    margin-top: -2vw;
+  }
+  @media (min-width: 1090px) {
+    margin-top: 33px;
+    a {
+      font-size: 114px;
+    }
+  }
 }
 
 #mc_embed_signup {
   position: absolute;
   background-color: transparent;
   font-family: "decimamonox";
-  font-size: 1vw;
-  line-height: 1.55vw;
+  // font-size: 1vw;
+  // line-height: 1.55vw;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
   top: 55%;
@@ -214,8 +222,8 @@ body {
         border: 0px !important;
         outline: none;
         font-family: "decimamonox";
-        font-size: 1vw;
-        line-height: 1.55vw;
+        // font-size: 1vw;
+        // line-height: 1.55vw;
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         width: 100%;

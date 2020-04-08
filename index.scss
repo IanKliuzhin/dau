@@ -11,6 +11,16 @@ body {
   font-family: 'decimamonox';
   background-color: rgb(25, 25, 25);
   position: fixed;
+  font-size: 1vw;
+  line-height: 1.55vw;
+  @media (max-width: 680px) {
+    font-size: 12px;
+    line-height: 18.6px;
+  }
+  @media (min-width: 1090px) {
+    font-size: 12px;
+    line-height: 18.6px;
+  }
 }
 
 iframe {
@@ -108,6 +118,9 @@ iframe {
       .link {
         opacity: 0;
         transition: opacity 0s 0s;
+        &.main a {
+          display: none;
+        }
       }
       #burger {
         // transition: bottom 1s, width 1s, height 1s;
@@ -169,8 +182,8 @@ iframe {
     mix-blend-mode: exclusion;
     transition: opacity 0.3s 0.2s;
     pointer-events: none;
-    font-size: 10.7pt;
-    line-height: 1.55;
+    // font-size: 1vw;
+    // line-height: 1.55vw;
     font-feature-settings: 'liga' off;
     font-variant-ligatures: no-common-ligatures;
     cursor: pointer;
@@ -198,10 +211,10 @@ iframe {
     }
     &.main {
       visibility: visible;
-      left: 1.5em;
-      top: 1em;
+      left: 1.9vw;
+      top: 1vw;
       a {
-        margin-left: 3em;
+        margin-left: 1.8em;
         pointer-events: all;
         &:link {
           text-decoration: inherit;
@@ -218,34 +231,50 @@ iframe {
         left: 9%;
         bottom: 32.5%;
       }
+      @media (min-width: 1090px) {
+        left: 21px;
+        top: 11px;
+      }
     }
     &.digital {
-      left: 1.5em;
-      bottom: 1em;
+      left: 1.9vw;
+      bottom: 1vw;
       @media (max-width: 680px) {
         top: unset;
         left: 9%;
-        bottom: 24%;
+        bottom: 19.6%;
+      }
+      @media (min-width: 1090px) {
+        left: 21px;
+        bottom: 11px;
       }
     }
     &.institute {
-      right: 1.5em;
-      top: 1em;
+      right: 1.9vw;
+      top: 1vw;
       @media (max-width: 680px) {
         top: unset;
         right: unset;
         left: 9%;
-        bottom: 17.5%;
+        bottom: 14.5%;
+      }
+      @media (min-width: 1090px) {
+        right: 21px;
+        top: 11px;
       }
     }
     &.participants {
-      right: 1.5em;
-      bottom: 1em;
+      right: 1.9vw;
+      bottom: 1vw;
       @media (max-width: 680px) {
         top: unset;
         right: unset;
         left: 9%;
-        bottom: 11%;
+        bottom: 9.4%;
+      }
+      @media (min-width: 1090px) {
+        right: 21px;
+        bottom: 11px;
       }
     }
   }
@@ -324,7 +353,7 @@ iframe {
   .sharing {
     display: none;
     color: rgb(230, 230, 230);
-    bottom: 4.5%;
+    bottom: 4.3%;
     left: 9%;
     position: absolute;
     font-size: 12px;

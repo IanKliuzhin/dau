@@ -11,7 +11,7 @@ const linkTitles = {
   main: "DAU",
   institute: "The Institute",
   participants: "Participants",
-  digital: "DAU&nbsp;&nbsp;&nbsp;&nbsp;DIGITAL&nbsp;&nbsp;(coming soon)",
+  digital: "DAU&nbsp;&nbsp;&nbsp;DIGITAL&nbsp;&nbsp;(coming soon)",
 }
 const sources = {
   main: "pages/main/main.html",
@@ -207,7 +207,8 @@ document.addEventListener(
     })
 
     const awkwardLink = document.createElement('a')
-    awkwardLink.innerHTML = 'ONLINE CINEMA&nbsp;&nbsp;&nbsp;(coming shortly)'
+    awkwardLink.innerHTML = 'ONLINE CINEMA'
+    awkwardLink.target = '_blank'
     awkwardLink.href = 'https://www.dau.movie/'
     links.main.appendChild(awkwardLink)
 

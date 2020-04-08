@@ -34,68 +34,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tl = new TimelineLite({ paused: true })
 
-  const berlinale = new SplitText(".berlinale", { type: "words" })
-  berlinale.words.forEach((word) => {
-    const splittedWord = new SplitText(word, { type: "chars" })
-    tl.staggerFromTo(
-      splittedWord.chars,
-      0.024,
-      {
-        opacity: 0.1,
-      },
-      {
-        opacity: 1,
-      },
-      0.024,
-      "+=0"
-    )
-  })
+  // const berlinale = new SplitText(".berlinale", { type: "words" })
+  // berlinale.words.forEach((word) => {
+  //   const splittedWord = new SplitText(word, { type: "chars" })
+  //   tl.staggerFromTo(
+  //     splittedWord.chars,
+  //     0.024,
+  //     {
+  //       opacity: 0.1,
+  //     },
+  //     {
+  //       opacity: 1,
+  //     },
+  //     0.024,
+  //     "+=0"
+  //   )
+  // })
 
-  const whichTook = new SplitText(".at_fest", { type: "words" })
-  whichTook.words.forEach((word) => {
-    const splittedWord = new SplitText(word, { type: "chars" })
-    tl.staggerFromTo(
-      splittedWord.chars,
-      0.024,
-      {
-        opacity: 0.1,
-      },
-      {
-        opacity: 1,
-      },
-      0.024,
-      "+=0"
-    )
-  })
-
-  tl.staggerTo(
-      "#shiftContainer",
-      .3,
-      {
-        marginLeft: '5em',
-      },
-      0,
-      "+=0"
-    )
-
+  const dauNat = new SplitText(".dau_nat", { type: "chars" })
   tl.staggerFromTo(
-    ".at_fest>.carriage",
-    0.12,
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      repeat: 3,
-      yoyo: true,
-    },
-    0.12,
-    "+=0.096"
-  )
-
-  const from = new SplitText(".nat_title", { type: "chars" })
-  tl.staggerFromTo(
-    from.chars,
+    dauNat.chars,
     0.024,
     {
       opacity: 0.1,
@@ -106,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     0.024,
     "+=0"
   )
+
   const nat = new SplitText(".nat", { type: "chars" })
   tl.staggerFromTo(
     nat.chars,
@@ -120,8 +79,22 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
+  const silvBear = new SplitText(".silv_bear", { type: "chars" })
   tl.staggerFromTo(
-    ".nat>.carriage",
+    silvBear.chars,
+    0.024,
+    {
+      opacity: 0.1,
+    },
+    {
+      opacity: 1,
+    },
+    0.024,
+    "+=0"
+  )
+
+  tl.staggerFromTo(
+    ".silv_bear>.carriage",
     0.12,
     {
       opacity: 0,
@@ -135,50 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0.096"
   )
 
-  const jan24 = new SplitText(".nat_date", { type: "chars" })
-  tl.staggerFromTo(
-    jan24.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  const natTbcDate = new SplitText(".nat_tbc_date", { type: "chars" })
-  tl.staggerFromTo(
-    natTbcDate.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  const to = new SplitText(".nat_place", { type: "chars" })
-  tl.staggerFromTo(
-    to.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=.5"
-  )
-
-  const natTbcPlace = new SplitText(".nat_tbc_place", { type: "words" })
-  natTbcPlace.words.forEach((word) => {
+  const forOutst = new SplitText(".for_outst", { type: "words" })
+  forOutst.words.forEach((word) => {
     const splittedWord = new SplitText(word, { type: "chars" })
     tl.staggerFromTo(
       splittedWord.chars,
@@ -194,9 +125,24 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   })
 
-  const natTickets = new SplitText(".nat_tickets", { type: "chars" })
   tl.staggerFromTo(
-    natTickets.chars,
+    ".for_outst>.carriage",
+    0.12,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+      repeat: 3,
+      yoyo: true,
+    },
+    0.12,
+    "+=0.096"
+  )
+
+  const jurJur = new SplitText(".jur_jur", { type: "chars" })
+  tl.staggerFromTo(
+    jurJur.chars,
     0.024,
     {
       opacity: 0.1,
@@ -208,9 +154,46 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
+  const at70th = new SplitText(".at_70th", { type: "chars" })
+  tl.staggerFromTo(
+    at70th.chars,
+    0.024,
+    {
+      opacity: 0.1,
+    },
+    {
+      opacity: 1,
+    },
+    0.024,
+    "+=0"
+  )
+
+  const filmFest = new SplitText(".film_fest", { type: "chars" })
+  tl.staggerFromTo(
+    filmFest.chars,
+    0.024,
+    {
+      opacity: 0.1,
+    },
+    {
+      opacity: 1,
+    },
+    0.024,
+    "+=0"
+  )
+
+  // tl.staggerTo(
+  //     "#shiftContainer",
+  //     .3,
+  //     {
+  //       marginLeft: '5em',
+  //     },
+  //     0,
+  //     "+=0"
+  //   )
 
   tl.staggerFromTo(
-    ".nat_tickets + .carriage",
+    ".film_fest>.carriage",
     0.12,
     {
       opacity: 0,
@@ -221,12 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
       yoyo: true,
     },
     0.12,
-    "+=0"
+    "+=0.096"
   )
 
-  const feb17 = new SplitText(".deg_title", { type: "chars" })
+  const dauDeg = new SplitText(".dau_deg", { type: "chars" })
   tl.staggerFromTo(
-    feb17.chars,
+    dauDeg.chars,
     0.024,
     {
       opacity: 0.1,
@@ -252,68 +235,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "+=0"
   )
 
-  const degDate = new SplitText(".deg_date", { type: "chars" })
+  const berSpec = new SplitText(".ber_spec", { type: "chars" })
   tl.staggerFromTo(
-    degDate.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  const degTbcDate = new SplitText(".deg_tbc_date", { type: "chars" })
-  tl.staggerFromTo(
-    degTbcDate.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  const degPlace = new SplitText(".deg_place", { type: "chars" })
-  tl.staggerFromTo(
-    degPlace.chars,
-    0.024,
-    {
-      opacity: 0.1,
-    },
-    {
-      opacity: 1,
-    },
-    0.024,
-    "+=0"
-  )
-
-  const degTbcPlace = new SplitText(".deg_tbc_place", { type: "words" })
-  degTbcPlace.words.forEach((word) => {
-    const splittedWord = new SplitText(word, { type: "chars" })
-    tl.staggerFromTo(
-      splittedWord.chars,
-      0.024,
-      {
-        opacity: 0.1,
-      },
-      {
-        opacity: 1,
-      },
-      0.024,
-      "+=0"
-    )
-  })
-
-  const degTickets = new SplitText(".deg_tickets", { type: "chars" })
-  tl.staggerFromTo(
-    degTickets.chars,
+    berSpec.chars,
     0.024,
     {
       opacity: 0.1,
@@ -326,134 +250,19 @@ document.addEventListener("DOMContentLoaded", () => {
   )
 
   tl.staggerFromTo(
-    ".deg_tickets + .carriage",
+    ".ber_spec>.carriage",
     0.12,
     {
       opacity: 0,
     },
     {
       opacity: 1,
-      repeat: 7,
+      repeat: 3,
       yoyo: true,
     },
     0.12,
     "+=0.096"
   )
-
-  tl.set(".deg_tickets + .carriage", {opacity: 0}, "+=0")
-
-  // tl.staggerFromTo(
-  //   "#weLook>.carriage",
-  //   0.12,
-  //   {
-  //     opacity: 0,
-  //   },
-  //   {
-  //     opacity: 1,
-  //     repeat: 7,
-  //     yoyo: true,
-  //   },
-  //   0.12,
-  //   "+=0.096"
-  // )
-
-  // const weLook = new SplitText("#weLook", { type: "chars" })
-  // tl.staggerFromTo(
-  //   weLook.chars,
-  //   0.024,
-  //   {
-  //     opacity: 0,
-  //   },
-  //   {
-  //     opacity: 1,
-  //   },
-  //   0.024,
-  //   "+=0"
-  // )
-
-  // tl.staggerTo(
-  //   "#weLook",
-  //   0.096,
-  //   {
-  //     marginTop: '2em',
-  //   },
-  //   0,
-  //   "+=0"
-  // )
-
-  // const soon = new SplitText("#soon", { type: "chars" })
-  // tl.staggerFromTo(
-  //   soon.chars,
-  //   0.024,
-  //   {
-  //     opacity: 0,
-  //   },
-  //   {
-  //     opacity: 1,
-  //   },
-  //   0.024,
-  //   "+=0"
-  // )
-
-  // tl.set("#disapContainer", {opacity: 0}, "+=0.125")
-  // tl.staggerTo(
-  //     "#disapContainer",
-  //     .3,
-  //     {
-  //       height: 0,
-  //     },
-  //     0,
-  //     "+=0"
-  //   )
-  // tl.staggerTo(
-  //     "#weLook",
-  //     .036,
-  //     {
-  //       marginTop: 0,
-  //     },
-  //     0,
-  //     "+=0"
-  //   )
-
-  // const register = new SplitText("#register", { type: "chars" })
-  // tl.staggerFromTo(
-  //   register.chars,
-  //   0.024,
-  //   {
-  //     opacity: 0,
-  //   },
-  //   {
-  //     opacity: 1,
-  //   },
-  //   0.024,
-  //   "+=0"
-  // )
-  // tl.staggerFromTo(
-  //   "#register>.carriage",
-  //   0.12,
-  //   {
-  //     opacity: 0,
-  //   },
-  //   {
-  //     opacity: 1,
-  //     repeat: 1,
-  //     yoyo: true,
-  //   },
-  //   0.12,
-  //   "+=0.012"
-  // )
-
-  // tl.staggerFrom(
-  //   ".mc-field-group",
-  //   0.5,
-  //   {
-  //     width: 0,
-  //   },
-  //   0.2,
-  //   "-=.25"
-  // )
-
-  // tl.set("#mc-embedded-subscribe", {visibility: "visible"}, "+=0")
 
   tl.play()
   document.tl = tl;
