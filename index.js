@@ -1,6 +1,5 @@
 import { addCountPicChanger, addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
 import { addVertScroll } from "./helpers/vertScroll";
-import { enableSubmit } from "./helpers/enableSubmit";
 import {getHTML} from './helpers/getHTML'
 import { lazyLoadImages } from "./helpers/lazyImagesLoader";
 import { makeMapHints } from "./helpers/mapHintsMaker";
@@ -120,11 +119,9 @@ document.addEventListener(
           if (oldPageName) {
             lazyLoadImages(newPage.contentWindow.document)
             addCountPicChanger(newPage.contentWindow.document)
-            enableSubmit(newPage.contentWindow.document)
           } else pages.about.onload = () => {
             lazyLoadImages(newPage.contentWindow.document)
             addCountPicChanger(newPage.contentWindow.document)
-            enableSubmit(newPage.contentWindow.document)
           }
           break;
         default:
@@ -220,7 +217,11 @@ document.addEventListener(
     awkwardLink.innerHTML = 'ONLINE CINEMA'
     // awkwardLink.target = '_blank'
     // awkwardLink.href = 'https://www.dau.movie/'
-    awkwardLink.addEventListener("click", openAbout)
+    awkwardLink.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openAbout()
+    })
+    links.about = awkwardLink
     links.main.appendChild(awkwardLink)
 
     // const burger = document.getElementById('burger')
