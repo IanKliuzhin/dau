@@ -49,7 +49,7 @@ iframe {
       top: -100%;
       left: 0%;
     }
-    &.when_digital {
+    &.when_about {
       top: 0%;
       left: 100%;
     }
@@ -61,12 +61,12 @@ iframe {
       top: 100%;
       left: 0%;
     }
-    &.when_digital {
+    &.when_about {
       top: 0%;
       left: 100%;
     }
   }
-  &.digital {
+  &.about {
     left: 0%;
     top: 100%;
   }
@@ -82,7 +82,7 @@ iframe {
       &.main {
         transition: top .6s 1s, left .6s 1s, right .6s 1s, bottom .6s 1s, opacity .2s 1s;
       }
-      &.digital {
+      &.about {
         top: 59px !important;
         height: calc(100% - 59px) !important;
       }
@@ -118,7 +118,7 @@ iframe {
       .link {
         opacity: 0;
         transition: opacity 0s 0s;
-        &.main a {
+        &.main span {
           display: none;
         }
       }
@@ -152,7 +152,7 @@ iframe {
         transition: opacity 0s 0s;
         &.main {
           bottom: 86%;
-          a {
+          span {
             position: absolute;
             margin-left: 0;
             left: 0;
@@ -213,7 +213,7 @@ iframe {
       visibility: visible;
       left: 1.9vw;
       top: 1vw;
-      a {
+      span {
         margin-left: 1.8em;
         pointer-events: all;
         &:link {
