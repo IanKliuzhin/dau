@@ -112,6 +112,28 @@ body {
           }
         }
       }
+      .watchPart {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        white-space: nowrap;
+        a.watch_button {
+          -webkit-appearance: none !important;
+          -moz-appearance: none !important;
+          -ms-appearance: none !important;
+          -o-appearance: none !important;
+          appearance: none !important;
+          text-transform: uppercase;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          height: 42px;
+          width: 121px;
+          background-color: black;
+          color: white;
+          margin-right: 10px;
+        }
+      }
       .columnsWrapper {
         display: inline-flex;
         flex-flow: row nowrap;
@@ -255,6 +277,10 @@ body {
 .dark {
   .text {
     color: rgb(230, 230, 230);
+  }
+  a.watch_button {
+    border: 1px solid white;
+    box-sizing: border-box;
   }
   background-color: rgb(25, 25, 25);
 }
