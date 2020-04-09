@@ -149,14 +149,6 @@ body {
           }
         }
       }
-      .form {
-        display: inline-flex;
-        flex-flow: row nowrap;
-        align-items: flex-start;
-        .text.dau {
-          display: inline-block;
-        }
-      }
     }
 
     .imgWrapper {
@@ -201,6 +193,8 @@ body {
     .cadrCountContainer {
       display: inline-flex;
       flex-flow: row nowrap;
+      width: 100%;
+      justify-content: center;
     }
 
     .filmBlocksContainer {
@@ -248,144 +242,6 @@ body {
             margin-left: 0%;
           }
         }
-      }
-    }
-    .videoContainer {
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-      position: relative;
-      padding: 0 8px 56.25% 8px;
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 8px;
-        width: calc(100% - 16px);
-        border-radius: 4px;
-      }
-      @media (min-width: 681px) {
-        padding: 0 0 56.25% 0;
-        iframe {
-          left: 0px;
-          width: 100%;
-        }
-        .mobile {
-          display: none !important;
-        }
-      }
-    }
-  }
-
-  #mc_embed_signup {
-    display: inline-block;
-    background-color: transparent;
-    // font-family: 'decimamonox';
-    // font-size: 12px;
-    // line-height: 18.6px;
-    // font-feature-settings: 'liga' off;
-    // font-variant-ligatures: no-common-ligatures;
-    .agreement {
-      // max-width: 30em;
-      color: rgba(230, 230, 230, 0.5);
-      a:link {
-        color: rgb(230, 230, 230);
-        text-decoration: inherit;
-        text-decoration: underline;
-      }
-      a:visited {
-        color: rgb(230, 230, 230);
-        cursor: auto;
-      }
-    }
-    .mc-field-group {
-      display: flex;
-      position: relative;
-      flex-flow: column nowrap;
-      align-items: flex-start;
-      div.mce_inline_error {
-        display: none !important;
-      }
-      .input {
-        border-bottom: 1px solid rgb(230, 230, 230);
-        border-bottom-style: dashed;
-        flex-grow: 1;
-        input {
-          position: relative;
-          color: rgb(230, 230, 230) !important;
-          background-color: rgb(25, 25, 25) !important;
-          margin: 0em !important;
-          padding: 0 !important;
-          border: 0px !important;
-          outline: none;
-          // font-family: 'decimamonox';
-          // font-size: 12px;
-          // line-height: 18.6px;
-          // font-feature-settings: 'liga' off;
-          // font-variant-ligatures: no-common-ligatures;
-          width: 20em;
-          -webkit-box-shadow: inset 0 0 0 50px rgb(25, 25, 25);
-          -webkit-text-fill-color: rgb(230, 230, 230);
-          &::placeholder {
-            color: rgb(230, 230, 230);
-            opacity: 0.5;
-            visibility: visible;
-            font: 400 1em 'decimamonox';
-            text-align: start;
-          }
-          &:-internal-autofill-selected {
-            background-color: rgb(25, 25, 25) !important;
-            color: rgb(230, 230, 230) !important;
-          }
-          @media (max-width: 333px) {
-            width: 16em;
-          }
-          @media (max-width: 280px) {
-            width: 15em;
-          }
-        }
-      }
-      .clear {
-        #mc-embedded-subscribe {
-          opacity: 0.5;
-          margin-top: 18px;
-          pointer-events: none;
-          -webkit-appearance: none;
-          color: white;
-          background-color: transparent;
-          border-width: 0;
-          // font-family: 'decimamonox';
-          // font-size: 10.7pt;
-          // line-height: 1.55;
-          // font-feature-settings: 'liga' off;
-          // font-variant-ligatures: no-common-ligatures;
-          padding-left: 0;
-          // @media (max-width: 680px) {
-          //   font-size: 12px;
-          //   line-height: 18.6px;
-          // }
-          &.enabled {
-            opacity: 1;
-            pointer-events: all;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-    #mce-responses {
-      #mce-error-response {
-        max-width: 30em;
-        // a:link {
-        //   color: rgb(230, 230, 230);
-        //   text-decoration: inherit;
-        //   text-decoration: underline;
-        // }
-        // a:visited {
-        //   color: rgb(230, 230, 230);
-        //   cursor: auto;
-        // }
-      }
-      #mce-success-response {
-        text-transform: uppercase;
       }
     }
   }
