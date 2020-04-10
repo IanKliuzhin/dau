@@ -112,6 +112,17 @@ body {
           }
         }
       }
+      .restriction {
+        float: right;
+        position: relative;
+        padding: 0 0.5em;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10%;
+        border: 1px solid black;
+        transform: translate(1em, -1px);
+      }
       .watchPart {
         display: flex;
         justify-content: flex-start;
