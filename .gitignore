@@ -11,3 +11,5 @@ dist1
 node_modules
 
 .idea/
+
+yarn-error.log
