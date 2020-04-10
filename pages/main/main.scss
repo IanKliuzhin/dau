@@ -106,6 +106,10 @@ body {
   }
 }
 
+.silv_bear, .ber_spec {
+  min-width: 200px;
+}
+
 .for_outst {
   position: relative;
   @media (max-width: 680px) {
@@ -171,8 +175,8 @@ body {
     margin-top: -2vw;
   }
   @media (min-width: 1090px) {
-    margin-top: 33px;
-    a {
+    margin-top: 20px;
+    span {
       font-size: 114px;
     }
   }
