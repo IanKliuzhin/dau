@@ -140,7 +140,6 @@ body {
           align-items: center;
           height: 42px;
           width: 121px;
-          background-color: black;
           color: white;
           margin-right: 10px;
         }
@@ -278,27 +277,31 @@ body {
       }
     }
   }
-}
 
-.dark,
-.light {
-  width: 100%;
-}
-
-.dark {
-  .text {
-    color: rgb(230, 230, 230);
+  .dark,
+  .light {
+    width: 100%;
   }
-  a.watch_button {
-    border: 1px solid white;
-    box-sizing: border-box;
+  
+  .dark {
+    .text {
+      color: rgb(230, 230, 230);
+    }
+    a.watch_button {
+      border: 1px solid white;
+      box-sizing: border-box;
+      background-color: transparent;
+    }
+    background-color: rgb(25, 25, 25);
   }
-  background-color: rgb(25, 25, 25);
-}
-
-.light {
-  background-color: rgb(230, 230, 230);
-  .text {
-    color: rgb(25, 25, 25);
+  
+  .light {
+    background-color: rgb(230, 230, 230);
+    .text {
+      color: rgb(25, 25, 25);
+    }
+    a.watch_button {
+      background-color: black;
+    }
   }
 }
