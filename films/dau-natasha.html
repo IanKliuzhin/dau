@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DAU. Natasha (18+)</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119593294-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag("js", new Date())
+
+      gtag("config", "UA-119593294-4")
+    </script>
+    <script type="text/javascript" src="https://assets.inplayer.com/paywall/latest/paywall.min.js"></script>
+  </head>
+  <body>
+    <div id="inplayer-96102"></div>
+    <button id="my-paywall-button">WATCH NOW</button>
+    <script type="text/javascript">
+      var paywall = new InplayerPaywall('e645ed93-52e7-43a6-9593-df4bb43c1274',
+           [
+            {
+              id: 96102,
+          options: {
+                noPreview: true
+          }
+            }
+           ]
+      );
+      document.getElementById('my-paywall-button').addEventListener("click", () => { paywall.showPaywall({asset: {assetId: 96102}})});
+      
+      </script>
+  </body>
+</html>

@@ -142,6 +142,19 @@ body {
           width: 121px;
           color: white;
           margin-right: 10px;
+          cursor: pointer;
+          &.disabled {
+            cursor: default;
+          }
+          &:link {
+            text-decoration: inherit;
+            color: white;
+          }
+          &:visited {
+            text-decoration: inherit;
+            color: white;
+            cursor: auto;
+          }
         }
       }
       .columnsWrapper {
