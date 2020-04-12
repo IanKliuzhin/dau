@@ -118,7 +118,7 @@ iframe {
       .link {
         opacity: 0;
         transition: opacity 0s 0s;
-        &.main span {
+        &.main a {
           display: none;
         }
       }
@@ -152,7 +152,7 @@ iframe {
         transition: opacity 0s 0s;
         &.main {
           bottom: 86%;
-          span {
+          a {
             position: absolute;
             margin-left: 0;
             left: 0;
@@ -213,7 +213,7 @@ iframe {
       visibility: visible;
       left: 1.9vw;
       top: 1vw;
-      span {
+      a {
         margin-left: 1.8em;
         pointer-events: all;
         &:link {
