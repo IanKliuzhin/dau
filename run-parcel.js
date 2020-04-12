@@ -10,6 +10,11 @@ app.get('/', (req, res, next) => {
   app._router.handle(req, res, next);
 });
 
+app.get('/cinema', (req, res, next) => {
+  req.url = '/cinema/index.html';
+  app._router.handle(req, res, next);
+});
+
 app.use(bundler.middleware());
 
 const port = Number(process.env.PORT || 1234);
