@@ -16,8 +16,17 @@
 
       gtag("config", "UA-119593294-4")
     </script>
+    <script type="text/javascript" src="https://assets.inplayer.com/paywall/latest/paywall.min.js"></script>
   </head>
   <body>
+    <div class="inplayerContainer" id="inplayerContainer-96099" data-id="96099">
+      <div class="cross">X</div>
+      <div class="inplayer" id="inplayer-96099"></div>
+    </div>
+    <div class="inplayerContainer" id="inplayerContainer-96102" data-id="96102">
+      <div class="cross">X</div>
+      <div class="inplayer" id="inplayer-96102"></div>
+    </div>
     <div id="mainContainer">
       <div class="light">
         <div class="text"><br /></div>
@@ -62,7 +71,7 @@
                 <div class="text"><br /></div>
                 <div class="watchPart">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="desktop">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <a class="watch_button" href="../../films/dau-natasha.html" target="_blank">Watch now</a>
+                  <a class="watch_button" data-id="96099">Watch now</a>
                   Rent for $3.99
                 </div>
                 <div class="text"><br /></div>
@@ -190,7 +199,7 @@
                 <div class="text"><br /></div>
                 <div class="watchPart">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="desktop">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <a class="watch_button" href="../../films/dau-degeneration.html" target="_blank">Watch now</a>
+                  <a class="watch_button" data-id="96102">Watch now</a>
                   Rent for $3.99
                 </div>
                 <div class="text"><br /></div>
@@ -811,12 +820,12 @@
               <div class="text"><br /></div>
               <div class="text"><br /></div>
               <div class="mobile">
-                <div class="text">© 2020 Phenomen Films</div>
+                <div class="text">Phenomen Berlin Produktion GmbH</div>
               </div>
               <div class="columnsWrapper desktop">
                 <div class="leftTextBlock"></div>
                 <div class="rightTextBlock">
-                  <div class="text">© 2020 Phenomen Films</div>
+                  <div class="text">Phenomen Berlin Produktion GmbH</div>
                 </div>
               </div>
               <div class="text"><br /></div>
@@ -827,5 +836,116 @@
         </div>
       </div>
     </div>
+    <script>
+      const containers = Array.from(document.getElementsByClassName('inplayerContainer'))
+      const showInplayer = (id) => document.getElementById(`inplayerContainer-${id}`).classList.add('visible')
+      const hideInplayer = (id) => document.getElementById(`inplayerContainer-${id}`).classList.remove('visible')
+      const hideAllPlayers = containers.forEach(cont => cont.classList.remove('visible'));
+      containers.forEach(cont => {
+        const assetID = parseInt(cont.getAttribute("data-id"), 10)
+        const player = cont.getElementsByClassName('inplayer')[0]
+        const cross = cont.getElementsByClassName('cross')[0]
+        cross.addEventListener('click', () => hideInplayer(assetID))
+
+        let timer = null
+        const removeDisapperClass = () => cross.classList.remove('fadeout')
+        const addDisappearClass = () => cross.classList.add('fadeout')
+
+        const setTimer = () => {
+          clearTimeout(timer)
+          timer = setTimeout(() => {
+            addDisappearClass()
+          }, 1500)
+        }
+        
+        const showCross = () => {
+          removeDisapperClass()
+          setTimer()
+        }
+
+        addMoveListener = () => cont.addEventListener('mousemove', showCross)
+        removeMoveListener = () => cont.removeEventListener('mousemove', showCross)
+
+        cont.addEventListener('mouseenter', addMoveListener)
+        cont.addEventListener('mouseleave', removeMoveListener)
+      })
+      const paywalls = {}
+      const assetIDs = [96099, 96102]
+      assetIDs.forEach(id => {
+        const paywall = new InplayerPaywall('e645ed93-52e7-43a6-9593-df4bb43c1274', 
+          [
+            {
+              id: id,
+              options: {
+                  noPreview: true,
+              } 
+            }
+          ]
+        )
+        
+        paywalls[id] = paywall
+      })
+
+      const buttons = Array.from(document.getElementsByClassName('watch_button')).filter((button) => !button.classList.contains('disabled'))
+      // console.log('paywalls', paywalls);
+      buttons.forEach((button) => {
+        const assetID = parseInt(button.getAttribute("data-id"), 10)
+        button.addEventListener("click", () => {
+          // console.log('assetID clicked', assetID);
+          const paywall = paywalls[assetID]
+          // console.log('paywall.isAuthenticated()', paywall.isAuthenticated());
+          const showAndAddListener = () => {
+            paywall.on('inject', function(e, data) {
+              showInplayer(assetID)
+            });
+            paywall.showPaywall({ asset: { assetId: assetID } })
+          }
+          if (paywall.isAuthenticated()) {
+            // console.log('paywall', paywall);
+            const token = localStorage.getItem('inplayer_token')
+            const request = new Request(
+              `https://services.inplayer.com/items/${assetID}/access`, 
+              {
+                method: 'GET',
+                headers: new Headers({ 'authorization': `Bearer ${JSON.parse(token).token}` }),
+              }
+            );
+
+            fetch(request)
+              .then(resp => { 
+                // console.log('resp.status', resp.status);
+                if (resp.status === 200) showInplayer(assetID)
+                else if (resp.status === 402) showAndAddListener()
+              }) 
+              .catch(err => { 
+                // console.log('err', err);
+              }); 
+          }
+          else showAndAddListener()
+        })
+      });
+    </script>
+    <script>
+      const cadrsContainers = document.getElementsByClassName("cadrsContainer")
+      const cadrCountContainers = document.getElementsByClassName("cadrCountContainer")
+      for (let j = 0; j < cadrsContainers.length; j++) {
+        const chosen = cadrCountContainers[j].getElementsByClassName("chosen")[0]
+        const amountElement = cadrCountContainers[j].getElementsByClassName("amount")[0]
+        const amount = parseInt(amountElement.innerHTML, 10)
+
+        const changeCadrByClick = () => {
+          if (chosen) {
+            const curNumber = parseInt(chosen.innerHTML, 10)
+            const nextNumber = curNumber === amount ? 1 : curNumber + 1
+            chosen.innerHTML = nextNumber
+            const prevCadr = cadrsContainers[j].getElementsByClassName("visible")
+            if (prevCadr.length > 0) prevCadr[0].classList.remove("visible")
+            cadrsContainers[j].getElementsByClassName(`cadr${nextNumber}`)[0].classList.add("visible")
+          }
+        }
+
+        cadrsContainers[j].addEventListener("click", changeCadrByClick, false)
+      }
+    </script>
   </body>
 </html>

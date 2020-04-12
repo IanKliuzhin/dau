@@ -1,7 +1,7 @@
 const Bundler = require('parcel-bundler');
 const express = require('express');
 
-const bundler = new Bundler(['index.html', 'pages/main/main.html', 'pages/participants/participants.html', 'pages/participants/index.html', 'pages/institute/institute.html', 'pages/institute/index.html', 'pages/about/about.html', 'pages/about/index.html', 'pages/institute/assets/inst_map.svg', 'films/dau-natasha.html', 'films/dau-degeneration.html'], {hmrHostname: 'localhost'});
+const bundler = new Bundler(['index.html', 'pages/main/main.html', 'pages/participants/participants.html', 'pages/participants/index.html', 'pages/institute/institute.html', 'pages/institute/index.html', 'pages/about/about.html', 'pages/about/index.html', 'pages/institute/assets/inst_map.svg'], {hmrHostname: 'localhost'});
 
 const app = express();
 
