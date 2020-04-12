@@ -138,10 +138,10 @@ body {
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          height: 42px;
-          width: 121px;
+          height: 38px;
+          width: 42%;
           color: white;
-          margin-right: 10px;
+          margin-right: 7%;
           cursor: pointer;
           &.disabled {
             cursor: default;
@@ -348,5 +348,30 @@ body {
   }
   .inplayer {
     width: 80%;
+  }
+}
+
+#inplayer-menu-content {
+  .inplayer-user .inplayer-avatar-toggle.inplayer-avatar-box-shadow {
+    box-shadow: none;
+    // background-image: none;
+  }
+
+  .inplayer-menu.show {
+    background-color: black;
+    color: white;
+    box-shadow: none;
+    ul {
+
+      li {
+        font-family: "decimamonox";
+        a {
+          background-color: black !important;
+        }
+      }
+    }
+    &:after {
+      content: none,
+    }
   }
 }
