@@ -20,11 +20,11 @@
   </head>
   <body>
     <div class="inplayerContainer" id="inplayerContainer-96099" data-id="96099">
-      <div class="cross">X</div>
+      <div class="cross">×</div>
       <div class="inplayer" id="inplayer-96099"></div>
     </div>
     <div class="inplayerContainer" id="inplayerContainer-96102" data-id="96102">
-      <div class="cross">X</div>
+      <div class="cross">×</div>
       <div class="inplayer" id="inplayer-96102"></div>
     </div>
     <div id="mainContainer">
@@ -798,16 +798,53 @@
         </div>
       </div>
     </div>
+    <script src="//players.brightcove.net/3981276734001/HyYPCNflZ_default/index.min.js"></script>
     <script>
+      const players = {};
       const containers = Array.from(document.getElementsByClassName('inplayerContainer'))
       const showInplayer = (id) => document.getElementById(`inplayerContainer-${id}`).classList.add('visible')
       const hideInplayer = (id) => document.getElementById(`inplayerContainer-${id}`).classList.remove('visible')
       const hideAllPlayers = containers.forEach(cont => cont.classList.remove('visible'));
+
+      const paywalls = {}
+      const assetIDs = [96099, 96102]
+      const videoIDs = {
+        96099: 6148510699001, 
+        96102: 6148517521001
+      }
+      assetIDs.forEach(id => {
+        const paywall = new InplayerPaywall('e645ed93-52e7-43a6-9593-df4bb43c1274', 
+          [
+            {
+              id: id,
+              options: {
+                  noPreview: true,
+                  playerParams: {
+                      autoplay: false
+                  }
+              } 
+            }
+          ]
+        )
+        paywall.on('inject', function(e, data) {
+          // console.log('injected data.asset.id', data.asset.id);
+          const id = data.asset.id
+          setTimeout(() => {
+            videojs(`inplayer-${id}-brightcove-${videoIDs[id]}`).ready(function() {
+              players[id] = this;
+            })
+          }, 1000);
+        });
+        paywalls[id] = paywall
+      })
+
       containers.forEach(cont => {
         const assetID = parseInt(cont.getAttribute("data-id"), 10)
-        const player = cont.getElementsByClassName('inplayer')[0]
         const cross = cont.getElementsByClassName('cross')[0]
-        cross.addEventListener('click', () => hideInplayer(assetID))
+        cross.addEventListener('click', () => {
+          players[assetID].pause()
+          hideInplayer(assetID)
+        })
 
         let timer = null
         const removeDisapperClass = () => cross.classList.remove('fadeout')
@@ -830,22 +867,6 @@
 
         cont.addEventListener('mouseenter', addMoveListener)
         cont.addEventListener('mouseleave', removeMoveListener)
-      })
-      const paywalls = {}
-      const assetIDs = [96099, 96102]
-      assetIDs.forEach(id => {
-        const paywall = new InplayerPaywall('e645ed93-52e7-43a6-9593-df4bb43c1274', 
-          [
-            {
-              id: id,
-              options: {
-                  noPreview: true,
-              } 
-            }
-          ]
-        )
-        
-        paywalls[id] = paywall
       })
 
       const buttons = Array.from(document.getElementsByClassName('watch_button')).filter((button) => !button.classList.contains('disabled'))
