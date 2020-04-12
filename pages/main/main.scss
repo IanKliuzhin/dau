@@ -152,31 +152,31 @@ body {
 
 .watch_now {
   margin-top: 3vw;
-  a {
+  span {
     font-size: 10.5vw;
     line-height: 1.2;
     font-family: 'druk-bold';
     font-weight: bold;
-    // cursor: pointer;
+    cursor: pointer;
     @media (max-width: 680px) {
       font-size: 68px;
       line-height: 2;
     }
-    &:link {
-      color: rgb(230, 230, 230);
-      text-decoration: inherit;
-    }
-    &:visited {
-      color: rgb(230, 230, 230);
-      cursor: auto;
-    }
+    // &:link {
+    //   color: rgb(230, 230, 230);
+    //   text-decoration: inherit;
+    // }
+    // &:visited {
+    //   color: rgb(230, 230, 230);
+    //   cursor: auto;
+    // }
   }
   @media (max-width: 680px) {
     margin-top: -2vw;
   }
   @media (min-width: 1090px) {
     margin-top: 20px;
-    a {
+    span {
       font-size: 114px;
     }
   }

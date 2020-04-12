@@ -1,6 +1,5 @@
-// import { addCountPicChanger, addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
-import { addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
-// import { addVertScroll } from "./helpers/vertScroll";
+import { addCountPicChanger, addNumsPicChanger, addPointsPicChanger, addThumbnailsPicChanger } from "./helpers/picChange";
+import { addVertScroll } from "./helpers/vertScroll";
 import {getHTML} from './helpers/getHTML'
 import { lazyLoadImages } from "./helpers/lazyImagesLoader";
 import { makeMapHints } from "./helpers/mapHintsMaker";
@@ -17,14 +16,14 @@ const sources = {
   digital: "/",
   participants: "pages/participants/index.html",
   institute: "pages/institute/index.html",
-  // about: "pages/about/about.html",
+  about: "pages/about/about.html",
 }
 const contents = {
   main: "pages/main/main.html",
   digital: "",
   participants: "pages/participants/participants.html",
   institute: "pages/institute/institute.html",
-  // about: "pages/about/about.html",
+  about: "pages/about/about.html",
 }
 
 document.addEventListener(
@@ -83,8 +82,7 @@ document.addEventListener(
       const oldPage = pages[oldPageName]
       const newPage = pages[pageName]
       newPage.classList.add("visible", "withTransition")
-      // Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_about')))
-      Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants')))
+      Object.keys(pages).forEach((pageName) => (pages[pageName].classList.remove('when_main', 'when_institute', 'when_participants', 'when_about')))
       Object.keys(pages).forEach((pageName) => (pages[pageName].classList.add(`when_${getVisiblePageName()}`)))
       if (oldPageName) oldPage.classList.add("withTransition")
       hideLinksBar()
@@ -112,23 +110,23 @@ document.addEventListener(
       if (!newPage.classList.contains('loaded')) {
         loadPageContent(pageName)
       }
-      // switch (pageName) {
-      //   case 'main':
-      //     addVertScroll(pages.main, pages.about, changePage)
-      //     pages.main.contentWindow.document.getElementById('link_watch_now').addEventListener("click", openAbout)
-      //     break;
-      //   case 'about':
-      //     if (oldPageName) {
-      //       lazyLoadImages(newPage.contentWindow.document)
-      //       addCountPicChanger(newPage.contentWindow.document)
-      //     } else pages.about.onload = () => {
-      //       lazyLoadImages(newPage.contentWindow.document)
-      //       addCountPicChanger(newPage.contentWindow.document)
-      //     }
-      //     break;
-      //   default:
-      //     break;
-      // }
+      switch (pageName) {
+        case 'main':
+          addVertScroll(pages.main, pages.about, changePage)
+          pages.main.contentWindow.document.getElementById('link_watch_now').addEventListener("click", openAbout)
+          break;
+        case 'about':
+          if (oldPageName) {
+            lazyLoadImages(newPage.contentWindow.document)
+            addCountPicChanger(newPage.contentWindow.document)
+          } else pages.about.onload = () => {
+            lazyLoadImages(newPage.contentWindow.document)
+            addCountPicChanger(newPage.contentWindow.document)
+          }
+          break;
+        default:
+          break;
+      }
     }
 
     const loadPageContent = (pageName) => {
@@ -162,21 +160,20 @@ document.addEventListener(
             addNumsPicChanger(page.contentWindow.document)
             makeMapHints(page.contentWindow.document)
             lazyLoadImages(page.contentWindow.document)
+          } else if (pageName === "about") {
+            // lazyLoadImages(page.contentWindow.document)
+            addCountPicChanger(page.contentWindow.document)
           }
-          // } else if (pageName === "about") {
-          //   // lazyLoadImages(page.contentWindow.document)
-          //   addCountPicChanger(page.contentWindow.document)
-          // }
         }
       });
     }
 
-    // const openAbout = () => {
-    //   const oldPageName = getVisiblePageName()
-    //   changePage('about', oldPageName)
-    // }
+    const openAbout = () => {
+      const oldPageName = getVisiblePageName()
+      changePage('about', oldPageName)
+    }
 
-    const releasePageNames = ["main", "participants", "institute"]
+    const releasePageNames = ["main", "participants", "institute", "about"]
 
     releasePageNames.forEach((pageName) => {
       const page = document.createElement("iframe")
@@ -216,14 +213,15 @@ document.addEventListener(
       else link.classList.add('disabled')
     })
 
-    const awkwardLink = document.createElement('a')
+    const awkwardLink = document.createElement('span')
     awkwardLink.innerHTML = 'ONLINE CINEMA'
-    awkwardLink.target = '_blank'
-    awkwardLink.href = './cinema'
+    // awkwardLink.target = '_blank'
+    // awkwardLink.href = './cinema'
     awkwardLink.addEventListener("click", (e) => {
       e.stopPropagation();
+      openAbout()
     })
-    // links.about = awkwardLink
+    links.about = awkwardLink
     links.main.appendChild(awkwardLink)
 
     // const burger = document.getElementById('burger')
@@ -238,8 +236,8 @@ document.addEventListener(
         pages.main.contentWindow.document.getElementById('link_watch_now').setAttribute('href', "../../cinema")
         setTimeout(() => {
           pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
-          // pages.main.contentWindow.document.getElementById('link_watch_now').addEventListener("click", openAbout)
-          // addVertScroll(pages.main, pages.about, changePage)
+          pages.main.contentWindow.document.getElementById('link_watch_now').addEventListener("click", openAbout)
+          addVertScroll(pages.main, pages.about, changePage)
         }, 850);
       }
     } else {
