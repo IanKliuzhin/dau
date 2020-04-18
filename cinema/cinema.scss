@@ -14,6 +14,7 @@ body {
   line-height: 18.6px;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
+  -webkit-font-smoothing: antialiased;
   @media (min-width: 681px) {
     font-size: 1vw;
     line-height: 1.55;

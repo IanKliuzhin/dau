@@ -71,6 +71,8 @@ html, body {
       margin-block-end: 0px;
       margin-inline-start: 0px;
       margin-inline-end: 0px;
+      font-feature-settings: "liga" off;
+      font-variant-ligatures: no-common-ligatures;
       .gray {
         color: #333333;
       }
