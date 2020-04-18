@@ -218,10 +218,10 @@ document.addEventListener(
 
     const awkwardLink = document.createElement('a')
     awkwardLink.innerHTML = 'ONLINE CINEMA'
-    awkwardLink.target = '_blank'
     awkwardLink.href = './cinema'
     awkwardLink.addEventListener("click", (e) => {
       e.stopPropagation();
+      window.location.href = "./cinema"
     })
     // links.about = awkwardLink
     links.main.appendChild(awkwardLink)
@@ -235,7 +235,9 @@ document.addEventListener(
         sharing.classList.add('visible', 'clickable')
         // console.log('pages.main.contentWindow.document.getElementById("linesContainer")', pages.main.contentWindow.document.getElementById("linesContainer"));
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
-        pages.main.contentWindow.document.getElementById('link_watch_now').setAttribute('href', "../../cinema")
+        const linkWatchNow = pages.main.contentWindow.document.getElementById('link_watch_now')
+        linkWatchNow.setAttribute('href', '../../cinema')
+        linkWatchNow.addEventListener('click', () => window.location.href = "./cinema")
         setTimeout(() => {
           pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
           // pages.main.contentWindow.document.getElementById('link_watch_now').addEventListener("click", openAbout)
@@ -250,7 +252,9 @@ document.addEventListener(
         burger.addEventListener('click', showLinksBar)
         links[loadingPageName].classList.add('visible', 'chosen')
         links.main.classList.add('clickable')
-        pages.main.contentWindow.document.getElementById('link_watch_now').setAttribute('href', "../../cinema")
+        const linkWatchNow = pages.main.contentWindow.document.getElementById('link_watch_now')
+        linkWatchNow.setAttribute('href', '../../cinema')
+        linkWatchNow.addEventListener('click', () => window.location.href = "./cinema")
       }, 1000);
     }
   },
