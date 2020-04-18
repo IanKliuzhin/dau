@@ -4,6 +4,13 @@
     url("/fonts/decimamonox-webfont.woff") format("woff");
 }
 
+@font-face {
+  font-family: "druk-bold";
+  font-weight: 700;
+  src: url("/fonts/Druk-Bold-Web.woff2") format("woff2"),
+    url("/fonts/Druk-Bold-Web.woff") format("woff");
+}
+
 html {
   width: 100wv;
 }
@@ -46,6 +53,76 @@ body {
   width: 100%;
   vertical-align: middle;
   text-align: center;
+  .header {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    margin-top: 2vw;
+    align-items: center;
+    @media (min-width: 681px) {
+      flex-direction: row;
+    }
+    .title {
+      font-size: 27.5vw;
+      line-height: 0.8;
+      text-align: center;
+      width: 100%;
+      font-family: 'druk-bold';
+      font-weight: bold;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      @media (min-width: 320px) {
+        font-size: 28vw;
+      }
+      @media (min-width: 375px) {
+        font-size: 28.5vw;
+      }
+      @media (min-width: 420px) {
+        font-size: 29vw;
+      }
+      @media (min-width: 550px) {
+        font-size: 29.5vw;
+      }
+      @media (min-width: 681px) {
+        font-size: 10.5vw;
+        width: 50%;
+        text-align: left;
+        padding-left: 2%;
+      }
+    }
+  
+    .info {
+      // font-size: 12px;
+      // line-height: 18.6px;
+      width: calc(100% - 32px);
+      position: relative;
+      // display: flex;
+      // flex-flow: column nowrap;
+      // align-items: center;
+      .linkback {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .description {
+        text-align: left;
+      }
+      @media (min-width: 681px) {
+        width: calc(50% - 6px);
+        font-size: 1vw;
+        line-height: 1.8;
+        .linkback {
+          left: -65pt;
+        }
+        .description {
+          width: 65%;
+        }
+      }
+    }
+  
+  }
+
+
 
   .contentWrapper {
     display: inline-block;
