@@ -87,7 +87,7 @@
                 </div>
                 <div class="text"><br /></div>
                 <div class="watchPart">
-                  <a class="watch_button" data-id="96099">Watch now</a>
+                  <a class="watch_button" data-id="96099" id="watch_button-96099">Watch now</a>
                   Rent for $3.99
                 </div>
                 <div class="text"><br /></div>
@@ -212,7 +212,7 @@
                 </div>
                 <div class="text"><br /></div>
                 <div class="watchPart">
-                  <a class="watch_button" data-id="96102">Watch now</a>
+                  <a class="watch_button" data-id="96102" id="watch_button-96102">Watch now</a>
                   Rent for $3.99
                 </div>
                 <div class="text"><br /></div>
@@ -817,13 +817,13 @@
         </div>
       </div>
     </div>
-    <script src="//players.brightcove.net/3981276734001/HyYPCNflZ_default/index.min.js"></script>
+    <!-- <script src="//players.brightcove.net/6069262890001/gAT5XsEnp_default/index.min.js"></script> -->
     <script>
       const players = {};
       const containers = Array.from(document.getElementsByClassName('inplayerContainer'))
       const showInplayer = (id) => document.getElementById(`inplayerContainer-${id}`).classList.add('visible')
       const hideInplayer = (id) => document.getElementById(`inplayerContainer-${id}`).classList.remove('visible')
-      const hideAllPlayers = containers.forEach(cont => cont.classList.remove('visible'));
+      // const hideAllPlayers = containers.forEach(cont => cont.classList.remove('visible'));
 
       const paywalls = {}
       const assetIDs = [96099, 96102]
@@ -831,39 +831,117 @@
         96099: 6148510699001, 
         96102: 6148517521001
       }
-      assetIDs.forEach(id => {
-        const paywall = new InplayerPaywall('e645ed93-52e7-43a6-9593-df4bb43c1274', 
-          [
-            {
-              id: id,
-              options: {
-                  noPreview: true,
-                  playerParams: {
-                      autoplay: false
-                  }
-              } 
+      const paywall = new InplayerPaywall('e645ed93-52e7-43a6-9593-df4bb43c1274', 
+        [
+          ...assetIDs.map(id => ({id: id}))
+        ]
+      )
+                      // options: {
+                      //   noPreview: true,
+                      //   // playerScripts: [
+                      //   //   {
+                      //   //     src: 'players.brightcove.net/6069262890001/gAT5XsEnp_default/index.min.js',
+                      //   //     id: 'brightcove',
+                      //   //     type: 'script',
+                      //   //     async: false,
+                      //   //   }
+                      //   // ],
+                      //   // playerParams: {
+                      //   //   account: "6069262890001",
+                      //   //   player: "gAT5XsEnp",
+                      //   //   embed: "default",
+                      //   //   controls: "",
+                      //   //   applicationId: "",
+                      //   //   class: "vjs-fluid",
+                      //   //   autoplay: false,
+                      //   // }
+                      // }
+      paywall.on('inject', function(e, data) {
+        // console.log('injected');
+        const id = data.asset.id
+
+        const makeSeriousThings = () => {
+          videojs(`inplayer-${id}-brightcove-${videoIDs[id]}`).ready(function() {
+            players[id] = this;
+
+            var getVideoId = function() {
+                return players[id].mediainfo.id;
             }
-          ]
-        )
-        paywall.on('inject', function(e, data) {
-          // console.log('injected data.asset.id', data.asset.id);
-          const id = data.asset.id
-          setTimeout(() => {
-            videojs(`inplayer-${id}-brightcove-${videoIDs[id]}`).ready(function() {
-              players[id] = this;
-            })
-          }, 1000);
-        });
-        paywalls[id] = paywall
-      })
+            
+            var getStorageKey = function() {
+                return 'BC_current_time_' + getVideoId();
+            }
+            var updateCurrentTime = function(time) {
+                localStorage.setItem(getStorageKey(), '' + (time < 0 ? 0 : time));
+            }
+
+            var getCurrentTimeFromCache = function() {
+                var value = localStorage.getItem(getStorageKey());
+                return parseInt(value || 0);
+            }
+
+            var resetCurrentTime = function() {
+                updateCurrentTime(0);
+            }
+
+            var currentPosition;
+            var videoStart = 0;
+
+            players[id].on("loadedmetadata", function () {
+                videoStart = getCurrentTimeFromCache();
+                // console.log('Resume: ', videoStart);
+                if (videoStart > 0) {
+                    // console.log('Setting Time');
+                    players[id].currentTime(videoStart);
+                }
+            });
+
+            players[id].on("timeupdate", function() {
+                // console.log("time")
+              currentPosition = players[id].currentTime();
+              //if (Math.round(currentPosition) > videoStart) {
+                videoStart = Math.round(currentPosition);
+                updateCurrentTime(videoStart - 2);
+                // console.log('updating time', videoStart);
+              //}
+            });
+
+            players[id].on("ended", function () {
+                videoStart = 0;
+                resetCurrentTime();
+                document.cookie="expires=0;";
+                // console.log('Video Ended');
+            });
+
+            const button = document.getElementById(`watch_button-${id}`)
+            if (button && button.classList.contains('clicked')) showAndPlay(id)
+          })
+        }
+
+        // const checkAppearance = () => !!document.getElementById(`inplayer-${id}-brightcove-${videoIDs[id]}`)
+        const checkAppearance = () => (videojs !== undefined)
+        const myChecker = setInterval(function () {
+          if (checkAppearance()) {
+            clearInterval(myChecker);
+            makeSeriousThings();
+          }
+        }, 200);
+      });
+
+      const showAndPlay = (id) => {
+        showInplayer(id)
+        players[id].play()
+      }
+
+      const pauseAndHide = (id) => {
+        players[id].pause()
+        hideInplayer(id)
+      }
 
       containers.forEach(cont => {
         const assetID = parseInt(cont.getAttribute("data-id"), 10)
         const cross = cont.getElementsByClassName('cross')[0]
-        cross.addEventListener('click', () => {
-          players[assetID].pause()
-          hideInplayer(assetID)
-        })
+        cross.addEventListener('click', () => pauseAndHide(assetID))
 
         let timer = null
         const removeDisapperClass = () => cross.classList.remove('fadeout')
@@ -889,19 +967,22 @@
       })
 
       const buttons = Array.from(document.getElementsByClassName('watch_button')).filter((button) => !button.classList.contains('disabled'))
-      // console.log('paywalls', paywalls);
+      // console.log('paywall', paywall);
+      const clearClicked = () => buttons.forEach(b => b.classList.remove('clicked'))
       buttons.forEach((button) => {
         const assetID = parseInt(button.getAttribute("data-id"), 10)
         button.addEventListener("click", () => {
           // console.log('assetID clicked', assetID);
-          const paywall = paywalls[assetID]
+          clearClicked()
+          button.classList.add('clicked')
           // console.log('paywall.isAuthenticated()', paywall.isAuthenticated());
-          const showAndAddListener = () => {
-            paywall.on('inject', function(e, data) {
-              showInplayer(assetID)
-            });
-            paywall.showPaywall({ asset: { assetId: assetID } })
-          }
+          // const showAndAddListener = () => {
+          //   paywall.on('inject', function(e, data) {
+          //     console.log('inject showAndAddListener', data.asset.id);
+          //     showAndPlay(data.asset.id)
+          //   });
+          //   paywall.showPaywall({ asset: { assetId: assetID } })
+          // }
           if (paywall.isAuthenticated()) {
             // console.log('paywall', paywall);
             const token = localStorage.getItem('inplayer_token')
@@ -916,14 +997,14 @@
             fetch(request)
               .then(resp => { 
                 // console.log('resp.status', resp.status);
-                if (resp.status === 200) showInplayer(assetID)
-                else if (resp.status === 402) showAndAddListener()
+                if (resp.status === 200) showAndPlay(assetID)
+                else if (resp.status === 402) paywall.showPaywall({ asset: { assetId: assetID } })
               }) 
               .catch(err => { 
                 // console.log('err', err);
               }); 
           }
-          else showAndAddListener()
+          else paywall.showPaywall({ asset: { assetId: assetID } })
         })
       });
     </script>
