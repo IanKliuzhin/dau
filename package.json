@@ -4,7 +4,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html pages/**/*.html pages/**/*.js pages/**/*.css pages/**/*.scss pages/**/assets/**.jpg pages/**/assets/**.png pages/**/assets/**.svg cinema/index.html cinema/assets/**.jpg cinema/cinema.scss --public-url . --no-cache",
+    "build": "parcel build index.html pages/**/*.html pages/**/*.js pages/**/*.css pages/**/*.scss pages/**/assets/**.jpg pages/**/assets/**.png pages/**/assets/**.svg cinema/index.html cinema/assets/**.jpg cinema/assets/**.png cinema/assets/**.svg cinema/cinema.scss inplayer-logo.png favicon.png dau-logo.png --public-url . --no-cache",
     "start": "node run-parcel.js"
   },
   "repository": {
