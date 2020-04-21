@@ -854,7 +854,7 @@
         }
 
         // const checkAppearance = () => !!document.getElementById(`inplayer-${id}-brightcove-${videoIDs[id]}`)
-        const checkAppearance = () => (videojs !== undefined)
+        const checkAppearance = () => (window.hasOwnProperty('videojs'))
         const myChecker = setInterval(function () {
           if (checkAppearance()) {
             clearInterval(myChecker);

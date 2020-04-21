@@ -237,7 +237,7 @@ document.addEventListener(
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
         const linkWatchNow = pages.main.contentWindow.document.getElementById('link_watch_now')
         linkWatchNow.setAttribute('href', '../../cinema')
-        linkWatchNow.addEventListener('click', () => window.location.href = "./cinema")
+        linkWatchNow.addEventListener('click', () => window.location.href += "cinema")
         setTimeout(() => {
           pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
           // pages.main.contentWindow.document.getElementById('link_watch_now').addEventListener("click", openAbout)
@@ -254,7 +254,7 @@ document.addEventListener(
         links.main.classList.add('clickable')
         const linkWatchNow = pages.main.contentWindow.document.getElementById('link_watch_now')
         linkWatchNow.setAttribute('href', '../../cinema')
-        linkWatchNow.addEventListener('click', () => window.location.href = "./cinema")
+        linkWatchNow.addEventListener('click', () => window.location.href += "cinema")
       }, 1000);
     }
   },
