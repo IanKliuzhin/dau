@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   const nat = new SplitText(".nat", { type: "chars" })
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   const silvBear = new SplitText(".silv_bear", { type: "chars" })
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   tl.staggerFromTo(
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       yoyo: true,
     },
     0.12,
-    "+=0.096"
+    "+=0.096",
   )
 
   const forOutst = new SplitText(".for_outst", { type: "words" })
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
         opacity: 1,
       },
       0.024,
-      "+=0"
+      "+=0",
     )
   })
 
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       yoyo: true,
     },
     0.12,
-    "+=0.096"
+    "+=0.096",
   )
 
   const jurJur = new SplitText(".jur_jur", { type: "chars" })
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   const at70th = new SplitText(".at_70th", { type: "chars" })
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   const filmFest = new SplitText(".film_fest", { type: "chars" })
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   // tl.staggerTo(
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       yoyo: true,
     },
     0.12,
-    "+=0.096"
+    "+=0.096",
   )
 
   const dauDeg = new SplitText(".dau_deg", { type: "chars" })
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   const deg = new SplitText(".deg", { type: "chars" })
@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   const berSpec = new SplitText(".ber_spec", { type: "chars" })
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
     },
     0.024,
-    "+=0"
+    "+=0",
   )
 
   tl.staggerFromTo(
@@ -261,11 +261,91 @@ document.addEventListener("DOMContentLoaded", () => {
       yoyo: true,
     },
     0.12,
-    "+=0.096"
+    "+=0.096",
   )
 
   tl.play()
   document.tl = tl;
+
+  const tl2 = new TimelineLite({
+    paused: true,
+    onComplete: () => {
+      tl2.progress(0)
+      tl2.play()
+    },
+  })
+
+  const watchNowEn = new SplitText("#watch_now_en", { type: "chars" })
+  const watchNowRu = new SplitText("#watch_now_ru", { type: "chars" })
+
+  tl2.set(
+    watchNowRu.chars,
+    {
+      opacity: 0,
+    },
+    "+=0",
+  )
+  tl2.set(
+    ["#watch_now_en", "#watch_now_ru"],
+    {
+      opacity: 1,
+    },
+    "+=0",
+  )
+
+  tl2.staggerFromTo(
+    watchNowEn.chars,
+    0.12,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+    },
+    0.12,
+    "+=0",
+  )
+
+  tl2.staggerFromTo(
+    [...watchNowEn.chars].reverse(),
+    0.12,
+    {
+      opacity: 1,
+    },
+    {
+      opacity: 0,
+    },
+    0.12,
+    "+=3",
+  )
+
+  tl2.staggerFromTo(
+    watchNowRu.chars,
+    0.12,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+    },
+    0.12,
+    "+=0",
+  )
+
+  tl2.staggerFromTo(
+    [...watchNowRu.chars].reverse(),
+    0.12,
+    {
+      opacity: 1,
+    },
+    {
+      opacity: 0,
+    },
+    0.12,
+    "+=3",
+  )
+
+  tl2.play()
 
   enableSubmit(document)
 })

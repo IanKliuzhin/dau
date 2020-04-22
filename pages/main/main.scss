@@ -7,8 +7,8 @@
 @font-face {
   font-family: "druk-bold";
   font-weight: 700;
-  src: url("/fonts/Druk-Bold-Web.woff2") format("woff2"),
-    url("/fonts/Druk-Bold-Web.woff") format("woff");
+  src: url("/fonts/Druk-Bold-Cy-Web.woff2") format("woff2"),
+    url("/fonts/Druk-Bold-Cy-Web.woff") format("woff");
 }
 
 body {
@@ -152,11 +152,17 @@ body {
 
 .watch_now {
   margin-top: 3vw;
+  position: absolute;
   a {
     font-size: 10.5vw;
     line-height: 1.2;
     font-family: 'druk-bold';
     font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    opacity: 0;
     @media (max-width: 680px) {
       font-size: 68px;
       line-height: 2;
