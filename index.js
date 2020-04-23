@@ -235,9 +235,12 @@ document.addEventListener(
         sharing.classList.add('visible', 'clickable')
         // console.log('pages.main.contentWindow.document.getElementById("linesContainer")', pages.main.contentWindow.document.getElementById("linesContainer"));
         pages.main.contentWindow.document.getElementById('linesContainer').classList.add('shown')
-        const linkWatchNow = pages.main.contentWindow.document.getElementById('link_watch_now')
-        linkWatchNow.setAttribute('href', '../../cinema')
-        linkWatchNow.addEventListener('click', () => window.location.href += "cinema")
+        const linkWatchNowEn = pages.main.contentWindow.document.getElementById('watch_now_en')
+        linkWatchNowEn.setAttribute('href', '../../cinema')
+        linkWatchNowEn.addEventListener('click', () => window.location.href += "cinema")
+        const linkWatchNowRu = pages.main.contentWindow.document.getElementById('watch_now_ru')
+        linkWatchNowRu.setAttribute('href', '../../cinema')
+        linkWatchNowRu.addEventListener('click', () => window.location.href += "cinema")
         setTimeout(() => {
           pages.main.contentWindow.document.getElementById('linesContainer').classList.remove('withTransition')
           // pages.main.contentWindow.document.getElementById('link_watch_now').addEventListener("click", openAbout)
@@ -252,9 +255,12 @@ document.addEventListener(
         burger.addEventListener('click', showLinksBar)
         links[loadingPageName].classList.add('visible', 'chosen')
         links.main.classList.add('clickable')
-        const linkWatchNow = pages.main.contentWindow.document.getElementById('link_watch_now')
-        linkWatchNow.setAttribute('href', '../../cinema')
-        linkWatchNow.addEventListener('click', () => window.location.href += "cinema")
+        const linkWatchNowEn = pages.main.contentWindow.document.getElementById('watch_now_en')
+        linkWatchNowEn.setAttribute('href', '../../cinema')
+        linkWatchNowEn.addEventListener('click', () => window.location.href += "cinema")
+        const linkWatchNowRu = pages.main.contentWindow.document.getElementById('watch_now_ru')
+        linkWatchNowRu.setAttribute('href', '../../cinema')
+        linkWatchNowRu.addEventListener('click', () => window.location.href += "cinema")
       }, 1000);
     }
   },

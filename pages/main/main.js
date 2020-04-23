@@ -267,5 +267,85 @@ document.addEventListener("DOMContentLoaded", () => {
   tl.play()
   document.tl = tl;
 
+  const tl2 = new TimelineLite({
+    paused: true,
+    onComplete: () => {
+      tl2.progress(0)
+      tl2.play()
+    },
+  })
+
+  const watchNowEn = new SplitText("#watch_now_en", { type: "chars" })
+  const watchNowRu = new SplitText("#watch_now_ru", { type: "chars" })
+
+  tl2.set(
+    watchNowRu.chars,
+    {
+      opacity: 0,
+    },
+    "+=0",
+  )
+  tl2.set(
+    ["#watch_now_en", "#watch_now_ru"],
+    {
+      opacity: 1,
+    },
+    "+=0",
+  )
+
+  tl2.staggerFromTo(
+    watchNowEn.chars,
+    0.12,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+    },
+    0.12,
+    "+=0",
+  )
+
+  tl2.staggerFromTo(
+    [...watchNowEn.chars].reverse(),
+    0.12,
+    {
+      opacity: 1,
+    },
+    {
+      opacity: 0,
+    },
+    0.12,
+    "+=3",
+  )
+
+  tl2.staggerFromTo(
+    watchNowRu.chars,
+    0.12,
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+    },
+    0.12,
+    "+=0",
+  )
+
+  tl2.staggerFromTo(
+    [...watchNowRu.chars].reverse(),
+    0.12,
+    {
+      opacity: 1,
+    },
+    {
+      opacity: 0,
+    },
+    0.12,
+    "+=3",
+  )
+
+  tl2.play()
+
   enableSubmit(document)
 })
