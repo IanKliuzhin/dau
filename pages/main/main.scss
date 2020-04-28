@@ -17,22 +17,25 @@ body {
   height: 100%;
   margin: 0px;
   font-family: "decimamonox";
-  font-size: 1vw;
-  line-height: 1.55vw;
+  // font-size: 1vw;
+  // line-height: 1.55vw;
+  font-size: 1.5vh;
+  line-height: 2.325vh;
   font-feature-settings: "liga" off;
   font-variant-ligatures: no-common-ligatures;
   color: rgb(230, 230, 230);
-  padding: 3.5vw 1.9vw;
+  // padding: 3.5vw 1.9vw;
+  padding: 5vh 3.1vh;
   @media (max-width: 680px) {
     font-size: 12px;
     line-height: 18.6px;
     padding: 59px 9%;
   }
-  @media (min-width: 1090px) {
-    font-size: 12px;
-    line-height: 18.6px;
-    padding: 38px 21px;
-  }
+  // @media (min-width: 1090px) {
+  //   font-size: 12px;
+  //   line-height: 18.6px;
+  //   padding: 38px 21px;
+  // }
 }
 
 @media (min-width: 681px) {
@@ -91,19 +94,19 @@ body {
   @media (max-width: 680px) {
     margin-top: 37.2px;
   }
-  @media (min-width: 1090px) {
-    margin-top: 6px;
-  }
+  // @media (min-width: 1090px) {
+  //   margin-top: 6px;
+  // }
 }
 
 .dau_deg {
-  margin-top: 1.5vw;
+  margin-top: 2vh;
   @media (max-width: 680px) {
     margin-top: 37.2px;
   }
-  @media (min-width: 1090px) {
-    margin-top: 18px;
-  }
+  // @media (min-width: 1090px) {
+  //   margin-top: 18px;
+  // }
 }
 
 .silv_bear, .ber_spec {
@@ -145,16 +148,17 @@ body {
     height: 12px;
     top: 3.3px;
   }
-  @media (min-width: 1090px) {
-    height: 11px;
-  }
+  // @media (min-width: 1090px) {
+  //   height: 11px;
+  // }
 }
 
 .watch_now {
-  margin-top: 3vw;
+  margin-top: 2vh;
   position: absolute;
   a {
-    font-size: 10.5vw;
+    // font-size: 10.5vw;
+    font-size: 14.5vh;
     line-height: 1.2;
     font-family: 'druk-bold';
     font-weight: bold;
@@ -179,12 +183,12 @@ body {
   @media (max-width: 680px) {
     margin-top: -2vw;
   }
-  @media (min-width: 1090px) {
-    margin-top: 20px;
-    a {
-      font-size: 114px;
-    }
-  }
+  // @media (min-width: 1090px) {
+  //   margin-top: 20px;
+  //   a {
+  //     font-size: 114px;
+  //   }
+  // }
 }
 
 #mc_embed_signup {
@@ -234,6 +238,8 @@ body {
         font-family: "decimamonox";
         // font-size: 1vw;
         // line-height: 1.55vw;
+        font-size: 1.5vh;
+        line-height: 2.325vh;
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         width: 100%;
@@ -265,8 +271,10 @@ body {
         background-color: transparent;
         border-width: 0;
         font-family: "decimamonox";
-        font-size: 1vw;
-        line-height: 1.55vw;
+        // font-size: 1vw;
+        // line-height: 1.55vw;
+        font-size: 1.5vh;
+        line-height: 2.325vh;
         font-feature-settings: "liga" off;
         font-variant-ligatures: no-common-ligatures;
         @media (max-width: 680px) {
