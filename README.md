@@ -2,11 +2,11 @@
   
 сборка  
   
-rm -rf dist  
+rm -rf docs  
 yarn build  
   
 в  
-./dist/cinema, ./dist/pages  
+./docs/cinema, ./docs/pages  
 заменить:  
 1.  
 `pages\/[main|institute|participants]+\/`  
@@ -20,7 +20,7 @@ yarn build
 `../agreement`  
   
 в  
-./dist/pages  
+./docs/pages  
 4.  
 `(Druk-Bold-Cy-Web.[a-z0-9])`  
 на  
@@ -30,7 +30,7 @@ yarn build
 на то же самое  
   
 в  
-./dist/cinema  
+./docs/cinema  
 5.  
 `(Druk-Bold-Cy-Web.[a-z0-9])`  
 на  
@@ -41,11 +41,11 @@ yarn build
   
 7.  
 в  
-./dist/cinema  
+./docs/cinema  
 заменить  
 `"/"`  
 на  
 `"../"`  
   
 6.  
-скопировать оба horScroll… файла из dist в pages/institute и pages/participants  
+скопировать оба horScroll… файла из docs в pages/institute и pages/participants  
