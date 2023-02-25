@@ -1,0 +1,2 @@
+.screensaver{position:relative;display:inline-block;width:100%;line-height:100vh;text-align:center;background-color:#191919;margin-left:0;transition:margin-left 1s}.loaded .screensaver{margin-left:-100vw}@keyframes colorize{0%,to{color:red}15%{color:orange}30%{color:#ff0}44%{color:green}58%{color:#add8e6}72%{color:#00f}86%{color:violet}}
+/*# sourceMappingURL=screensaver.css.map */
